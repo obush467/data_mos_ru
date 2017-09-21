@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC41FB2B-EE25-40BE-8473-55AE3C328DC2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>data_mos_ru</RootNamespace>
+    <AssemblyName>data_mos_ru</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoAPI.1.7.4\lib\net45\GeoAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GeoJSON.Net, Version=0.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GeoJSON.Net.0.1.38\lib\GeoJSON.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Irony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
+      <HintPath>..\packages\Irony.0.9.0\lib\net45\Irony.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.10.50.1600.1\lib\Net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net45\NetTopologySuite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoJSON, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.GeoJSON.1.14\lib\net45\NetTopologySuite.IO.GeoJSON.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.SqlServer2008, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.IO.SqlServer.1.14\lib\net45\NetTopologySuite.IO.SqlServer2008.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <HintPath>..\packages\NetTopologySuite.1.14\lib\net45\PowerCollections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data_mos_ru_Loader.cs" />
+    <Compile Include="data_mos_ru_Operator.cs" />
+    <Compile Include="Entityes\MO_geojson.cs" />
+    <Compile Include="Entityes\AO_geojson.cs" />
+    <Compile Include="Entityes\AO_JSON_file.cs" />
+    <Compile Include="Entityes\AO_JSON_site.cs" />
+    <Compile Include="Entityes\MO_Type.cs" />
+    <Compile Include="Entityes\TM_Type.cs" />
+    <Compile Include="geoData_JSON.cs" />
+    <Compile Include="geoPoint.cs" />
+    <Compile Include="geoPolyConverter_file.cs" />
+    <Compile Include="geoPolyConverter_site.cs" />
+    <Compile Include="geoPolygon.cs" />
+    <Compile Include="httpQueryNameValueCollection.cs" />
+    <Compile Include="JSONContext.cs" />
+    <Compile Include="Migrations\201708110938144_1.cs" />
+    <Compile Include="Migrations\201708110938144_1.Designer.cs">
+      <DependentUpon>201708110938144_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708171412323_113.cs" />
+    <Compile Include="Migrations\201708171412323_113.Designer.cs">
+      <DependentUpon>201708171412323_113.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180956125_114.cs" />
+    <Compile Include="Migrations\201708180956125_114.Designer.cs">
+      <DependentUpon>201708180956125_114.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708180958152_115.cs" />
+    <Compile Include="Migrations\201708180958152_115.Designer.cs">
+      <DependentUpon>201708180958152_115.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708210945284_15.cs" />
+    <Compile Include="Migrations\201708210945284_15.Designer.cs">
+      <DependentUpon>201708210945284_15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708210952295_16.cs" />
+    <Compile Include="Migrations\201708210952295_16.Designer.cs">
+      <DependentUpon>201708210952295_16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240622349_17.cs" />
+    <Compile Include="Migrations\201708240622349_17.Designer.cs">
+      <DependentUpon>201708240622349_17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240632040_18.cs" />
+    <Compile Include="Migrations\201708240632040_18.Designer.cs">
+      <DependentUpon>201708240632040_18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240642311_19.cs" />
+    <Compile Include="Migrations\201708240642311_19.Designer.cs">
+      <DependentUpon>201708240642311_19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240648001_20.cs" />
+    <Compile Include="Migrations\201708240648001_20.Designer.cs">
+      <DependentUpon>201708240648001_20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240704264_21.cs" />
+    <Compile Include="Migrations\201708240704264_21.Designer.cs">
+      <DependentUpon>201708240704264_21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Entityes\MO.cs" />
+    <Compile Include="Entityes\OMK002-2013_2.cs" />
+    <Compile Include="Entityes\OMK002-2013_1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entityes\AO.cs" />
+    <Compile Include="Entityes\UM_Type.cs" />
+    <Compile Include="Entityes\UM.cs" />
+    <Compile Include="Entityes\TM.cs" />
+    <Compile Include="Entityes\TMED.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708110938144_1.resx">
+      <DependentUpon>201708110938144_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708171412323_113.resx">
+      <DependentUpon>201708171412323_113.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180956125_114.resx">
+      <DependentUpon>201708180956125_114.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708180958152_115.resx">
+      <DependentUpon>201708180958152_115.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210945284_15.resx">
+      <DependentUpon>201708210945284_15.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708210952295_16.resx">
+      <DependentUpon>201708210952295_16.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240622349_17.resx">
+      <DependentUpon>201708240622349_17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240632040_18.resx">
+      <DependentUpon>201708240632040_18.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240642311_19.resx">
+      <DependentUpon>201708240642311_19.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240648001_20.resx">
+      <DependentUpon>201708240648001_20.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240704264_21.resx">
+      <DependentUpon>201708240704264_21.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="geoJSON\" />
+    <Folder Include="JSON\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
