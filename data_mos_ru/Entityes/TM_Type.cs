@@ -14,9 +14,9 @@ namespace data_mos_ru.Entityes
         [Key]
         public int id { get; set; }
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        /*[MaxLength(4000)]
         public string system_object_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(4000)]*/
         public string TM_TYPEC { get; set; }
         [MaxLength(4000)]
         public string TM_TYPEN { get; set; }

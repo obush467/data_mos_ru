@@ -16,17 +16,43 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace data_mos_ru.Entityes
 {
-    
-    [DataContract]
+
+    [DataContract(Name = "TM")]
     [Table("TM", Schema = "data_mos_ru")]
     public class TM
     {
-        [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
+        /*[DataMember]
+        public int Number { get; set; }*/
         [DataMember]
-        public int Number { get; set; }
+        public int global_id { get; set; }
+        [MaxLength(4000)]
         [DataMember]
-        public TM_Cell Cells { get; set; }
+        public string TM_CODE { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_NAMEF { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_NAMES { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_TRANS { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_TYPE { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_TE { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_KLADR { get; set; }
+        [MaxLength(4000)]
+        [DataMember]
+        public string TM_STAT { get; set; }
+        /*[DataMember]
+        public TM_Cell Cells { get; set; }*/
     }
     public class TM_Cell
     {
@@ -49,7 +75,7 @@ namespace data_mos_ru.Entityes
         public string TM_STAT { get; set; }
     }
 
-    [DataContract(Name = "TM")]
+   // [DataContract(Name = "TM")]
     public class TM_DB 
     {
         [DataMember]
@@ -84,36 +110,36 @@ namespace data_mos_ru.Entityes
         [DataMember]
         [MaxLength(4000)]
         public string TM_STAT { get; set; }
-        public Type GetDataContractType(Type type)
+        /*public Type GetDataContractType(Type type)
         {
             if (typeof(TM).IsAssignableFrom(type))
             {
                 return typeof(TM_DB);
             }
             return type;
-        }
-        public object GetObjectToSerialize(object obj, Type targetType)
+        }*/
+        /*public object GetObjectToSerialize(object obj, Type targetType)
         {
             if (obj is TM)
             {
                 TM territory = (TM)obj;
                 TM_DB territoryDB = new TM_DB();
                 territoryDB.Id = territory.Id;
-                territoryDB.Number = territory.Number;
-                territoryDB.global_id = territory.Cells.global_id;
-                territoryDB.TM_CODE = territory.Cells.TM_CODE;
-                territoryDB.TM_NAMEF = territory.Cells.TM_NAMEF;
-                territoryDB.TM_NAMES = territory.Cells.TM_NAMES;
-                territoryDB.TM_TRANS = territory.Cells.TM_TRANS;
-                territoryDB.TM_TYPE = territory.Cells.TM_TYPE;
-                territoryDB.TM_TE = territory.Cells.TM_TE;
-                territoryDB.TM_KLADR = territory.Cells.TM_KLADR;
-                territoryDB.TM_STAT = territory.Cells.TM_STAT;
+                //territoryDB.Number = territory.Number;
+                territoryDB.global_id = territory.global_id;
+                territoryDB.TM_CODE = territory.TM_CODE;
+                territoryDB.TM_NAMEF = territory.TM_NAMEF;
+                territoryDB.TM_NAMES = territory.TM_NAMES;
+                territoryDB.TM_TRANS = territory.TM_TRANS;
+                territoryDB.TM_TYPE = territory.TM_TYPE;
+                territoryDB.TM_TE = territory.TM_TE;
+                territoryDB.TM_KLADR = territory.TM_KLADR;
+                territoryDB.TM_STAT = territory.TM_STAT;
                 return territoryDB;
             }
             return obj;
-        }
-        public Type GetReferencedTypeOnImport(string typeName,
+        }*/
+        /*public Type GetReferencedTypeOnImport(string typeName,
                string typeNamespace, object customData)
         {
             if (
@@ -126,8 +152,8 @@ namespace data_mos_ru.Entityes
                 }
             }
             return null;
-        }
-        public System.CodeDom.CodeTypeDeclaration ProcessImportedType(
+        }*/
+        /*public System.CodeDom.CodeTypeDeclaration ProcessImportedType(
           System.CodeDom.CodeTypeDeclaration typeDeclaration,
           System.CodeDom.CodeCompileUnit compileUnit)
         {
@@ -141,7 +167,7 @@ namespace data_mos_ru.Entityes
         public object GetCustomDataToExport(System.Reflection.MemberInfo memberInfo, Type dataContractType)
         {
             return null;
-        }
+        }*/
 
     }
 }

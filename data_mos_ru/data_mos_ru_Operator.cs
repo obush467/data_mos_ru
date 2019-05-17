@@ -19,14 +19,13 @@ using System.Threading;
 using NetTopologySuite.Features;
 using NetTopologySuite.IO;
 using NetTopologySuite.Geometries;
-
-
+using System.Data.Entity.Migrations;
 
 namespace data_mos_ru
 {
     public class data_mos_ru_Operator
     {
-        private static JSONContext JS;
+        public JSONContext JS { get; set; }
         public static ILog Logger;
         private data_mos_ru_Loader Loader;
         public data_mos_ru_Operator(string ConnectionString)
@@ -48,11 +47,11 @@ namespace data_mos_ru
             Logger.Info("Сохранено TM");
         }
 
-        public void DeserializeTM_Type(string FileName)
+        public void DeserializeTM_Type(string FileName, Encoding encoding)
         {
             Logger.Info("Запущено преобразование TM");
             Logger.InfoFormat("Преобразование TM запущено - {0}", DateTime.Now);
-            TM_Type[] TerVar = JsonConvert.DeserializeObject<TM_Type[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            TM_Type[] TerVar = JsonConvert.DeserializeObject<TM_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано TM_Type");
             JS.TM_Types.Create<TM_Type>();
             JS.TM_Types.AddRange(TerVar);
@@ -60,22 +59,23 @@ namespace data_mos_ru
             Logger.Info("Сохранено TM_Type");
         }
 
-        public void DeserializeMO(string FileName)
+        public void DeserializeMO(string FileName,Encoding encoding)
         {
             Logger.Info("Запущено преобразование MO");
-            MO[] TerVar = JsonConvert.DeserializeObject<MO[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            MO[] TerVar = JsonConvert.DeserializeObject<MO[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано MO");
             JS.MOs.Create<MO>();
-            JS.MOs.AddRange(TerVar);
+            //JS.MOs.AddRange(TerVar);
+            JS.MOs.AddOrUpdate(mo => new { mo.global_id },TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено MO");
 
         }
 
-        public void DeserializeMO_Type(string FileName)
+        public void DeserializeMO_Type(string FileName, Encoding encoding)
         {
             Logger.Info("Запущено преобразование MO_Type");
-            MO_Type[] TerVar = JsonConvert.DeserializeObject<MO_Type[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            MO_Type[] TerVar = JsonConvert.DeserializeObject<MO_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано MO_Type");
             JS.MO_Types.Create<MO_Type>();
             JS.MO_Types.AddRange(TerVar);
@@ -84,68 +84,68 @@ namespace data_mos_ru
 
         }
 
-        public void DeserializeOMK002_2013_1(string FileName)
+        /*public void Deserialize<T>(string FileName, Encoding encoding) where T : OMK002_2013_1
         {
-            Logger.Info("Запущено преобразование OMK002_2013_1");
-            OMK002_2013_1[] TerVar = JsonConvert.DeserializeObject<OMK002_2013_1[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            Logger.Info("Запущено преобразование OMK002_2013_1"+ typeof(T).Name);
+            T[] TerVar = JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано OMK002_2013_1");
-            JS.OMK002_2013_1s.Create<OMK002_2013_1>();
-            JS.OMK002_2013_1s.AddRange(TerVar);
+            JS.OMK002_2013_1s.Create<T>();
+            JS.OMK002_2013_1s.AddOrUpdate(u=>new { u.global_id},TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено OMK002_2013_1");
-        }
-        public void DeserializeOMK002_2013_2(string FileName)
+        }*/
+        public void DeserializeOMK002_2013_2(string FileName, Encoding encoding) //where T : DbSet<T>
         {
             Logger.Info("Запущено преобразование OMK002_2013_2");
-            OMK002_2013_2[] TerVar = JsonConvert.DeserializeObject<OMK002_2013_2[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            OMK002_2013_2[] TerVar = JsonConvert.DeserializeObject<OMK002_2013_2[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано OMK002_2013_2");
-            JS.OMK002_2013_2s.Create<OMK002_2013_2>();
-            JS.OMK002_2013_2s.AddRange(TerVar);
+            //((DbSet)type).Create<T>();
+            JS.Set<OMK002_2013_2>().AddRange(TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено OMK002_2013_2");
         }
-        public void DeserializeUM_type(string FileName)
+        public void DeserializeUM_type(string FileName, Encoding encoding)
         {
             Logger.Info("Запущено преобразование UM_type");
-            UM_Type[] TerVar = JsonConvert.DeserializeObject<UM_Type[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            UM_Type[] TerVar = JsonConvert.DeserializeObject<UM_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано UM_type");
             JS.UM_Types.Create<UM_Type>();
-            JS.UM_Types.AddRange(TerVar);
+            JS.UM_Types.AddOrUpdate(u=> new { u.global_id},TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено UM_type");
         }
-        public void DeserializeTMED(string FileName)
+        public void DeserializeTMED(string FileName, Encoding encoding)
         {
             Logger.Info("Запущено преобразование TMED");
-            TMED[] TerVar = JsonConvert.DeserializeObject<TMED[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            TMED[] TerVar = JsonConvert.DeserializeObject<TMED[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано TMED");
-            TMED_DB dcs111 = new TMED_DB();
+            //TMED_DB dcs111 = new TMED_DB();
             //DataContractSerializer dcs = new DataContractSerializer(typeof(TMED), "", null, null, 0, true, true,dcs111);
           
-            JS.TMEDs.Create<TMED>();
-            JS.TMEDs.AddRange(TerVar);
+            //JS.TMEDs.Create<TMED>();
+            JS.TMEDs.AddOrUpdate(u=>new { u.global_id},TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено TMED");
         }
 
-        public void DeserializeTM(string FileName)
+        public void DeserializeTM(string FileName, Encoding  encoding)
         {
             Logger.Info("Запущено преобразование TM");
-            TM[] TerVar = JsonConvert.DeserializeObject<TM[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            TM[] TerVar = JsonConvert.DeserializeObject<TM[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано TM");
             JS.TMs.Create<TM>();
-            JS.TMs.AddRange(TerVar);
+            JS.TMs.AddOrUpdate(u=> new { u.global_id},TerVar);
             JS.SaveChanges();
             Logger.Info("Сохранено TM");
         }
 
-        public void DeserializeUM(string FileName)
+        public void DeserializeUM(string FileName,Encoding encoding)
         {
             Logger.Info("Запущено преобразование UM");
-            UM[] data = JsonConvert.DeserializeObject<UM[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
+            UM[] data = JsonConvert.DeserializeObject<UM[]>((new StreamReader(FileName, encoding)).ReadToEnd());
             Logger.Info("Преобразовано UM");
             JS.UMs.Create<UM>();
-            JS.UMs.AddRange(data);
+            JS.UMs.AddOrUpdate(u=> new { u.global_id },data);
             JS.SaveChanges();
             Logger.Info("Сохранено UM");
         }
@@ -185,27 +185,34 @@ namespace data_mos_ru
                             break;
                         case "Polygon":
                             geoPolygon polygonList = (geoPolygon)jitem.geoData.coordinates;
-                            string Pstr = "POLYGON "+(polygonList.ToString());
-                            try { ditem.geoData = DbGeography.PolygonFromText(Pstr, 4326); }
-                            catch (TargetInvocationException e)
+                            if (polygonList != null)
                             {
-                                Logger.Warn("Неправильное направление обхода точек в объекте POLYGON", e);
-                                polygonList.Reverse();
-                                Pstr = "POLYGON " + (polygonList.ToString()); }
+                                string Pstr = "POLYGON " + (polygonList.ToString());
+                                try { ditem.geoData = DbGeography.PolygonFromText(Pstr, 4326); }
+                                catch (TargetInvocationException e)
+                                {
+                                    Logger.Warn("Неправильное направление обхода точек в объекте POLYGON", e);
+                                    polygonList.Reverse();
+                                    Pstr = "POLYGON " + (polygonList.ToString());
+                                }
+                            }
                             break;
                         case "MultiPolygon":
                             geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.coordinates;
-                            string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
-                            try
+                            if (MpolygonList != null)
                             {
-                                ditem.geoData = DbGeography.MultiPolygonFromText(MPstr, 4326);
-                            }
-                            catch (TargetInvocationException e)
-                            {
-                                Logger.Warn("Неправильное направление обхода точек в объекте MULTIPOLYGON", e);
-                                MpolygonList.Reverse();
-                                MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
+                                string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
+                                try
+                                {
+                                    ditem.geoData = DbGeography.MultiPolygonFromText(MPstr, 4326);
+                                }
+                                catch (TargetInvocationException e)
+                                {
+                                    Logger.Warn("Неправильное направление обхода точек в объекте MULTIPOLYGON", e);
+                                    MpolygonList.Reverse();
+                                    MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
 
+                                }
                             }
                             break;
                     }

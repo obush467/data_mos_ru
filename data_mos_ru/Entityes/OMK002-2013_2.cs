@@ -14,11 +14,22 @@ namespace data_mos_ru.Entityes
     public class OMK002_2013_2
     {
         [DataMember]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
+        // [DataMember]
+        //public int Number { get; set; }
         [DataMember]
-        public int Number { get; set; }
+        public int global_id { get; set; }
         [DataMember]
-        public OMK002_2013_2_Cell Cells { get; set; }
+        [MaxLength(4000)]
+        public string Kod { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string Name { get; set; }
+
+        // [DataMember]
+        //public OMK002_2013_2_Cell Cells { get; set; }
     }
     public class OMK002_2013_2_Cell
     {
@@ -55,7 +66,7 @@ namespace data_mos_ru.Entityes
             }
             return type;
         }
-        public object GetObjectToSerialize(object obj, Type targetType)
+        /*public object GetObjectToSerialize(object obj, Type targetType)
         {
             if (obj is OMK002_2013_2)
             {
@@ -69,8 +80,8 @@ namespace data_mos_ru.Entityes
                 return wvar_DB;
             }
             return obj;
-        }
-        public Type GetReferencedTypeOnImport(string typeName,
+        }*/
+       /* public Type GetReferencedTypeOnImport(string typeName,
                string typeNamespace, object customData)
         {
             if (
@@ -98,6 +109,6 @@ namespace data_mos_ru.Entityes
         public object GetCustomDataToExport(System.Reflection.MemberInfo memberInfo, Type dataContractType)
         {
             return null;
-        }
+        }*/
     }
 }

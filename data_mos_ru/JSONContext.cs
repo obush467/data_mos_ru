@@ -13,7 +13,7 @@ namespace data_mos_ru
     {
         public JSONContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {        }
-        public JSONContext() :base ("GBUMATC")
+        public JSONContext() :base ("integra")
         {}
 
         public DbSet<UM> UMs { get; set; }

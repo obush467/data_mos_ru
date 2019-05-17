@@ -106,49 +106,9 @@
     <Compile Include="geoPolygon.cs" />
     <Compile Include="httpQueryNameValueCollection.cs" />
     <Compile Include="JSONContext.cs" />
-    <Compile Include="Migrations\201708110938144_1.cs" />
-    <Compile Include="Migrations\201708110938144_1.Designer.cs">
-      <DependentUpon>201708110938144_1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708171412323_113.cs" />
-    <Compile Include="Migrations\201708171412323_113.Designer.cs">
-      <DependentUpon>201708171412323_113.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708180956125_114.cs" />
-    <Compile Include="Migrations\201708180956125_114.Designer.cs">
-      <DependentUpon>201708180956125_114.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708180958152_115.cs" />
-    <Compile Include="Migrations\201708180958152_115.Designer.cs">
-      <DependentUpon>201708180958152_115.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708210945284_15.cs" />
-    <Compile Include="Migrations\201708210945284_15.Designer.cs">
-      <DependentUpon>201708210945284_15.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708210952295_16.cs" />
-    <Compile Include="Migrations\201708210952295_16.Designer.cs">
-      <DependentUpon>201708210952295_16.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708240622349_17.cs" />
-    <Compile Include="Migrations\201708240622349_17.Designer.cs">
-      <DependentUpon>201708240622349_17.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708240632040_18.cs" />
-    <Compile Include="Migrations\201708240632040_18.Designer.cs">
-      <DependentUpon>201708240632040_18.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708240642311_19.cs" />
-    <Compile Include="Migrations\201708240642311_19.Designer.cs">
-      <DependentUpon>201708240642311_19.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708240648001_20.cs" />
-    <Compile Include="Migrations\201708240648001_20.Designer.cs">
-      <DependentUpon>201708240648001_20.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708240704264_21.cs" />
-    <Compile Include="Migrations\201708240704264_21.Designer.cs">
-      <DependentUpon>201708240704264_21.cs</DependentUpon>
+    <Compile Include="Migrations\201905170948325_старт.cs" />
+    <Compile Include="Migrations\201905170948325_старт.Designer.cs">
+      <DependentUpon>201905170948325_старт.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entityes\MO.cs" />
@@ -170,43 +130,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708110938144_1.resx">
-      <DependentUpon>201708110938144_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708171412323_113.resx">
-      <DependentUpon>201708171412323_113.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708180956125_114.resx">
-      <DependentUpon>201708180956125_114.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708180958152_115.resx">
-      <DependentUpon>201708180958152_115.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708210945284_15.resx">
-      <DependentUpon>201708210945284_15.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708210952295_16.resx">
-      <DependentUpon>201708210952295_16.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708240622349_17.resx">
-      <DependentUpon>201708240622349_17.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708240632040_18.resx">
-      <DependentUpon>201708240632040_18.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708240642311_19.resx">
-      <DependentUpon>201708240642311_19.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708240648001_20.resx">
-      <DependentUpon>201708240648001_20.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708240704264_21.resx">
-      <DependentUpon>201708240704264_21.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="geoJSON\" />
     <Folder Include="JSON\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905170948325_старт.resx">
+      <DependentUpon>201905170948325_старт.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

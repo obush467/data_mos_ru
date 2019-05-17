@@ -20,11 +20,32 @@ namespace data_mos_ru.Entityes
 
         [Key]
         [DataMember]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
+
         [DataMember]
-        public Nullable<int> Number { get; set; }
+        public int global_id { get; set; }
         [DataMember]
-        public TMED_Cell Cells { get; set; }       
+        [MaxLength(4000)]
+        public string TM_COMM { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_NAMES { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_TRANS { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_TYPE { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_TE { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_KLADR { get; set; }
+        [DataMember]
+        [MaxLength(4000)]
+        public string TM_NAMEF { get; set; }
     }
     public class TMED_Cell
     {
@@ -52,7 +73,7 @@ namespace data_mos_ru.Entityes
         [MaxLength(4000)]
         public string TM_NAMEF { get; set; }
     }
-    [DataContract(Name = "TMED")]
+   /* [DataContract(Name = "TMED")]
     public class TMED_DB:IDataContractSurrogate
     {
         [DataMember]
@@ -91,7 +112,7 @@ namespace data_mos_ru.Entityes
             }
             return type;
         }
-        public object GetObjectToSerialize(object obj, Type targetType)
+        /*public object GetObjectToSerialize(object obj, Type targetType)
         {
             if (obj is TMED)
             {
@@ -167,8 +188,8 @@ namespace data_mos_ru.Entityes
         {
             throw new NotImplementedException();
         }
+        
 
-
-    }
+    }*/
 
 }
