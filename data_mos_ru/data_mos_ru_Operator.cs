@@ -28,126 +28,35 @@ namespace data_mos_ru
         public JSONContext JS { get; set; }
         public static ILog Logger;
         private data_mos_ru_Loader Loader;
+        string connectionString;
         public data_mos_ru_Operator(string ConnectionString)
         {
             log4net.Config.XmlConfigurator.Configure();
             JS = new JSONContext(ConnectionString);        
             Logger = LogManager.GetLogger(typeof(data_mos_ru_Operator));
             Loader = new data_mos_ru_Loader("", Logger);
+             connectionString= ConnectionString;
         }
-        public void DeserializeTMs(string FileName)
-        {
-            Logger.Info("Запущено преобразование TM");
-            Logger.InfoFormat("Преобразование TM запущено - {0}", DateTime.Now);
-            TM[] TerVar = JsonConvert.DeserializeObject<TM[]>((new StreamReader(FileName, Encoding.UTF8)).ReadToEnd());
-            Logger.Info("Преобразовано TM");
-            JS.TMs.Create<TM>();
-            JS.TMs.AddRange(TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено TM");
-        }
-
-        public void DeserializeTM_Type(string FileName, Encoding encoding)
-        {
-            Logger.Info("Запущено преобразование TM");
-            Logger.InfoFormat("Преобразование TM запущено - {0}", DateTime.Now);
-            TM_Type[] TerVar = JsonConvert.DeserializeObject<TM_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано TM_Type");
-            JS.TM_Types.Create<TM_Type>();
-            JS.TM_Types.AddRange(TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено TM_Type");
-        }
-
-        public void DeserializeMO(string FileName,Encoding encoding)
-        {
-            Logger.Info("Запущено преобразование MO");
-            MO[] TerVar = JsonConvert.DeserializeObject<MO[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано MO");
-            JS.MOs.Create<MO>();
-            //JS.MOs.AddRange(TerVar);
-            JS.MOs.AddOrUpdate(mo => new { mo.global_id },TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено MO");
-
-        }
-
-        public void DeserializeMO_Type(string FileName, Encoding encoding)
-        {
-            Logger.Info("Запущено преобразование MO_Type");
-            MO_Type[] TerVar = JsonConvert.DeserializeObject<MO_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано MO_Type");
-            JS.MO_Types.Create<MO_Type>();
-            JS.MO_Types.AddRange(TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено MO_Type");
-
-        }
-
-        /*public void Deserialize<T>(string FileName, Encoding encoding) where T : OMK002_2013_1
-        {
-            Logger.Info("Запущено преобразование OMK002_2013_1"+ typeof(T).Name);
-            T[] TerVar = JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано OMK002_2013_1");
-            JS.OMK002_2013_1s.Create<T>();
-            JS.OMK002_2013_1s.AddOrUpdate(u=>new { u.global_id},TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено OMK002_2013_1");
-        }*/
-        public void DeserializeOMK002_2013_2(string FileName, Encoding encoding) //where T : DbSet<T>
-        {
-            Logger.Info("Запущено преобразование OMK002_2013_2");
-            OMK002_2013_2[] TerVar = JsonConvert.DeserializeObject<OMK002_2013_2[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано OMK002_2013_2");
-            //((DbSet)type).Create<T>();
-            JS.Set<OMK002_2013_2>().AddRange(TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено OMK002_2013_2");
-        }
-        public void DeserializeUM_type(string FileName, Encoding encoding)
+        public void Deserialize<T>(string FileName, Encoding encoding) 
         {
             Logger.Info("Запущено преобразование UM_type");
-            UM_Type[] TerVar = JsonConvert.DeserializeObject<UM_Type[]>((new StreamReader(FileName, encoding)).ReadToEnd());
+            JsonSerializerSettings jss = new JsonSerializerSettings();
+            jss.Converters.Add(new geoDataConverter());
+            jss.Culture = CultureInfo.CurrentCulture;
+            T[] TerVar = JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd(),jss);
+            int counter = (int)(TerVar.Length / 100);
+            IEnumerable<T[]> blocks = TerVar.GroupBy(_ => counter++ / 4).Select(v => v.ToArray());
             Logger.Info("Преобразовано UM_type");
-            JS.UM_Types.Create<UM_Type>();
-            JS.UM_Types.AddOrUpdate(u=> new { u.global_id},TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено UM_type");
-        }
-        public void DeserializeTMED(string FileName, Encoding encoding)
-        {
-            Logger.Info("Запущено преобразование TMED");
-            TMED[] TerVar = JsonConvert.DeserializeObject<TMED[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано TMED");
-            //TMED_DB dcs111 = new TMED_DB();
-            //DataContractSerializer dcs = new DataContractSerializer(typeof(TMED), "", null, null, 0, true, true,dcs111);
-          
-            //JS.TMEDs.Create<TMED>();
-            JS.TMEDs.AddOrUpdate(u=>new { u.global_id},TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено TMED");
-        }
-
-        public void DeserializeTM(string FileName, Encoding  encoding)
-        {
-            Logger.Info("Запущено преобразование TM");
-            TM[] TerVar = JsonConvert.DeserializeObject<TM[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано TM");
-            JS.TMs.Create<TM>();
-            JS.TMs.AddOrUpdate(u=> new { u.global_id},TerVar);
-            JS.SaveChanges();
-            Logger.Info("Сохранено TM");
-        }
-
-        public void DeserializeUM(string FileName,Encoding encoding)
-        {
-            Logger.Info("Запущено преобразование UM");
-            UM[] data = JsonConvert.DeserializeObject<UM[]>((new StreamReader(FileName, encoding)).ReadToEnd());
-            Logger.Info("Преобразовано UM");
-            JS.UMs.Create<UM>();
-            JS.UMs.AddOrUpdate(u=> new { u.global_id },data);
-            JS.SaveChanges();
-            Logger.Info("Сохранено UM");
+            //var dbset = (JS.Set(typeof(T)));
+            foreach(T[] block in blocks)
+            {
+                JSONContext JSblock = new JSONContext(connectionString);
+                var dbset = (JSblock.Set(typeof(T)));
+                dbset.AddRange(block);
+                JSblock.SaveChanges();
+                JSblock.Dispose();
+                Logger.Info("Сохранено UM_type");
+            }        
         }
 
         public void DeserializeAO(FileInfo FileName, Encoding encoding)
@@ -156,9 +65,9 @@ namespace data_mos_ru
         { foreach (FileInfo file in Files)
             { DeserializeAO(file, encoding); }
         }
-        public void DeserializeAO<T>(Stream stream,Encoding encoding) where T:AO_JSON_file
+        public void DeserializeAO<T>(Stream stream, Encoding encoding) where T : AO_JSON_file
         {
-            Logger.Info("Запущено преобразование AO");
+           /*  Logger.Info("Запущено преобразование AO");
             JsonSerializerSettings jss = new JsonSerializerSettings();
             jss.Converters.Add(new geoPolyConverter_file());
             jss.Culture = CultureInfo.CurrentCulture;
@@ -174,17 +83,17 @@ namespace data_mos_ru
                 if (jitem.DDOC !=null) { ditem.DDOC = DateTime.Parse(jitem.DDOC, CultureInfo.CurrentCulture); }
                 ditem.DMT = jitem.DMT;
                 if (jitem.DREG != null) { ditem.DREG = DateTime.Parse(jitem.DREG, CultureInfo.CurrentCulture); }
-                if (jitem.geoData != null)
+               if (jitem.geoData != null)
                 {
                     List<string> pointlist = new List<string>();
                     List<string> polygonlist = new List<string>();
-                    var c = jitem.geoData.coordinates;
+                    var c = jitem.geoData.Coordinates;
                     switch (jitem.geoData.Type)
                     {
                         case "Point":
                             break;
                         case "Polygon":
-                            geoPolygon polygonList = (geoPolygon)jitem.geoData.coordinates;
+                            geoPolygon polygonList = (geoPolygon)jitem.geoData.Coordinates;
                             if (polygonList != null)
                             {
                                 string Pstr = "POLYGON " + (polygonList.ToString());
@@ -198,7 +107,7 @@ namespace data_mos_ru
                             }
                             break;
                         case "MultiPolygon":
-                            geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.coordinates;
+                            geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.Coordinates;
                             if (MpolygonList != null)
                             {
                                 string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
@@ -236,7 +145,7 @@ namespace data_mos_ru
             }
             JS.AOs.AddRange(data);
             JS.SaveChanges();
-            Logger.Info("Сохранено AO");
+            Logger.Info("Сохранено AO");*/
         }
 
         public void DeserializeAO_site(Stream stream, Encoding encoding)

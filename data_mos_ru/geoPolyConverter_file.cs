@@ -14,7 +14,7 @@ namespace data_mos_ru
         }
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            JObject obj = JObject.Load(reader);
+            /*JObject obj = JObject.Load(reader);
             AO_JSON_file ao = new AO_JSON_file();
             ao.ADRES = (string)obj["ADRES"];
             ao.DDOC = (string)obj["DDOC"];
@@ -39,9 +39,10 @@ namespace data_mos_ru
             {
                 ao.geoData = new geoData_JSON();
                 ao.geoData.Type = obj["geoData"]["type"].ToString();
-                ao.geoData.coordinates = (DeserializePoly(obj, serializer));
+                ao.geoData.Coordinates = (DeserializePoly(obj, serializer));
             }
-            return ao;
+            return ao;*/
+            return null;
         }
 
         private object DeserializePoly(JObject obj, JsonSerializer serializer)

@@ -52,8 +52,8 @@ namespace data_mos_ru.Entityes
             public string VYVAD { get; set; }
             [DataMember]
             public string ADRES { get; set; }
-            [DataMember]
-            public geoData_JSON geoData { get; set; }
+           // [DataMember]
+           // public geoData_JSON geoData { get; set; }
 
         }
     }

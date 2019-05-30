@@ -24,10 +24,11 @@ namespace data_mos_ru
         public DbSet<TM> TMs { get; set; }
         public DbSet<TMED> TMEDs { get; set; }
         public DbSet<AO> AOs { get; set; }
+        public DbSet<AO_60562> AO_60562s { get; set; }
         public DbSet<MO_Type> MO_Types { get; set; }
         public DbSet<TM_Type> TM_Types { get; set; }
         public DbSet<AO_geojson> AO_geojsons { get; set; }
         public DbSet<MO_geojson> MO_geojsons { get; set; }
-
+        
     }
 }
