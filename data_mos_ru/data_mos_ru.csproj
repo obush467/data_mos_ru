@@ -42,9 +42,51 @@
     <Reference Include="GeoAPI.CoordinateSystems, Version=1.7.5.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
       <HintPath>..\packages\GeoAPI.CoordinateSystems.1.7.5\lib\net45\GeoAPI.CoordinateSystems.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -67,9 +109,41 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.4\lib\net46\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
@@ -82,82 +156,123 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BtiGeoDeserializer.cs" />
+    <Compile Include="dom_mos_ru_Loader.cs" />
     <Compile Include="data_mos_ru_Loader.cs" />
     <Compile Include="data_mos_ru_Operator.cs" />
     <Compile Include="Entityes\AO_60562.cs" />
+    <Compile Include="Entityes\data_1641_5988.cs" />
+    <Compile Include="Entityes\data_1181_7382.cs" />
+    <Compile Include="Entityes\data_2624_8684.cs" />
+    <Compile Include="Entityes\data_54518.cs" />
+    <Compile Include="Entityes\data_7382.cs" />
+    <Compile Include="Entityes\data_ObjectAddress.cs" />
+    <Compile Include="Entityes\data_OrgInfo.cs" />
+    <Compile Include="Entityes\data_Phone.cs" />
     <Compile Include="Entityes\MO_geojson.cs" />
     <Compile Include="Entityes\AO_geojson.cs" />
     <Compile Include="Entityes\AO_JSON_file.cs" />
     <Compile Include="Entityes\AO_JSON_site.cs" />
     <Compile Include="Entityes\MO_Type.cs" />
     <Compile Include="Entityes\TM_Type.cs" />
+    <Compile Include="Entityes\UPR.cs" />
     <Compile Include="geoData_JSON.cs" />
-    <Compile Include="geoPoint.cs" />
-    <Compile Include="geoDataConverter.cs" />
-    <Compile Include="geoPolyConverter_file.cs" />
-    <Compile Include="geoPolyConverter_site.cs" />
-    <Compile Include="geoPolygon.cs" />
+    <Compile Include="geoData\geoLinestring.cs" />
+    <Compile Include="geoData\geoPoint.cs" />
+    <Compile Include="Converters\geoDataConverter.cs" />
+    <Compile Include="Converters\geoPolyConverter_site.cs" />
+    <Compile Include="geoData\geoDataBase.cs" />
+    <Compile Include="geoData\geoMPolygon.cs" />
+    <Compile Include="geoData\geoPolygon.cs" />
     <Compile Include="httpQueryNameValueCollection.cs" />
     <Compile Include="JSONContext.cs" />
-    <Compile Include="Migrations\201905170948325_старт.cs" />
-    <Compile Include="Migrations\201905170948325_старт.Designer.cs">
-      <DependentUpon>201905170948325_старт.cs</DependentUpon>
+    <Compile Include="Migrations\201906041139426_InitialCreate.cs" />
+    <Compile Include="Migrations\201906041139426_InitialCreate.Designer.cs">
+      <DependentUpon>201906041139426_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291441474_1.cs" />
-    <Compile Include="Migrations\201905291441474_1.Designer.cs">
-      <DependentUpon>201905291441474_1.cs</DependentUpon>
+    <Compile Include="Migrations\201906041145573_1.cs" />
+    <Compile Include="Migrations\201906041145573_1.Designer.cs">
+      <DependentUpon>201906041145573_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291444219_2.cs" />
-    <Compile Include="Migrations\201905291444219_2.Designer.cs">
-      <DependentUpon>201905291444219_2.cs</DependentUpon>
+    <Compile Include="Migrations\201906101242428_2.cs" />
+    <Compile Include="Migrations\201906101242428_2.Designer.cs">
+      <DependentUpon>201906101242428_2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291447035_3.cs" />
-    <Compile Include="Migrations\201905291447035_3.Designer.cs">
-      <DependentUpon>201905291447035_3.cs</DependentUpon>
+    <Compile Include="Migrations\201906101252260_3.cs" />
+    <Compile Include="Migrations\201906101252260_3.Designer.cs">
+      <DependentUpon>201906101252260_3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291605598_4.cs" />
-    <Compile Include="Migrations\201905291605598_4.Designer.cs">
-      <DependentUpon>201905291605598_4.cs</DependentUpon>
+    <Compile Include="Migrations\201906101407376_4.cs" />
+    <Compile Include="Migrations\201906101407376_4.Designer.cs">
+      <DependentUpon>201906101407376_4.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291719223_5.cs" />
-    <Compile Include="Migrations\201905291719223_5.Designer.cs">
-      <DependentUpon>201905291719223_5.cs</DependentUpon>
+    <Compile Include="Migrations\201906101410578_5.cs" />
+    <Compile Include="Migrations\201906101410578_5.Designer.cs">
+      <DependentUpon>201906101410578_5.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291721345_6.cs" />
-    <Compile Include="Migrations\201905291721345_6.Designer.cs">
-      <DependentUpon>201905291721345_6.cs</DependentUpon>
+    <Compile Include="Migrations\201906101429063_6.cs" />
+    <Compile Include="Migrations\201906101429063_6.Designer.cs">
+      <DependentUpon>201906101429063_6.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291749385_7.cs" />
-    <Compile Include="Migrations\201905291749385_7.Designer.cs">
-      <DependentUpon>201905291749385_7.cs</DependentUpon>
+    <Compile Include="Migrations\201906101435159_7.cs" />
+    <Compile Include="Migrations\201906101435159_7.Designer.cs">
+      <DependentUpon>201906101435159_7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291806326_8.cs" />
-    <Compile Include="Migrations\201905291806326_8.Designer.cs">
-      <DependentUpon>201905291806326_8.cs</DependentUpon>
+    <Compile Include="Migrations\201906101441412_8.cs" />
+    <Compile Include="Migrations\201906101441412_8.Designer.cs">
+      <DependentUpon>201906101441412_8.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905291821249_9.cs" />
-    <Compile Include="Migrations\201905291821249_9.Designer.cs">
-      <DependentUpon>201905291821249_9.cs</DependentUpon>
+    <Compile Include="Migrations\201906101450103_9.cs" />
+    <Compile Include="Migrations\201906101450103_9.Designer.cs">
+      <DependentUpon>201906101450103_9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905300951532_10.cs" />
-    <Compile Include="Migrations\201905300951532_10.Designer.cs">
-      <DependentUpon>201905300951532_10.cs</DependentUpon>
+    <Compile Include="Migrations\201906101457159_10.cs" />
+    <Compile Include="Migrations\201906101457159_10.Designer.cs">
+      <DependentUpon>201906101457159_10.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905301249325_11.cs" />
-    <Compile Include="Migrations\201905301249325_11.Designer.cs">
-      <DependentUpon>201905301249325_11.cs</DependentUpon>
+    <Compile Include="Migrations\201906101554049_11.cs" />
+    <Compile Include="Migrations\201906101554049_11.Designer.cs">
+      <DependentUpon>201906101554049_11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905301510116_12.cs" />
-    <Compile Include="Migrations\201905301510116_12.Designer.cs">
-      <DependentUpon>201905301510116_12.cs</DependentUpon>
+    <Compile Include="Migrations\201906112009374_66.cs" />
+    <Compile Include="Migrations\201906112009374_66.Designer.cs">
+      <DependentUpon>201906112009374_66.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905301519273_13.cs" />
-    <Compile Include="Migrations\201905301519273_13.Designer.cs">
-      <DependentUpon>201905301519273_13.cs</DependentUpon>
+    <Compile Include="Migrations\201906112010067_77.cs" />
+    <Compile Include="Migrations\201906112010067_77.Designer.cs">
+      <DependentUpon>201906112010067_77.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905301526139_14.cs" />
-    <Compile Include="Migrations\201905301526139_14.Designer.cs">
-      <DependentUpon>201905301526139_14.cs</DependentUpon>
+    <Compile Include="Migrations\201906112014374_888.cs" />
+    <Compile Include="Migrations\201906112014374_888.Designer.cs">
+      <DependentUpon>201906112014374_888.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906112017412_111.cs" />
+    <Compile Include="Migrations\201906112017412_111.Designer.cs">
+      <DependentUpon>201906112017412_111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906112020315_555.cs" />
+    <Compile Include="Migrations\201906112020315_555.Designer.cs">
+      <DependentUpon>201906112020315_555.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906112039567_111222.cs" />
+    <Compile Include="Migrations\201906112039567_111222.Designer.cs">
+      <DependentUpon>201906112039567_111222.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906130632328_55.cs" />
+    <Compile Include="Migrations\201906130632328_55.Designer.cs">
+      <DependentUpon>201906130632328_55.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906130658025_55454.cs" />
+    <Compile Include="Migrations\201906130658025_55454.Designer.cs">
+      <DependentUpon>201906130658025_55454.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906130702144_7777777.cs" />
+    <Compile Include="Migrations\201906130702144_7777777.Designer.cs">
+      <DependentUpon>201906130702144_7777777.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906130727590_778899.cs" />
+    <Compile Include="Migrations\201906130727590_778899.Designer.cs">
+      <DependentUpon>201906130727590_778899.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entityes\MO.cs" />
@@ -175,60 +290,14 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="JSON\data_1181_7382_struct.json" />
+    <None Include="JSON\data_1641_5988_struct.json" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="geoJSON\" />
-    <Folder Include="JSON\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905170948325_старт.resx">
-      <DependentUpon>201905170948325_старт.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291441474_1.resx">
-      <DependentUpon>201905291441474_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291444219_2.resx">
-      <DependentUpon>201905291444219_2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291447035_3.resx">
-      <DependentUpon>201905291447035_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291605598_4.resx">
-      <DependentUpon>201905291605598_4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291719223_5.resx">
-      <DependentUpon>201905291719223_5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291721345_6.resx">
-      <DependentUpon>201905291721345_6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291749385_7.resx">
-      <DependentUpon>201905291749385_7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291806326_8.resx">
-      <DependentUpon>201905291806326_8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905291821249_9.resx">
-      <DependentUpon>201905291821249_9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905300951532_10.resx">
-      <DependentUpon>201905300951532_10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301249325_11.resx">
-      <DependentUpon>201905301249325_11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301510116_12.resx">
-      <DependentUpon>201905301510116_12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301519273_13.resx">
-      <DependentUpon>201905301519273_13.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905301526139_14.resx">
-      <DependentUpon>201905301526139_14.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
@@ -244,6 +313,74 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201906041139426_InitialCreate.resx">
+      <DependentUpon>201906041139426_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906041145573_1.resx">
+      <DependentUpon>201906041145573_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101242428_2.resx">
+      <DependentUpon>201906101242428_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101252260_3.resx">
+      <DependentUpon>201906101252260_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101407376_4.resx">
+      <DependentUpon>201906101407376_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101410578_5.resx">
+      <DependentUpon>201906101410578_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101429063_6.resx">
+      <DependentUpon>201906101429063_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101435159_7.resx">
+      <DependentUpon>201906101435159_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101441412_8.resx">
+      <DependentUpon>201906101441412_8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101450103_9.resx">
+      <DependentUpon>201906101450103_9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101457159_10.resx">
+      <DependentUpon>201906101457159_10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906101554049_11.resx">
+      <DependentUpon>201906101554049_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112009374_66.resx">
+      <DependentUpon>201906112009374_66.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112010067_77.resx">
+      <DependentUpon>201906112010067_77.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112014374_888.resx">
+      <DependentUpon>201906112014374_888.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112017412_111.resx">
+      <DependentUpon>201906112017412_111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112020315_555.resx">
+      <DependentUpon>201906112020315_555.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906112039567_111222.resx">
+      <DependentUpon>201906112039567_111222.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906130632328_55.resx">
+      <DependentUpon>201906130632328_55.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906130658025_55454.resx">
+      <DependentUpon>201906130658025_55454.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906130702144_7777777.resx">
+      <DependentUpon>201906130702144_7777777.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906130727590_778899.resx">
+      <DependentUpon>201906130727590_778899.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

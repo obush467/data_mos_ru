@@ -14,15 +14,15 @@ namespace data_mos_ru
 {
     public class geoData
     {
-        //[Key]
-        //public int ID { get; set; }
+
         [DataMember]
+        [MaxLength(30)]
         public string Type { get; set; }
         [DataMember]
         public DbGeography Coordinates { get; set; }
         [DataMember]
-        public string Сenter { get; set; }
+        public DbGeography Сenter { get; set; }
         public geoData() : base()
-        { Coordinates = DbGeography.FromText("POINT (0 0)"); }
+        { Coordinates = DbGeography.FromText("POINT EMPTY"); }
     }
 }
