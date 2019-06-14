@@ -15,15 +15,9 @@ namespace ConsoleApplication1
     {
 
         static void Main(string[] args)
-
-
-
         {
-
-
-            data_mos_ru.data_mos_ru_Operator dmrOper;
+            data_mos_ru_Operator dmrOper = new data_mos_ru_Operator("integra");;
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
-            dmrOper = new data_mos_ru.data_mos_ru_Operator("integra");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");
             FileInfo[] d6431 = wdir.GetFiles("data-6431*.json");
@@ -53,7 +47,8 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Convert<Data_1641_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<data_54518>(d54518[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<UPR>(dUPR[0].FullName, Encoding.UTF8));
-            dmrOper.LoadDom();
+            //dmrOper.LoadDom();
+            dmrOper.UpdateHouses();
             //dmrOper.DeserializeOMK002_2013_1("D:\\data_mos_ru\\data-6434-2017-12-24\\data-6434-2017-12-24.json", Encoding.GetEncoding(1251));
             //dmrOper.DeserializeOMK002_2013_2(d6436[0].FullName, Encoding.GetEncoding(1251));
 

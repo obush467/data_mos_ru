@@ -169,6 +169,9 @@
     <Compile Include="Entityes\data_ObjectAddress.cs" />
     <Compile Include="Entityes\data_OrgInfo.cs" />
     <Compile Include="Entityes\data_Phone.cs" />
+    <Compile Include="Entityes\House.cs" />
+    <Compile Include="Entityes\HouseList.cs" />
+    <Compile Include="Entityes\InfTableRow.cs" />
     <Compile Include="Entityes\MO_geojson.cs" />
     <Compile Include="Entityes\AO_geojson.cs" />
     <Compile Include="Entityes\AO_JSON_file.cs" />
@@ -176,6 +179,7 @@
     <Compile Include="Entityes\MO_Type.cs" />
     <Compile Include="Entityes\TM_Type.cs" />
     <Compile Include="Entityes\UPR.cs" />
+    <Compile Include="Entityes\UPRSite.cs" />
     <Compile Include="geoData_JSON.cs" />
     <Compile Include="geoData\geoLinestring.cs" />
     <Compile Include="geoData\geoPoint.cs" />
@@ -273,6 +277,34 @@
     <Compile Include="Migrations\201906130727590_778899.cs" />
     <Compile Include="Migrations\201906130727590_778899.Designer.cs">
       <DependentUpon>201906130727590_778899.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140705388_dom_mos_ru_1.cs" />
+    <Compile Include="Migrations\201906140705388_dom_mos_ru_1.Designer.cs">
+      <DependentUpon>201906140705388_dom_mos_ru_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140707134_dom_mos_ru_2.cs" />
+    <Compile Include="Migrations\201906140707134_dom_mos_ru_2.Designer.cs">
+      <DependentUpon>201906140707134_dom_mos_ru_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140718037_dom_mos_ru_3.cs" />
+    <Compile Include="Migrations\201906140718037_dom_mos_ru_3.Designer.cs">
+      <DependentUpon>201906140718037_dom_mos_ru_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140719580_dom_mos_ru_4.cs" />
+    <Compile Include="Migrations\201906140719580_dom_mos_ru_4.Designer.cs">
+      <DependentUpon>201906140719580_dom_mos_ru_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140725163_dom_mos_ru_5.cs" />
+    <Compile Include="Migrations\201906140725163_dom_mos_ru_5.Designer.cs">
+      <DependentUpon>201906140725163_dom_mos_ru_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906140849367_dom_mos_ru_6.cs" />
+    <Compile Include="Migrations\201906140849367_dom_mos_ru_6.Designer.cs">
+      <DependentUpon>201906140849367_dom_mos_ru_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906141052190_dom_mos_ru_7.cs" />
+    <Compile Include="Migrations\201906141052190_dom_mos_ru_7.Designer.cs">
+      <DependentUpon>201906141052190_dom_mos_ru_7.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entityes\MO.cs" />
@@ -380,6 +412,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906130727590_778899.resx">
       <DependentUpon>201906130727590_778899.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140705388_dom_mos_ru_1.resx">
+      <DependentUpon>201906140705388_dom_mos_ru_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140707134_dom_mos_ru_2.resx">
+      <DependentUpon>201906140707134_dom_mos_ru_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140718037_dom_mos_ru_3.resx">
+      <DependentUpon>201906140718037_dom_mos_ru_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140719580_dom_mos_ru_4.resx">
+      <DependentUpon>201906140719580_dom_mos_ru_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140725163_dom_mos_ru_5.resx">
+      <DependentUpon>201906140725163_dom_mos_ru_5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906140849367_dom_mos_ru_6.resx">
+      <DependentUpon>201906140849367_dom_mos_ru_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906141052190_dom_mos_ru_7.resx">
+      <DependentUpon>201906141052190_dom_mos_ru_7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

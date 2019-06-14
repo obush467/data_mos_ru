@@ -37,12 +37,15 @@ namespace data_mos_ru
             JS = new JSONContext(ConnectionString);
             Logger = LogManager.GetLogger(typeof(data_mos_ru_Operator));
             Loader = new data_mos_ru_Loader("", Logger);
-            domLoader = new dom_mos_ru_Loader("", Logger);
+            domLoader = new dom_mos_ru_Loader(Logger);
             connectionString = ConnectionString;
         }
+        public void UpdateHouses()
+        { domLoader.UpdateHouses(Encoding.UTF8); }
         public void LoadDom()
         {
-            domLoader.LoadUPRs(JS.UPRs.ToList(),Encoding.UTF8);
+            //var ttt =domLoader.LoadUPR(JS.UPRs.ToList(),Encoding.UTF8);
+            domLoader.LoadUPR(JS.UPRs.ToList(), Encoding.UTF8);
         }
         public List<T> Deserialize<T>(string FileName, Encoding encoding)
         {

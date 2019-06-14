@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace data_mos_ru.Entityes
 {
-    [Table("UPRs", Schema = "dom_mos_ru")]
-    public class UPR
+    [Table("InfTableRows", Schema = "dom_mos_ru")]
+    public class InfTableRow
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
+        public string Name { get; set; }
         public string Value { get; set; }
-        public string Label { get; set; }
-        public string Url { get; set; }
-        public string Section { get; set; }
     }
 }

@@ -33,6 +33,8 @@ namespace data_mos_ru
         public DbSet<Data_1641_5988> data_1641_5988s { get; set; }
         public DbSet<data_54518> data_54518s { get; set; }
         public DbSet<UPR> UPRs { get; set; }
+        public DbSet<UPRsite> UPRsites { get; set; }
+        public DbSet<House> Houses { get; set; }
 
     }
 }
