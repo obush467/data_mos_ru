@@ -1,17 +1,11 @@
-﻿using data_mos_ru.Entityes;
-using HtmlAgilityPack;
+﻿using data_mos_ru.Entities;
 using log4net;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity.Migrations;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -32,16 +26,16 @@ namespace data_mos_ru
 
         public void Load(Encoding encoding)
         {
-            LoadUPR(LoadUPRsList(encoding), encoding);
+            LoadUpr(LoadUPRsList(encoding), encoding);
         }
         public void UpdateHouses(Encoding encoding)
         {
             JSONContext context = new JSONContext();
             IEnumerable<House> houses =
-                from house in context.Houses
+                (from house in context.Houses
                 where house.Address == null
-                select house;
-            foreach (House house1 in houses.ToList())
+                select house).ToList();
+            foreach (House house1 in houses)
             {
                 Uri _houseuri = new Uri(BaseUri, house1.Uri);
                 string _html = DownloadString(_houseuri, encoding);
@@ -59,25 +53,25 @@ namespace data_mos_ru
             logger.Info(_upruri.ToString());
             return new UPRsite( _id, upr.Value, _upruri.ToString(), _html);        
         }
-        public List<UPRsite> LoadUPR(IEnumerable<UPR> uprs, Encoding encoding)
+        public List<UPRsite> LoadUpr(IEnumerable<UPR> uprs, Encoding encoding)
         {
-            List<UPRsite> _UPRsites = new List<UPRsite>();
-            JSONContext context = new JSONContext();
-            IEnumerable<UPR> _upserted =
-                from _upr in uprs
+            var uprsites = new List<UPRsite>();
+            var context = new JSONContext();
+            var updatedUprs =
+                (from upr in uprs
                 //join _old in context.UPRsites.ToList() on _upr.ID equals _old.ID into l
                 //from _left in l
-                select _upr;
-            foreach (UPR upr in _upserted.ToList())
+                select upr).ToList();
+            foreach (var upr in updatedUprs)
             {
-                UPRsite _uPRsite = LoadUPR(upr, encoding);                
-                _UPRsites.Add(_uPRsite);
-                List<UPRsite> _uPRsites = new List<UPRsite>();
-                context.UPRsites.Add(_uPRsite);
+                var uprsite = LoadUPR(upr, encoding);                
+                uprsites.Add(uprsite);
+                context.UPRsites.Add(uprsite);
+                //var mergedUprSites = new List<UPRsite>();
                 //context.UPRsites.AddOrUpdate(_uPRsites.ToArray());
                 context.SaveChanges();
             }
-            return _UPRsites;
+            return uprsites;
         }
         public List<UPR> LoadUPRsList(Encoding encoding)
         { return new List<UPR>(); }

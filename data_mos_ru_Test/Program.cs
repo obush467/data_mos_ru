@@ -1,22 +1,14 @@
-﻿using System.Text;
-//using Newtonsoft.Json;
-using System.IO;
-using System.Data.Entity;
-using System.Net;
-using System;
-using System.Collections.Generic;
+﻿using System.IO;
 using data_mos_ru;
-using data_mos_ru.Entityes;
 
 namespace ConsoleApplication1
 
 {
     class Program
     {
-
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            data_mos_ru_Operator dmrOper = new data_mos_ru_Operator("integra");;
+            Operator dmrOper = new Operator("integra");;
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");

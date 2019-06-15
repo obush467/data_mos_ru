@@ -3,11 +3,8 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -17,16 +14,16 @@ namespace data_mos_ru
     {
         UriBuilder r = new UriBuilder();
         WebClient w = new WebClient();
-        NameValueCollection Query=new httpQueryNameValueCollection();
+        NameValueCollection Query=new HttpQueryNameValueCollection();
         private ILog logger;
         public ConcurrentQueue<String> Result = new ConcurrentQueue<String>();
         public string ApiKey { get; set; } = "43829b1b6ff23da601a17e8a65c081ed";
-        public string dataset { get; set; }
-        string link { get { return "/v1/datasets/" + dataset; } } //ссылка
-        public data_mos_ru_Loader(string vdataset, ILog Logger)
+        public string Dataset { get; set; }
+        string Link { get { return "/v1/datasets/" + Dataset; } } //ссылка
+        public data_mos_ru_Loader(string dataset, ILog logger)
         {
-            logger = Logger;
-            dataset = vdataset;
+            this.logger = logger;
+            Dataset = dataset;
             r.Scheme = "https";
             Query.Add("api_key", ApiKey);
         }
@@ -37,7 +34,7 @@ namespace data_mos_ru
         }
         protected List<Uri> URIs(Encoding encoding)
         {
-            r.Path = link + "/count";
+            r.Path = Link + "/count";
             r.Host = "apidata.mos.ru";
             r.Query = Query.ToString();
             List<Uri> uris = new List<Uri>();
@@ -55,7 +52,7 @@ namespace data_mos_ru
                         {
                             Query["$skip"] = ((i - 1) * blockLength).ToString();
                             logger.Info(i);
-                            r.Path = link + "/rows";
+                            r.Path = Link + "/rows";
                             r.Query = Query.ToString();
                             uris.Add(r.Uri);
                         }
