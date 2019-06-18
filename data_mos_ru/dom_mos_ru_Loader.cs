@@ -45,7 +45,7 @@ namespace data_mos_ru
             }
         }
        
-        public UPRsite LoadUPR(UPR upr, Encoding encoding)
+        public UPRsite LoadUpr(UPR upr, Encoding encoding)
         {
             Uri _upruri = new Uri(BaseUri, upr.Url);
             string _html = DownloadString(_upruri, encoding);
@@ -64,7 +64,7 @@ namespace data_mos_ru
                 select upr).ToList();
             foreach (var upr in updatedUprs)
             {
-                var uprsite = LoadUPR(upr, encoding);                
+                var uprsite = LoadUpr(upr, encoding);                
                 uprsites.Add(uprsite);
                 context.UPRsites.Add(uprsite);
                 //var mergedUprSites = new List<UPRsite>();
@@ -98,7 +98,7 @@ namespace data_mos_ru
 
         protected void DownloadUPR(UPR upr, Encoding encoding)
         {
-            Result.Enqueue(LoadUPR(upr,encoding));
+            Result.Enqueue(LoadUpr(upr,encoding));
         }
         protected string DownloadString(Uri uri, Encoding encoding)
         {

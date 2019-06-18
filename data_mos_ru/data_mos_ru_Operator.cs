@@ -13,7 +13,7 @@ using System.Spatial;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Reflection;
-using data_mos_ru.Entityes;
+using data_mos_ru.Entities;
 using log4net;
 using System.Threading;
 using NetTopologySuite.Features;
@@ -24,18 +24,18 @@ using System.Data.Entity.Migrations;
 
 namespace data_mos_ru
 {
-    public class data_mos_ru_Operator
+    public class Operator
     {
         public JSONContext JS { get; set; }
         public static ILog Logger;
         private data_mos_ru_Loader Loader;
         private dom_mos_ru_Loader domLoader;
         string connectionString;
-        public data_mos_ru_Operator(string ConnectionString)
+        public Operator(string ConnectionString)
         {
             log4net.Config.XmlConfigurator.Configure();
             JS = new JSONContext(ConnectionString);
-            Logger = LogManager.GetLogger(typeof(data_mos_ru_Operator));
+            Logger = LogManager.GetLogger(typeof(Operator));
             Loader = new data_mos_ru_Loader("", Logger);
             domLoader = new dom_mos_ru_Loader(Logger);
             connectionString = ConnectionString;
@@ -45,13 +45,13 @@ namespace data_mos_ru
         public void LoadDom()
         {
             //var ttt =domLoader.LoadUPR(JS.UPRs.ToList(),Encoding.UTF8);
-            domLoader.LoadUPR(JS.UPRs.ToList(), Encoding.UTF8);
+            domLoader.LoadUpr(JS.UPRs.ToList(), Encoding.UTF8);
         }
         public List<T> Deserialize<T>(string FileName, Encoding encoding)
         {
             Logger.Info(string.Join(" ", "Запущено преобразование", typeof(T).Name));
             JsonSerializerSettings jss = new JsonSerializerSettings();
-            jss.Converters.Add(new geoDataConverter());
+            jss.Converters.Add(new GeoDataConverter());
             jss.Culture = CultureInfo.CurrentCulture;
             Logger.Info(string.Join(" ", "Преобразовано", typeof(T).Name));
             return JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd(), jss).ToList<T>();
@@ -73,7 +73,7 @@ namespace data_mos_ru
                     foreach (AO_60562 row in block)
                     {
                         if (row.GeoData == null)
-                        { row.GeoData = new geoData(); }
+                        { row.GeoData = new GeoData(); }
                     }
                     context.AO_60562s.AddOrUpdate(block.ToArray());
                     Logger.Info(string.Join(" ", typeof(AO_60562).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
@@ -106,7 +106,7 @@ namespace data_mos_ru
                     foreach (data_54518 row in block)
                     {
                         if (row.geoData == null)
-                        { row.geoData = new geoData(); }
+                        { row.geoData = new GeoData(); }
                     }
                     context.data_54518s.AddRange(block.ToArray());
                     Logger.Info(string.Join(" ", typeof(data_54518).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
@@ -246,7 +246,7 @@ namespace data_mos_ru
         {
             Logger.Info("Запущено преобразование AO");
             JsonSerializerSettings jss = new JsonSerializerSettings();
-            jss.Converters.Add(new geoPolyConverter_site());
+            jss.Converters.Add(new GeoPolyConverterSite());
             jss.Culture = CultureInfo.CurrentCulture;
 
             AO_JSON_site[] json_data = JsonConvert.DeserializeObject<AO_JSON_site[]>((new StreamReader(stream, encoding)).ReadToEnd(), jss);
@@ -292,7 +292,7 @@ namespace data_mos_ru
         }
         public void DeserializeAO(Encoding encoding)
         {
-            Loader.dataset = "1927";
+            Loader.Dataset = "1927";
             Loader.Load(encoding);
             // foreach (string S in Loader.Result)
             string S;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace data_mos_ru.Entityes
+namespace data_mos_ru.Entities
 {
     [Table("DirectorPositions")]
     public class DirectorPosition: PersonPosition
