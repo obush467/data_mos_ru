@@ -1,6 +1,5 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class _55454 : DbMigration

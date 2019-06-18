@@ -1,9 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    using System.Data.Entity.Spatial;
-    
+
     public partial class _9 : DbMigration
     {
         public override void Up()

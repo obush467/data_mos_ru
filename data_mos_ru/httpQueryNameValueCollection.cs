@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace data_mos_ru
 {
-    class httpQueryNameValueCollection:NameValueCollection
+    public class HttpQueryNameValueCollection:NameValueCollection
     {
+        private ParallelLoopResult _parallelLoopResult;
+
         public override string ToString()
         {
-            List<string> Result = new List<string>();
-            Parallel.ForEach(AllKeys, p =>
+            List<string> result;
+            result = new List<string>();
+            _parallelLoopResult = Parallel.ForEach(AllKeys, p =>
             { if (BaseGet(p) != null)
-                    Result.Add(p + "=" + Get(p));
+                result.Add(p + "=" + Get(p));
             });
-            return string.Join("&", Result);
+            return string.Join("&", result);
         }
     }
 }
