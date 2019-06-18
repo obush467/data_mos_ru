@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json.Linq;
 using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections;
-using System.Data.Entity.Spatial;
-using NetTopologySuite.Geometries;
 
-namespace data_mos_ru.Entityes
+namespace data_mos_ru.Entities
 {
     [Table("AO_60562", Schema = "data_mos_ru")]
     [DataContract(Name = "AO_60562")]
@@ -21,8 +13,8 @@ namespace data_mos_ru.Entityes
         //[DataMember]
         //public int ID { get; set; }
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        [DataMember]
+        public int Id { get; set; }
 
         [DataMember]
         public Nullable<int> Global_ID { get; set; }
@@ -120,7 +112,7 @@ namespace data_mos_ru.Entityes
         [MaxLength(4000)]
         public string ADR_TYPE { get; set; }
         [DataMember] 
-        public geoData GeoData { get; set; }
+        public GeoData GeoData { get; set; }
     }
 
 }
