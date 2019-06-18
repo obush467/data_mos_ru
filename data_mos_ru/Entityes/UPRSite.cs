@@ -18,8 +18,8 @@ namespace data_mos_ru.Entityes
         public Guid ID { get; set; }
         public string Name { get; set; }
         public string Uri { get; set; }
-        public ICollection<InfTableRow> InfTableRows { get; set; } = new List<InfTableRow>();
-        public ICollection<HouseList> HouseLists { get; set; } = new List<HouseList>();
+        public virtual ICollection<InfTableRow> InfTableRows { get; set; } = new List<InfTableRow>();
+        public virtual ICollection<HouseList> HouseLists { get; set; } = new List<HouseList>();
 
         public UPRsite(Guid id, string name,string uri,string html=null)
         {

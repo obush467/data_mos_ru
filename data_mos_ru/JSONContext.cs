@@ -35,6 +35,16 @@ namespace data_mos_ru
         public DbSet<UPR> UPRs { get; set; }
         public DbSet<UPRsite> UPRsites { get; set; }
         public DbSet<House> Houses { get; set; }
+        public DbSet<Organization> Organizations { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<PersonPosition> PersonPositions { get; set; }
+        public DbSet<DirectorPosition> DirectorPositions { get; set; }
+        public DbSet<PersonPositionType> PersonPositionTypes { get; set; }
+        public DbSet<OrganizationType> OrganizationTypes { get; set; }
+        public DbSet<AccountantGeneralPosition> AccountantGeneralPositions { get; set; }
+        public DbSet<InfTableRow> InfTableRows { get; set; }
+
+
 
     }
 }

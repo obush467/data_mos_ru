@@ -48,7 +48,8 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Convert<data_54518>(d54518[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<UPR>(dUPR[0].FullName, Encoding.UTF8));
             //dmrOper.LoadDom();
-            dmrOper.UpdateHouses();
+            //dmrOper.UpdateHouses();
+            dmrOper.UpdateOrganizationsByDomMosRu();
             //dmrOper.DeserializeOMK002_2013_1("D:\\data_mos_ru\\data-6434-2017-12-24\\data-6434-2017-12-24.json", Encoding.GetEncoding(1251));
             //dmrOper.DeserializeOMK002_2013_2(d6436[0].FullName, Encoding.GetEncoding(1251));
 

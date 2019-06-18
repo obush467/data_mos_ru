@@ -9,7 +9,8 @@ namespace data_mos_ru.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(data_mos_ru.JSONContext context)
@@ -28,4 +29,5 @@ namespace data_mos_ru.Migrations
             //
         }
     }
+
 }

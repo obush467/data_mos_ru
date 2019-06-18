@@ -57,10 +57,10 @@ namespace data_mos_ru
             return JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd(), jss).ToList<T>();
         }
         public List<List<T>> Convert<T>(string FileName, Encoding encoding)
-        { 
+        {
             int counter = 0;
             int counterLength = 200;
-            return Deserialize<T>(FileName, encoding).GroupBy(_ => counter++ / counterLength).Distinct().Select(v => v.ToList()).ToList();                        
+            return Deserialize<T>(FileName, encoding).GroupBy(_ => counter++ / counterLength).Distinct().Select(v => v.ToList()).ToList();
         }
         public void Update(List<List<AO_60562>> input)
         {
@@ -124,8 +124,8 @@ namespace data_mos_ru
                     counter = counter + block.Count;
                     foreach (Data_1641_5988 row in block)
                     {
-                       // if (row.GeoData == null)
-                       // { row.GeoData = new geoData(); }
+                        // if (row.GeoData == null)
+                        // { row.GeoData = new geoData(); }
                     }
                     context.data_1641_5988s.AddOrUpdate(block.ToArray());
                     Logger.Info(string.Join(" ", typeof(Data_1641_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
@@ -133,112 +133,113 @@ namespace data_mos_ru
                 }
         }
 
-       /*public void Update(List<List<data_2624_8684>> input)
-        {
-            int counter = 0;
-            foreach (List<data_2624_8684> block in input)
-                using (JSONContext context = new JSONContext(connectionString))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    foreach (data_2624_8684 row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new geoData(); }
-                    }
-                    context.Data_2624_8684.AddOrUpdate(block.ToArray());
-                    Logger.Info(string.Join(" ", typeof(data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }*/
+        /*public void Update(List<List<data_2624_8684>> input)
+         {
+             int counter = 0;
+             foreach (List<data_2624_8684> block in input)
+                 using (JSONContext context = new JSONContext(connectionString))
+                 {
+                     block.RemoveAll(x => x.global_id == null);
+                     foreach (data_2624_8684 row in block)
+                     {
+                         if (row.geoData == null)
+                         { row.geoData = new geoData(); }
+                     }
+                     context.Data_2624_8684.AddOrUpdate(block.ToArray());
+                     Logger.Info(string.Join(" ", typeof(data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                     context.SaveChanges();
+                 }
+         }*/
         protected void Update(List<AO> input)
         { }
         public void DeserializeAO(FileInfo FileName, Encoding encoding)
-        { DeserializeAO<AO_JSON_file>(FileName.OpenRead(), encoding);}
+        { DeserializeAO<AO_JSON_file>(FileName.OpenRead(), encoding); }
         public void DeserializeAO(FileInfo[] Files, Encoding encoding)
-        { foreach (FileInfo file in Files)
+        {
+            foreach (FileInfo file in Files)
             { DeserializeAO(file, encoding); }
         }
         public void DeserializeAO<T>(Stream stream, Encoding encoding) where T : AO_JSON_file
         {
-           /*  Logger.Info("Запущено преобразование AO");
-            JsonSerializerSettings jss = new JsonSerializerSettings();
-            jss.Converters.Add(new geoPolyConverter_file());
-            jss.Culture = CultureInfo.CurrentCulture;
-            
-            T[] json_data = JsonConvert.DeserializeObject<T[]>((new StreamReader(stream, encoding)).ReadToEnd(),jss);
-            Logger.Info("Преобразовано AO");
-            JS.AOs.Create<AO>();
-            List<AO> data = new List<AO>();
-            foreach (T jitem in json_data)
-            {
-                AO ditem = new AO();
-                ditem.ADRES = jitem.ADRES;
-                if (jitem.DDOC !=null) { ditem.DDOC = DateTime.Parse(jitem.DDOC, CultureInfo.CurrentCulture); }
-                ditem.DMT = jitem.DMT;
-                if (jitem.DREG != null) { ditem.DREG = DateTime.Parse(jitem.DREG, CultureInfo.CurrentCulture); }
-               if (jitem.geoData != null)
-                {
-                    List<string> pointlist = new List<string>();
-                    List<string> polygonlist = new List<string>();
-                    var c = jitem.geoData.Coordinates;
-                    switch (jitem.geoData.Type)
-                    {
-                        case "Point":
-                            break;
-                        case "Polygon":
-                            geoPolygon polygonList = (geoPolygon)jitem.geoData.Coordinates;
-                            if (polygonList != null)
-                            {
-                                string Pstr = "POLYGON " + (polygonList.ToString());
-                                try { ditem.geoData = DbGeography.PolygonFromText(Pstr, 4326); }
-                                catch (TargetInvocationException e)
-                                {
-                                    Logger.Warn("Неправильное направление обхода точек в объекте POLYGON", e);
-                                    polygonList.Reverse();
-                                    Pstr = "POLYGON " + (polygonList.ToString());
-                                }
-                            }
-                            break;
-                        case "MultiPolygon":
-                            geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.Coordinates;
-                            if (MpolygonList != null)
-                            {
-                                string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
-                                try
-                                {
-                                    ditem.geoData = DbGeography.MultiPolygonFromText(MPstr, 4326);
-                                }
-                                catch (TargetInvocationException e)
-                                {
-                                    Logger.Warn("Неправильное направление обхода точек в объекте MULTIPOLYGON", e);
-                                    MpolygonList.Reverse();
-                                    MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
+            /*  Logger.Info("Запущено преобразование AO");
+             JsonSerializerSettings jss = new JsonSerializerSettings();
+             jss.Converters.Add(new geoPolyConverter_file());
+             jss.Culture = CultureInfo.CurrentCulture;
 
-                                }
-                            }
-                            break;
-                    }
-                }
-                else ditem.geoData = null;
-                ditem.global_id = jitem.global_id;
-                ditem.KAD_KV = jitem.KAD_KV;
-                ditem.KAD_RN = jitem.KAD_RN;
-                ditem.KAD_ZU = jitem.KAD_ZU;
-                ditem.NDOC = jitem.NDOC;
-                ditem.NREG = jitem.NREG;
-                ditem.SOOR = jitem.SOOR;
-                ditem.STRT = jitem.STRT;
-                ditem.system_object_id = jitem.system_object_id;
-                ditem.TDOC = jitem.TDOC;
-                ditem.UNOM = jitem.UNOM;
-                ditem.VLD = jitem.VLD;
-                ditem.VYVAD = jitem.VYVAD;
-                ditem.KRT = jitem.KRT;
-                data.Add(ditem);
-            }
-            JS.AOs.AddRange(data);
-            JS.SaveChanges();
-            Logger.Info("Сохранено AO");*/
+             T[] json_data = JsonConvert.DeserializeObject<T[]>((new StreamReader(stream, encoding)).ReadToEnd(),jss);
+             Logger.Info("Преобразовано AO");
+             JS.AOs.Create<AO>();
+             List<AO> data = new List<AO>();
+             foreach (T jitem in json_data)
+             {
+                 AO ditem = new AO();
+                 ditem.ADRES = jitem.ADRES;
+                 if (jitem.DDOC !=null) { ditem.DDOC = DateTime.Parse(jitem.DDOC, CultureInfo.CurrentCulture); }
+                 ditem.DMT = jitem.DMT;
+                 if (jitem.DREG != null) { ditem.DREG = DateTime.Parse(jitem.DREG, CultureInfo.CurrentCulture); }
+                if (jitem.geoData != null)
+                 {
+                     List<string> pointlist = new List<string>();
+                     List<string> polygonlist = new List<string>();
+                     var c = jitem.geoData.Coordinates;
+                     switch (jitem.geoData.Type)
+                     {
+                         case "Point":
+                             break;
+                         case "Polygon":
+                             geoPolygon polygonList = (geoPolygon)jitem.geoData.Coordinates;
+                             if (polygonList != null)
+                             {
+                                 string Pstr = "POLYGON " + (polygonList.ToString());
+                                 try { ditem.geoData = DbGeography.PolygonFromText(Pstr, 4326); }
+                                 catch (TargetInvocationException e)
+                                 {
+                                     Logger.Warn("Неправильное направление обхода точек в объекте POLYGON", e);
+                                     polygonList.Reverse();
+                                     Pstr = "POLYGON " + (polygonList.ToString());
+                                 }
+                             }
+                             break;
+                         case "MultiPolygon":
+                             geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.Coordinates;
+                             if (MpolygonList != null)
+                             {
+                                 string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
+                                 try
+                                 {
+                                     ditem.geoData = DbGeography.MultiPolygonFromText(MPstr, 4326);
+                                 }
+                                 catch (TargetInvocationException e)
+                                 {
+                                     Logger.Warn("Неправильное направление обхода точек в объекте MULTIPOLYGON", e);
+                                     MpolygonList.Reverse();
+                                     MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
+
+                                 }
+                             }
+                             break;
+                     }
+                 }
+                 else ditem.geoData = null;
+                 ditem.global_id = jitem.global_id;
+                 ditem.KAD_KV = jitem.KAD_KV;
+                 ditem.KAD_RN = jitem.KAD_RN;
+                 ditem.KAD_ZU = jitem.KAD_ZU;
+                 ditem.NDOC = jitem.NDOC;
+                 ditem.NREG = jitem.NREG;
+                 ditem.SOOR = jitem.SOOR;
+                 ditem.STRT = jitem.STRT;
+                 ditem.system_object_id = jitem.system_object_id;
+                 ditem.TDOC = jitem.TDOC;
+                 ditem.UNOM = jitem.UNOM;
+                 ditem.VLD = jitem.VLD;
+                 ditem.VYVAD = jitem.VYVAD;
+                 ditem.KRT = jitem.KRT;
+                 data.Add(ditem);
+             }
+             JS.AOs.AddRange(data);
+             JS.SaveChanges();
+             Logger.Info("Сохранено AO");*/
         }
 
         public void DeserializeAO_site(Stream stream, Encoding encoding)
@@ -266,7 +267,7 @@ namespace data_mos_ru
                         ditem.geoData = DbGeography.FromText(jitem.Cells.geoData.AsText(), 4326);
                     }
                     catch { ditem.geoData = DbGeography.FromText(jitem.Cells.geoData.Reverse().AsText(), 4326); }
-                    
+
                 }
                 else ditem.geoData = null;
                 ditem.global_id = jitem.Cells.global_id;
@@ -328,19 +329,90 @@ namespace data_mos_ru
                     {
                         AO.geometry = DbGeography.FromText(f.Geometry.Reverse().AsText(), 4326);
                     }
-                    catch {
+                    catch
+                    {
                         AO.geometry = null;
-                        
+
                     }
 
                 }
                 flist.Add(AO);
             }
-                JS.Configuration.AutoDetectChangesEnabled = false;
-                JS.AO_geojsons.AddRange(flist);
-                JS.SaveChanges();
-                JS.Configuration.AutoDetectChangesEnabled = true;
+            JS.Configuration.AutoDetectChangesEnabled = false;
+            JS.AO_geojsons.AddRange(flist);
+            JS.SaveChanges();
+            JS.Configuration.AutoDetectChangesEnabled = true;
+        }
+
+        public T FirstVal<T>(IEnumerable<T> list)
+        {
+            if (list.Any())
+            {
+                return list.FirstOrDefault();
             }
+            else
+                return default(T);
+        }
+        public OrganizationType FirstVal<T>(IEnumerable<T> list, string FullTypeName) where T : OrganizationType
+        {
+            if (list.Any())
+            {
+                return list.FirstOrDefault();
+            }
+            else
+                return new OrganizationType() { FullTypeName = FullTypeName };
+        }
+        public void UpdateOrganizationsByDomMosRu()
+        {
+            JSONContext context = new JSONContext();
+            List<UPRsite> inserted = (from upr in context.UPRsites
+                                      select upr).ToList();
+            foreach (UPRsite uprsite in inserted)
+            {
+                uprsite.InfTableRows.ToList();
+                var ogrn = FirstVal(uprsite.InfTableRows.Where(p => p.Name.Trim() == "Основной государственный регистрационный номер (ОГРН):" ? true : false).Select(p => p.Value));
+                var inn = FirstVal(uprsite.InfTableRows.Where(p => p.Name != null && p.Name.Trim() == "Идентификационный номер налогоплательщика(ИНН):" ? true : false).Select(p => p.Value));
+                var shname = FirstVal(uprsite.InfTableRows.Where(p => p.Name != null && p.Name.Trim() == "Сокращенное наименование" ? true : false).Select(p => p.Value));
+                var uaddress = FirstVal(uprsite.InfTableRows.Where(p => p.Name != null && p.Name.Trim() == "Место государственной регистрации юридического лица(место нахождения юридического лица):" ? true : false).Select(p => p.Value));
+                var form = FirstVal(uprsite.InfTableRows.Where(p => p.Name != null && p.Name.Trim() == "Организационно-правовая форма" ? true : false).Select(p => p.Value));
+                var orgType = FirstVal(context.OrganizationTypes.ToList().Where(ot => ot.FullTypeName.Trim() == form ? true : false).ToList(), form);
+                var fio = FirstVal(uprsite.InfTableRows.Where(p => p.Name.Trim() == "ФИО руководителя (председателя)" ? true : false).Select(p => p.Value));
+
+                Organization organization = new Organization()
+                {
+                    Id=uprsite.ID,
+                    FullName = uprsite.Name,
+                    OGRN = ogrn,
+                    INN = inn,
+                    ShortName = shname,
+                    UrAddress = uaddress,
+                    OrganizationType = orgType
+                };
+
+                //organization.DirectorPosition.Add(dirpos);
+                if (organization.OGRN != null)
+                {
+                    context.Organizations.AddOrUpdate<Organization>(p => new { p.OGRN}, organization);
+                }
+                else
+                {
+                    context.Organizations.AddOrUpdate<Organization>(p => new { p.Id }, organization);
+                }
+                context.SaveChanges();
+                if (fio.Any())
+                {
+                    var dirpos = (new DirectorPosition()
+                    {
+                        PositionType = new PersonPositionType() { PositionType = "" },
+                        Human = new Person() { Family = fio, Id = Guid.NewGuid() },
+                        InstDocument = new Document() { DocumentName = "" },
+                        Organization_Id = organization.Id
+                    });
+                    context.DirectorPositions.AddOrUpdate(p => p.Organization_Id, dirpos);
+                    context.SaveChanges();
+                }
+            }
+        }
 
         public void LoadGeoJSON_MO(Stream stream, Encoding encoding)
         {
@@ -388,5 +460,5 @@ namespace data_mos_ru
             JS.Configuration.AutoDetectChangesEnabled = true;
         }
     }
-    }
+}
 

@@ -17,9 +17,12 @@ namespace data_mos_ru.Entityes
     [DataContract(Name = "AO_60562")]
     public class AO_60562
     {
+        //[Key]
+        //[DataMember]
+        //public int ID { get; set; }
         [Key]
-        [DataMember]
-        public int ID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid ID { get; set; }
 
         [DataMember]
         public Nullable<int> Global_ID { get; set; }

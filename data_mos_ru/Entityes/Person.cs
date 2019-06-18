@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace data_mos_ru.Entityes
 {
-    [Table("InfTableRows", Schema = "dom_mos_ru")]
-    public class InfTableRow
+    [Table("Persons")]
+    public class Person
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-        [MaxLength(300)]
+        public Guid Id { get; set; }
+        [MaxLength(50)]
         public string Name { get; set; }
-        [MaxLength(1000)]
-        public string Value { get; set; }
+        [MaxLength(50)]
+        public string Patronymic { get; set; }
+        [MaxLength(50)]
+        public string Family { get; set; }
     }
 }
