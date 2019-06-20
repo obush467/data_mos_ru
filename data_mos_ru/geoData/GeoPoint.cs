@@ -9,8 +9,8 @@ namespace data_mos_ru
     {
         public double X { get; set; }
         public double Y { get; set; }
-        public Nullable<double> Z { get; set; } = null;
-        public Nullable<double> M { get; set; } = null;
+        public double? Z { get; set; } = null;
+        public double? M { get; set; } = null;
         public GeoPoint(double x, double y, double? z=null, double? m = null)
         { Init(x,y,z,m);}
         public void Init(double x, double y, double? z = null, double? m = null)
@@ -36,10 +36,7 @@ namespace data_mos_ru
         }
         public string ToWKT()
         {
-            if (X == null & Y == null)
-            { return string.Join(" ", "POINT", "EMPTY"); }
-            else
-            { return string.Join(" ", "POINT", "(", ToString(), ")"); }
+            return string.Join(" ", "POINT", "(", ToString(), ")");
         }
         public override string ToString()
         {

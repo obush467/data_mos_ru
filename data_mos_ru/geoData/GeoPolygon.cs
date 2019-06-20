@@ -26,7 +26,7 @@ namespace data_mos_ru
         }
         public override string ToString()
         {
-            return "(" + string.Join<GeoLinestring>(",", this) + ")";
+            return "(" + string.Join(",", this) + ")";
         }
         public string ToWKT()
         {string r = "POLYGON " + ToString();

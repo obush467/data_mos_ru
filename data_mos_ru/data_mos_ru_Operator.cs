@@ -2,81 +2,142 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
 using Newtonsoft.Json;
 using System.IO;
-using System.Runtime.Serialization;
-using System.Collections;
 using System.Data.Entity.Spatial;
-using System.Spatial;
-using Newtonsoft.Json.Linq;
 using System.Globalization;
-using System.Reflection;
 using data_mos_ru.Entities;
 using log4net;
-using System.Threading;
 using NetTopologySuite.Features;
 using NetTopologySuite.IO;
-using NetTopologySuite.Geometries;
 using System.Data.Entity.Migrations;
-
+using HtmlAgilityPack;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Collections.Concurrent;
+using data_mos_ru.Utility;
+using data_mos_ru.Loaders;
+using Nest;
+using System.Linq.Expressions;
+using System.Data.Entity;
+using System.Collections.ObjectModel;
 
 namespace data_mos_ru
 {
     public class Operator
     {
-        public JSONContext JS { get; set; }
-        public static ILog Logger;
-        private data_mos_ru_Loader Loader;
-        private dom_mos_ru_Loader domLoader;
-        string connectionString;
-        public Operator(string ConnectionString)
+        public JSONContext ContextMain { get; set; }
+        private Data_mos_ru_Loader DataLoader { get; set; }
+        private Dom_mos_ru_Loader DomLoader { get; set; }
+        string ConnectionString { get; set; }
+        public Operator()
         {
             log4net.Config.XmlConfigurator.Configure();
-            JS = new JSONContext(ConnectionString);
-            Logger = LogManager.GetLogger(typeof(Operator));
-            Loader = new data_mos_ru_Loader("", Logger);
-            domLoader = new dom_mos_ru_Loader(Logger);
-            connectionString = ConnectionString;
+            Logger.InitLogger();
+            DataLoader = new Data_mos_ru_Loader("");
+            DomLoader = new Dom_mos_ru_Loader();
         }
+        public Operator(string сonnectionString):this()
+        {
+            ConnectionString = сonnectionString;
+            ContextMain = new JSONContext(сonnectionString);         
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         public void UpdateHouses()
-        { domLoader.UpdateHouses(Encoding.UTF8); }
+        {
+            DomLoader.UpdateHouses(Encoding.UTF8);
+        }
         public void LoadDom()
         {
             //var ttt =domLoader.LoadUPR(JS.UPRs.ToList(),Encoding.UTF8);
-            domLoader.LoadUpr(JS.UPRs.ToList(), Encoding.UTF8);
+            DomLoader.LoadUpr(ContextMain.UPRs.ToList(), Encoding.UTF8);
         }
-        public List<T> Deserialize<T>(string FileName, Encoding encoding)
+        public async Task LoadBuildingsAsync()
         {
-            Logger.Info(string.Join(" ", "Запущено преобразование", typeof(T).Name));
-            JsonSerializerSettings jss = new JsonSerializerSettings();
-            jss.Converters.Add(new GeoDataConverter());
-            jss.Culture = CultureInfo.CurrentCulture;
-            Logger.Info(string.Join(" ", "Преобразовано", typeof(T).Name));
-            return JsonConvert.DeserializeObject<T[]>((new StreamReader(FileName, encoding)).ReadToEnd(), jss).ToList<T>();
+            using (JSONContext context = new JSONContext(ConnectionString))
+            {
+                var addressList = context.AO_60562s.ToList().Select(s => s.ADDRESS).ToList();
+                ///var ttt = await DomLoader.LoadBuildingsAsync(addressList, Encoding.UTF8);
+                ///context.UPRs.AddOrUpdate(up=>new {up.Url },ttt.Distinct().ToArray());
+                context.SaveChanges();
+            }
         }
-        public List<List<T>> Convert<T>(string FileName, Encoding encoding)
+
+        public void LoadBuildings()
         {
-            int counter = 0;
-            int counterLength = 200;
-            return Deserialize<T>(FileName, encoding).GroupBy(_ => counter++ / counterLength).Distinct().Select(v => v.ToList()).ToList();
+            using (JSONContext context = new JSONContext(ConnectionString))
+            {
+                var addressList = context.AO_60562s.OrderBy(o=>o.ADDRESS).Select(s => s.ADDRESS).ToList();
+                var ttt = DomLoader.LoadBuildings(addressList, Encoding.UTF8);
+                context.UPRs.AddOrUpdate(up => new { up.Url }, ttt.Distinct().ToArray());
+                context.SaveChanges();
+            }
         }
+
+        public void LoadBuildingsQ()
+        {
+            using (JSONContext context = new JSONContext(ConnectionString))
+            {
+                var aol = context.AO_60562s.ToList();
+                var addressList1 =(aol.Select(s=>s.ADDRESS).ToList()).ConvertAll(new Converter<string, string>(AddressOperator.CleanToSearch));
+                var addressList2 = aol.ConvertAll(new Converter<AO_60562,string>(AddressOperator.AO_60562_ToSearch));
+                var addressList = addressList1.Union(addressList2).ToList();
+                addressList.Sort();
+                BlockingCollection<UPR> result = new BlockingCollection<UPR>();
+                Task t1= Task.Run(()=> DomLoader.LoadBuildings(addressList, Encoding.UTF8,result));
+                Task t2 = Task.Run(() => {
+                        UPR upr = new UPR();
+                    foreach (var n in result.GetConsumingEnumerable())
+                    { try
+                        {
+                            context.UPRs.AddOrUpdate(up => new { up.Url }, n);
+                            context.SaveChanges();
+                            Logger.Log.Info(string.Join(" ", "ВНЕСЕНО", n.Value));
+                        }
+                        catch(Exception) { }
+                    }
+                    });
+                Task.WaitAll(new Task[]{ /*t1,*/t2});
+                
+            }
+        }
+
         public void Update(List<List<AO_60562>> input)
         {
             int counter = 0;
             foreach (List<AO_60562> block in input)
-                using (JSONContext context = new JSONContext(connectionString))
+                using (JSONContext context = new JSONContext(ConnectionString))
                 {
                     block.RemoveAll(x => x.Global_ID == null);
-                    counter = counter + block.Count;
+                    counter += block.Count;
                     foreach (AO_60562 row in block)
                     {
                         if (row.GeoData == null)
                         { row.GeoData = new GeoData(); }
                     }
                     context.AO_60562s.AddOrUpdate(block.ToArray());
-                    Logger.Info(string.Join(" ", typeof(AO_60562).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    Logger.Log.Info(string.Join(" ", typeof(AO_60562).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    context.SaveChanges();
+                }
+        }
+
+        public void Update(List<List<Data_1181_7382>> input)
+        {
+            int counter = 0;
+            foreach (List<Data_1181_7382> block in input)
+                using (JSONContext context = new JSONContext(ConnectionString))
+                {
+                    //block.RemoveAll(x => x.Global_id == null);
+                    counter += block.Count;
+                    foreach (Data_1181_7382 row in block)
+                    {
+                        if (row.GeoData == null)
+                        { row.GeoData = new GeoData(); }
+                    }
+                    context.Data_1181_7382s.AddOrUpdate(block.ToArray());
+                    Logger.Log.Info(string.Join(" ", typeof(Data_1181_7382).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
@@ -85,31 +146,31 @@ namespace data_mos_ru
         {
             int counter = 0;
             foreach (List<UPR> block in input)
-                using (JSONContext context = new JSONContext(connectionString))
+                using (JSONContext context = new JSONContext(ConnectionString))
                 {
                     //block.RemoveAll(x => x.global_id == null);
-                    counter = counter + block.Count;
+                    counter += block.Count;
                     context.UPRs.AddRange(block.ToArray());
-                    Logger.Info(string.Join(" ", typeof(data_54518).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    Logger.Log.Info(string.Join(" ", typeof(Data_54518).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
 
-        public void Update(List<List<data_54518>> input)
+        public void Update(List<List<Data_54518>> input)
         {
             int counter = 0;
-            foreach (List<data_54518> block in input)
-                using (JSONContext context = new JSONContext(connectionString))
+            foreach (List<Data_54518> block in input)
+                using (JSONContext context = new JSONContext(ConnectionString))
                 {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter = counter + block.Count;
-                    foreach (data_54518 row in block)
+                    //block.RemoveAll(x => x.Global_id == null);
+                    counter += block.Count;
+                    foreach (Data_54518 row in block)
                     {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
+                        if (row.GeoData == null)
+                        { row.GeoData = new GeoData(); }
                     }
-                    context.data_54518s.AddRange(block.ToArray());
-                    Logger.Info(string.Join(" ", typeof(data_54518).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    context.Data_54518s.AddRange(block.ToArray());
+                    Logger.Log.Info(string.Join(" ", typeof(Data_54518).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
@@ -118,145 +179,79 @@ namespace data_mos_ru
         {
             int counter = 0;
             foreach (List<Data_1641_5988> block in input)
-                using (JSONContext context = new JSONContext(connectionString))
+                using (JSONContext context = new JSONContext(ConnectionString))
                 {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter = counter + block.Count;
+                    //block.RemoveAll(x => x.global_id == null);
+                    counter += block.Count;
                     foreach (Data_1641_5988 row in block)
                     {
                         // if (row.GeoData == null)
                         // { row.GeoData = new geoData(); }
                     }
-                    context.data_1641_5988s.AddOrUpdate(block.ToArray());
-                    Logger.Info(string.Join(" ", typeof(Data_1641_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    context.Data_1641_5988s.AddOrUpdate(block.ToArray());
+                    Logger.Log.Info(string.Join(" ", typeof(Data_1641_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
 
-        /*public void Update(List<List<data_2624_8684>> input)
+        public void Update(List<List<Data_2624_8684>> input)
          {
              int counter = 0;
-             foreach (List<data_2624_8684> block in input)
-                 using (JSONContext context = new JSONContext(connectionString))
+             foreach (List<Data_2624_8684> block in input)
+                 using (JSONContext context = new JSONContext(ConnectionString))
                  {
                      block.RemoveAll(x => x.global_id == null);
-                     foreach (data_2624_8684 row in block)
+                     foreach (Data_2624_8684 row in block)
                      {
                          if (row.geoData == null)
-                         { row.geoData = new geoData(); }
+                         { row.geoData = new GeoData(); }
                      }
                      context.Data_2624_8684.AddOrUpdate(block.ToArray());
-                     Logger.Info(string.Join(" ", typeof(data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                     Logger.Log.Info(string.Join(" ", typeof(Data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                      context.SaveChanges();
                  }
-         }*/
-        protected void Update(List<AO> input)
-        { }
-        public void DeserializeAO(FileInfo FileName, Encoding encoding)
-        { DeserializeAO<AO_JSON_file>(FileName.OpenRead(), encoding); }
-        public void DeserializeAO(FileInfo[] Files, Encoding encoding)
+         }
+        public delegate void UpdateDelegate<T>(T X);
+        public void Update<T>(List<T> input,UpdateDelegate<T> updater)
         {
-            foreach (FileInfo file in Files)
-            { DeserializeAO(file, encoding); }
+            foreach(T ao in input)
+            { updater(ao); }
         }
-        public void DeserializeAO<T>(Stream stream, Encoding encoding) where T : AO_JSON_file
+        public delegate void UpdateDelegateTwo<T>(T X);
+        public delegate object ComparerDelegate<T>(T x);
+        public void Update<T>(IEnumerable<IQueryable<T>> input, UpdateDelegateTwo<T> updater, Expression<System.Func<Data_2624_8684,object>> comparer)
         {
-            /*  Logger.Info("Запущено преобразование AO");
-             JsonSerializerSettings jss = new JsonSerializerSettings();
-             jss.Converters.Add(new geoPolyConverter_file());
-             jss.Culture = CultureInfo.CurrentCulture;
-
-             T[] json_data = JsonConvert.DeserializeObject<T[]>((new StreamReader(stream, encoding)).ReadToEnd(),jss);
-             Logger.Info("Преобразовано AO");
-             JS.AOs.Create<AO>();
-             List<AO> data = new List<AO>();
-             foreach (T jitem in json_data)
-             {
-                 AO ditem = new AO();
-                 ditem.ADRES = jitem.ADRES;
-                 if (jitem.DDOC !=null) { ditem.DDOC = DateTime.Parse(jitem.DDOC, CultureInfo.CurrentCulture); }
-                 ditem.DMT = jitem.DMT;
-                 if (jitem.DREG != null) { ditem.DREG = DateTime.Parse(jitem.DREG, CultureInfo.CurrentCulture); }
-                if (jitem.geoData != null)
-                 {
-                     List<string> pointlist = new List<string>();
-                     List<string> polygonlist = new List<string>();
-                     var c = jitem.geoData.Coordinates;
-                     switch (jitem.geoData.Type)
-                     {
-                         case "Point":
-                             break;
-                         case "Polygon":
-                             geoPolygon polygonList = (geoPolygon)jitem.geoData.Coordinates;
-                             if (polygonList != null)
-                             {
-                                 string Pstr = "POLYGON " + (polygonList.ToString());
-                                 try { ditem.geoData = DbGeography.PolygonFromText(Pstr, 4326); }
-                                 catch (TargetInvocationException e)
-                                 {
-                                     Logger.Warn("Неправильное направление обхода точек в объекте POLYGON", e);
-                                     polygonList.Reverse();
-                                     Pstr = "POLYGON " + (polygonList.ToString());
-                                 }
-                             }
-                             break;
-                         case "MultiPolygon":
-                             geoMPolygon MpolygonList = (geoMPolygon)jitem.geoData.Coordinates;
-                             if (MpolygonList != null)
-                             {
-                                 string MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
-                                 try
-                                 {
-                                     ditem.geoData = DbGeography.MultiPolygonFromText(MPstr, 4326);
-                                 }
-                                 catch (TargetInvocationException e)
-                                 {
-                                     Logger.Warn("Неправильное направление обхода точек в объекте MULTIPOLYGON", e);
-                                     MpolygonList.Reverse();
-                                     MPstr = "MULTIPOLYGON " + (MpolygonList.ToString());
-
-                                 }
-                             }
-                             break;
-                     }
-                 }
-                 else ditem.geoData = null;
-                 ditem.global_id = jitem.global_id;
-                 ditem.KAD_KV = jitem.KAD_KV;
-                 ditem.KAD_RN = jitem.KAD_RN;
-                 ditem.KAD_ZU = jitem.KAD_ZU;
-                 ditem.NDOC = jitem.NDOC;
-                 ditem.NREG = jitem.NREG;
-                 ditem.SOOR = jitem.SOOR;
-                 ditem.STRT = jitem.STRT;
-                 ditem.system_object_id = jitem.system_object_id;
-                 ditem.TDOC = jitem.TDOC;
-                 ditem.UNOM = jitem.UNOM;
-                 ditem.VLD = jitem.VLD;
-                 ditem.VYVAD = jitem.VYVAD;
-                 ditem.KRT = jitem.KRT;
-                 data.Add(ditem);
-             }
-             JS.AOs.AddRange(data);
-             JS.SaveChanges();
-             Logger.Info("Сохранено AO");*/
+            int counter = 0;
+            foreach (IEnumerable<T> block in input)
+                using (JSONContext context = new JSONContext(ConnectionString))
+                {
+                    foreach (T row in block)
+                    {
+                        updater(row);
+                    }
+                    //context.AddOrUpdate(comparer, block.ToArray());
+                    Logger.Log.Info(string.Join(" ", typeof(Data_2624_8684).Name, "Сохранено", block.Count().ToString(), "всего", counter.ToString()));
+                    context.SaveChanges();
+                }
         }
 
         public void DeserializeAO_site(Stream stream, Encoding encoding)
         {
-            Logger.Info("Запущено преобразование AO");
+            Logger.Log.Info("Запущено преобразование AO");
             JsonSerializerSettings jss = new JsonSerializerSettings();
             jss.Converters.Add(new GeoPolyConverterSite());
             jss.Culture = CultureInfo.CurrentCulture;
 
             AO_JSON_site[] json_data = JsonConvert.DeserializeObject<AO_JSON_site[]>((new StreamReader(stream, encoding)).ReadToEnd(), jss);
-            Logger.Info("Преобразовано AO");
-            JS.AOs.Create<AO>();
+            Logger.Log.Info("Преобразовано AO");
+            ContextMain.AOs.Create<AO>();
             List<AO> data = new List<AO>();
             foreach (AO_JSON_site jitem in json_data)
             {
-                AO ditem = new AO();
-                ditem.ADRES = jitem.Cells.ADRES;
+                AO ditem = new AO
+                {
+                    ADRES = jitem.Cells.ADRES
+                };
                 if (jitem.Cells.DDOC != null) { ditem.DDOC = DateTime.Parse(jitem.Cells.DDOC, CultureInfo.CurrentCulture); }
                 ditem.DMT = jitem.Cells.DMT;
                 if (jitem.Cells.DREG != null) { ditem.DREG = DateTime.Parse(jitem.Cells.DREG, CultureInfo.CurrentCulture); }
@@ -286,17 +281,16 @@ namespace data_mos_ru
                 ditem.KRT = jitem.Cells.KRT;
                 data.Add(ditem);
             }
-            JS.AOs.AddRange(data);
-            JS.SaveChanges();
-            Logger.Info("Сохранено AO");
+            ContextMain.AOs.AddRange(data);
+            ContextMain.SaveChanges();
+            Logger.Log.Info("Сохранено AO");
         }
         public void DeserializeAO(Encoding encoding)
         {
-            Loader.Dataset = "1927";
-            Loader.Load(encoding);
+            DataLoader.Dataset = "1927";
+            DataLoader.Load(encoding);
             // foreach (string S in Loader.Result)
-            string S;
-            while (Loader.Result.TryDequeue(out S))
+            while (DataLoader.Result.TryDequeue(out string S))
             {
                 MemoryStream ms = new MemoryStream(encoding.GetBytes(S));
                 DeserializeAO_site(ms, encoding);
@@ -315,10 +309,12 @@ namespace data_mos_ru
             {
 
                 var geo = f.Geometry.AsText();
-                AO_geojson AO = new AO_geojson();
-                AO.NAME = (string)f.Attributes["NAME"];
-                AO.OKATO = (string)f.Attributes["OKATO"];
-                AO.ABBREV = (string)f.Attributes["ABBREV"];
+                AO_geojson AO = new AO_geojson
+                {
+                    NAME = (string)f.Attributes["NAME"],
+                    OKATO = (string)f.Attributes["OKATO"],
+                    ABBREV = (string)f.Attributes["ABBREV"]
+                };
                 try
                 {
                     AO.geometry = DbGeography.FromText(f.Geometry.AsText(), 4326);
@@ -338,20 +334,20 @@ namespace data_mos_ru
                 }
                 flist.Add(AO);
             }
-            JS.Configuration.AutoDetectChangesEnabled = false;
-            JS.AO_geojsons.AddRange(flist);
-            JS.SaveChanges();
-            JS.Configuration.AutoDetectChangesEnabled = true;
+            ContextMain.Configuration.AutoDetectChangesEnabled = false;
+            ContextMain.AO_geojsons.AddRange(flist);
+            ContextMain.SaveChanges();
+            ContextMain.Configuration.AutoDetectChangesEnabled = true;
         }
 
-        public T FirstVal<T>(IEnumerable<T> list)
+        public string FirstVal<T>(IEnumerable<T> list)
         {
             if (list.Any())
             {
-                return list.FirstOrDefault();
+                return list.FirstOrDefault().ToString().Replace("&#171;", "\"").Replace("&#187;", "\"");
             }
             else
-                return default(T);
+                return null;
         }
         public OrganizationType FirstVal<T>(IEnumerable<T> list, string FullTypeName) where T : OrganizationType
         {
@@ -365,6 +361,7 @@ namespace data_mos_ru
         public void UpdateOrganizationsByDomMosRu()
         {
             JSONContext context = new JSONContext();
+            Regex reHref = new Regex("&#\\d+;");
             List<UPRsite> inserted = (from upr in context.UPRsites
                                       select upr).ToList();
             foreach (UPRsite uprsite in inserted)
@@ -377,10 +374,9 @@ namespace data_mos_ru
                 var form = FirstVal(uprsite.InfTableRows.Where(p => p.Name != null && p.Name.Trim() == "Организационно-правовая форма" ? true : false).Select(p => p.Value));
                 var orgType = FirstVal(context.OrganizationTypes.ToList().Where(ot => ot.FullTypeName.Trim() == form ? true : false).ToList(), form);
                 var fio = FirstVal(uprsite.InfTableRows.Where(p => p.Name.Trim() == "ФИО руководителя (председателя)" ? true : false).Select(p => p.Value));
-
                 Organization organization = new Organization()
                 {
-                    Id=uprsite.ID,
+                    Id = uprsite.ID,
                     FullName = uprsite.Name,
                     OGRN = ogrn,
                     INN = inn,
@@ -392,23 +388,23 @@ namespace data_mos_ru
                 //organization.DirectorPosition.Add(dirpos);
                 if (organization.OGRN != null)
                 {
-                    context.Organizations.AddOrUpdate<Organization>(p => new { p.OGRN}, organization);
+                    context.Organizations.AddOrUpdate(p => new { p.OGRN }, organization);
                 }
                 else
                 {
-                    context.Organizations.AddOrUpdate<Organization>(p => new { p.Id }, organization);
+                    context.Organizations.AddOrUpdate(p => new { p.Id }, organization);
                 }
                 context.SaveChanges();
                 if (fio.Any())
                 {
-                    var dirpos = (new DirectorPosition()
+                    var dirpos = (new AccountantGeneralPosition()
                     {
                         PositionType = new PersonPositionType() { PositionType = "" },
                         Human = new Person() { Family = fio, Id = Guid.NewGuid() },
                         InstDocument = new Document() { DocumentName = "" },
                         Organization_Id = organization.Id
                     });
-                    context.DirectorPositions.AddOrUpdate(p => p.Organization_Id, dirpos);
+                    context.AccountantGeneralPositions.AddOrUpdate(p => p.Organization_Id, dirpos);
                     context.SaveChanges();
                 }
             }
@@ -427,14 +423,16 @@ namespace data_mos_ru
             {
 
                 var geo = f.Geometry.AsText();
-                MO_geojson MO = new MO_geojson();
-                MO.NAME = (string)f.Attributes["NAME"];
-                MO.OKATO = (string)f.Attributes["OKATO"];
-                MO.ABBREV_AO = (string)f.Attributes["ABBREV_AO"];
-                MO.OKTMO = (string)f.Attributes["OKTMO"];
-                MO.NAME_AO = (string)f.Attributes["NAME_AO"];
-                MO.OKATO_AO = (string)f.Attributes["OKATO_AO"];
-                MO.TYPE_MO = (string)f.Attributes["TYPE_MO"];
+                MO_geojson MO = new MO_geojson
+                {
+                    NAME = (string)f.Attributes["NAME"],
+                    OKATO = (string)f.Attributes["OKATO"],
+                    ABBREV_AO = (string)f.Attributes["ABBREV_AO"],
+                    OKTMO = (string)f.Attributes["OKTMO"],
+                    NAME_AO = (string)f.Attributes["NAME_AO"],
+                    OKATO_AO = (string)f.Attributes["OKATO_AO"],
+                    TYPE_MO = (string)f.Attributes["TYPE_MO"]
+                };
                 try
                 {
                     MO.geometry = DbGeography.FromText(f.Geometry.AsText(), 4326);
@@ -454,10 +452,10 @@ namespace data_mos_ru
                 }
                 flist.Add(MO);
             }
-            JS.Configuration.AutoDetectChangesEnabled = false;
-            JS.MO_geojsons.AddRange(flist);
-            JS.SaveChanges();
-            JS.Configuration.AutoDetectChangesEnabled = true;
+            ContextMain.Configuration.AutoDetectChangesEnabled = false;
+            ContextMain.MO_geojsons.AddRange(flist);
+            ContextMain.SaveChanges();
+            ContextMain.Configuration.AutoDetectChangesEnabled = true;
         }
     }
 }

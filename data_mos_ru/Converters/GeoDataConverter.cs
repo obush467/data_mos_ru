@@ -41,7 +41,11 @@ namespace data_mos_ru
                             geo.Coordinates = BtiGeoDeserializer.MPolygon(obj.Properties().Where(p => p.Name.StartsWith("coordinates")).First());
                             break;
                         }
-                    default: { throw new JsonSerializationException("Unrecognized type: geo"); }
+                    default: {
+                            geo.Coordinates = null;
+                            //throw new JsonSerializationException("Unrecognized type: geo"); 
+                            break;
+                        }
                 };
             }
             //if (geo.Type != null || geo.Coordinates != null || geo.Сenter !=null)

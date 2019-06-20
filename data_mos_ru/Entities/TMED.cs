@@ -42,7 +42,7 @@ namespace data_mos_ru.Entities
     public class TMED_Cell
     {
         [DataMember]
-        public Nullable<int> global_id { get; set; }
+        public int? global_id { get; set; }
         [DataMember]
         [MaxLength(4000)]
         public string TM_COMM { get; set; }

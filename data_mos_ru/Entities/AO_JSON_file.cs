@@ -17,13 +17,13 @@ namespace data_mos_ru.Entities
             [DataMember]
             public string system_object_id { get; set; }
             [DataMember]
-            public Nullable<int> UNOM { get; set; }
+            public int? UNOM { get; set; }
             [DataMember]
-            public Nullable<int> KAD_RN { get; set; }
+            public int? KAD_RN { get; set; }
             [DataMember]
-            public Nullable<int> KAD_KV { get; set; }
+            public int? KAD_KV { get; set; }
             [DataMember]
-            public Nullable<int> KAD_ZU { get; set; }
+            public int? KAD_ZU { get; set; }
             [DataMember]
             public string DMT { get; set; }
             [DataMember]
@@ -41,7 +41,7 @@ namespace data_mos_ru.Entities
             [DataMember]
             public string DDOC { get; set; }
             [DataMember]
-            public Nullable<int> NREG { get; set; }
+            public int? NREG { get; set; }
             [DataMember]
             public string DREG { get; set; }
             [DataMember]

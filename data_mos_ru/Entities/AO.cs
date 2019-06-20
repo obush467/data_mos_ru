@@ -23,13 +23,13 @@ namespace data_mos_ru.Entities
         [MaxLength(4000)]
         public string system_object_id { get; set; }
         [DataMember]
-        public Nullable<int> UNOM { get; set; }
+        public int? UNOM { get; set; }
         [DataMember]
-        public Nullable<int> KAD_RN { get; set; }
+        public int? KAD_RN { get; set; }
         [DataMember]
-        public Nullable<int> KAD_KV { get; set; }
+        public int? KAD_KV { get; set; }
         [DataMember]
-        public Nullable<int> KAD_ZU { get; set; }
+        public int? KAD_ZU { get; set; }
         [DataMember]
         [MaxLength(4000)]
         public string DMT { get; set; }
@@ -52,11 +52,11 @@ namespace data_mos_ru.Entities
         [MaxLength(4000)]
         public string NDOC { get; set; }
         [DataMember]
-        public Nullable<DateTime> DDOC { get; set; }
+        public DateTime? DDOC { get; set; }
         [DataMember]
-        public Nullable<int> NREG { get; set; }
+        public int? NREG { get; set; }
         [DataMember]
-        public Nullable<DateTime> DREG { get; set; }
+        public DateTime? DREG { get; set; }
         [DataMember]
         [MaxLength(4000)]
         public string VYVAD { get; set; }

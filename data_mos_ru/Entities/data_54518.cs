@@ -12,7 +12,7 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -45,7 +45,7 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -60,7 +60,7 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -75,7 +75,7 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -89,12 +89,12 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public string available_index { get; set; }
+        public string Available_index { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -109,7 +109,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public string available_degree { get; set; }
+        public string Available_degree { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -122,33 +122,33 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Available_elementItem> available_element { get; set; }
+        public List<Available_elementItem> Available_element { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public string available_o { get; set; }
+        public string Available_o { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public string available_z { get; set; }
+        public string Available_z { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public string available_s { get; set; }
+        public string Available_s { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public string available_k { get; set; }
+        public string Available_k { get; set; }
     }
     [Table("InstitutionsAddressesItem", Schema = "data_mos_ru")]
     [DataContract(Name = "InstitutionsAddressesItem")]
@@ -156,7 +156,7 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -213,17 +213,17 @@ namespace data_mos_ru.Entities
     }
     [Table("data_54518", Schema = "data_mos_ru")]
     [DataContract(Name = "data_54518")]
-    public class data_54518
+    public class Data_54518
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public int global_id { get; set; }
+        public int Global_id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -324,7 +324,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public GeoData geoData { get; set; }
+        public GeoData GeoData { get; set; }
     }
 }
 

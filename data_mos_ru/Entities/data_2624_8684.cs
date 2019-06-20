@@ -16,7 +16,7 @@ namespace data_mos_ru.Entities
         [MaxLength(50)]
         public string PublicPhone { get; set; }
     }
-    public class data_2624_8684 //Религиозные объекты Русской православной церкви
+    public class Data_2624_8684 //Религиозные объекты Русской православной церкви
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

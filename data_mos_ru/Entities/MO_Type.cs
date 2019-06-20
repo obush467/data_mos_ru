@@ -13,7 +13,7 @@ namespace data_mos_ru.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         [DataMember]
-        public Nullable<int> Number { get; set; }
+        public int? Number { get; set; }
 
         [DataMember]
         public int global_id { get; set; }

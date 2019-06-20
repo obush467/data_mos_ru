@@ -97,7 +97,7 @@ namespace data_mos_ru.Entities
 
                 }
             }
-            //logger.Debug(upr.Url);
+            //Logger.Log.Debug(upr.Url);
         }
     }
 }
