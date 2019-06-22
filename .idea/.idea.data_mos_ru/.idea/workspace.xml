@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+    <treeState key="project">
+      <selectedPath>
+        <pathElement>
+          <option name="myNodeId" value="helperText" />
+          <option name="myNodeType" value="jetbrains.buildServer.tree.descriptors.LinkedTextDescriptor" />
+        </pathElement>
+      </selectedPath>
+    </treeState>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="35624d23-83f3-4154-a2f8-4eadb4a19023" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_mos_ru/data_mos_ru.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/data_mos_ru/data_mos_ru.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_mos_ru/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/data_mos_ru/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_mos_ru_Test/data_mos_ru_Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/data_mos_ru_Test/data_mos_ru_Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_mos_ru_Test/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/data_mos_ru_Test/packages.config" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru.csproj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="461" column="8" selection-start-line="461" selection-start-column="4" selection-end-line="461" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_mos_ru_Test/App.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-462" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_mos_ru/App.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_mos_ru_Test/Program.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding>
+                <marker date="1560605023218" expanded="true" signature="6:199" ph="..." />
+                <marker date="1560605023218" expanded="true" signature="231:3622" ph="{...}" />
+                <marker date="1560605023218" expanded="true" signature="251:3620" ph="{...}" />
+                <marker date="1560605023218" expanded="true" signature="298:3614" ph="{...}" />
+                <marker date="1560605023218" expanded="true" signature="1366:2503" ph="/* FileInfo[] d6427 = wdir.GetFiles(&quot;data-6427*.json&quot;)[0]; ... */" />
+                <marker date="1560605023218" expanded="true" signature="2552:2778" ph="/* dmrOper.DeserializeOMK002_2013_1(&quot;D:\\data_mos_ru\\data-6434-2017-12-24\\data-6434-2017-12-24.json&quot;, Encoding. ... */" />
+                <marker date="1560605023218" expanded="true" signature="2793:3603" ph="/* dmrOper.DeserializeAO(new DirectoryInfo(&quot;D:\\data_mos_ru\\data-4277-2017-11-23&quot;).GetFiles(&quot;*.json&quot;), Encoding. ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
+              <folding>
+                <marker date="1560606093536" expanded="true" signature="6:113" ph="..." />
+                <marker date="1560606093536" expanded="true" signature="136:2321" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="181:2319" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="244:316" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="441:2051" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="620:769" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="847:1897" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="943:1882" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="2090:2144" ph="{...}" />
+                <marker date="1560606093536" expanded="true" signature="2244:2313" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>property</find>
+      <find>item</find>
+      <find>com</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru_Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Migrations/201906041139426_InitialCreate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru_Test/App.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/dom_mos_ru_Loader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru_Test/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/httpQueryNameValueCollection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru_Operator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoLinestring.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/JSONContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/packages.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/House.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/geoData_JSON.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoDataBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoMPolygon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru_Test/packages.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoPolygon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Converters/BtiGeoDeserializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/data_2624_8684.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Converters/GeoDataConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/App.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Converters/GeoPolyConverterSite.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/data_7382.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/SqlServerTypes/Loader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO_60562.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO_JSON_site.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Migrations/201906041145573_1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/data_mos_ru/Migrations/Configuration.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/data_mos_ru/Entityes/geoData_JSON.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entityes/data_7382.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/data_7382.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/geoData_JSON.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/httpQueryNameValueCollection.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/data_mos_ru_Loader.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/packages.config" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/House.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/dom_mos_ru_Loader.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/geoDataBase.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/GeoLinestring.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Converters/BtiGeoDeserializer.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Converters/GeoDataConverter.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Converters/GeoPolyConverterSite.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/GeoDataBase.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/GeoMPolygon.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/GeoPoint.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/geoData/GeoPolygon.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/AO.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/AO_JSON_site.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/AO_60562.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Entities/data_2624_8684.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/JSONContext.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/data_mos_ru_Operator.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru_Test/Program.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Migrations/Configuration.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Migrations/201906041145573_1.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs" />
+        <option value="$PROJECT_DIR$/data_mos_ru/data_mos_ru.csproj" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="85" />
+    <option name="y" value="27" />
+    <option name="width" value="1621" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <autoscrollToSource AssemblyExplorer="false" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="data_mos_ru" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="data_mos_ru" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="data_mos_ru" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="data_mos_ru" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="data_mos_ru_Test" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data_mos_ru.sln" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.Default">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/data_mos_ru_Test/bin/Debug/data_mos_ru_Test.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_mos_ru_Test/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/data_mos_ru_Test/data_mos_ru_Test.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.6.1" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35624d23-83f3-4154-a2f8-4eadb4a19023" name="Default Changelist" comment="" />
+      <created>1560590011945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560590011945</updated>
+      <workItem from="1560590017972" duration="8717000" />
+      <workItem from="1560598922923" duration="3801000" />
+      <workItem from="1560603338234" duration="25000" />
+      <workItem from="1560603532143" duration="782000" />
+      <workItem from="1560604677162" duration="5637000" />
+    </task>
+    <task id="LOCAL-00001" summary="2019-06-15 дома удалил geojson">
+      <created>1560602612692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560602612692</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="18962000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="85" y="27" width="1621" height="1000" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.401655" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Repositories" order="5" weight="0.32994652" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32827103" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" sideWeight="0.80748665" visible="true" weight="0.26401868" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32827103" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32893288" />
+      <window_info anchor="bottom" id="Performance Profiler" order="11" weight="0.32827103" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.19251336" side_tool="true" weight="0.29042906" />
+      <window_info anchor="bottom" id="NuGet" order="13" sideWeight="0.49893048" weight="0.6775701" />
+      <window_info anchor="bottom" id="Unit Tests" order="14" weight="0.32943925" />
+      <window_info anchor="bottom" id="Database Changes" order="15" />
+      <window_info anchor="bottom" id="Version Control" order="16" weight="0.62733644" />
+      <window_info anchor="bottom" id="TeamCity" order="17" weight="0.32827103" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Errors In Solution" order="4" weight="0.32994652" />
+      <window_info anchor="right" id="Unit Tests Coverage" order="5" weight="0.32994652" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32972628" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2019-06-15 дома удалил geojson" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019-06-15 дома удалил geojson" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/data_7382.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/geoData_JSON.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <marker date="1560591246490" expanded="true" signature="6:114" ph="..." />
+            <marker date="1560591246490" expanded="true" signature="146:512" ph="{...}" />
+            <marker date="1560591246490" expanded="true" signature="173:510" ph="{...}" />
+            <marker date="1560591246490" expanded="true" signature="441:504" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru_Loader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <marker date="1560592224777" expanded="true" signature="6:204" ph="..." />
+            <marker date="1560592224777" expanded="true" signature="228:4433" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="266:4431" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="793:952" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="998:1068" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="1120:2298" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="1309:2226" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="1589:2183" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="1666:2165" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="1812:2143" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="2259:2288" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="2367:3190" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="2465:3096" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="2921:2974" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="2999:3080" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3301:3487" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3583:3886" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3620:3876" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3654:3808" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3842:3862" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="3953:4197" ph="{...}" />
+            <marker date="1560592224777" expanded="true" signature="4263:4427" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.Rider2019.1/system/log/SolutionBuilder/JetBrainsLog.ReSharperBuild_2019_06_15_10_56_29_7865.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state>
+          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/House.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/dom_mos_ru_Loader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <marker date="1560597140374" expanded="true" signature="6:213" ph="..." />
+            <marker date="1560597140374" expanded="true" signature="237:4009" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="274:4007" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="624:714" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="759:834" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="886:1463" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="1164:1453" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="1530:1875" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="1954:2719" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="2138:2245" ph="/* join _old in context.UPRsites.ToList() on _upr.ID equals _old.ID into l ... */" />
+            <marker date="1560597140374" expanded="true" signature="2328:2680" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="2515:2627" ph="/* var mergedUprSites = new List&lt;UPRsite&gt;(); ... */" />
+            <marker date="1560597140374" expanded="true" signature="2776:2812" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="2895:3361" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3019:3298" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3429:3441" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3551:3619" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3683:3754" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3822:3999" ph="{...}" />
+            <marker date="1560597140374" expanded="true" signature="3890:3941" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/SqlServerTypes/Loader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/SqlServerTypes/readme.htm">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoPolygon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <marker date="1560599357634" expanded="true" signature="6:95" ph="..." />
+            <marker date="1560599357634" expanded="true" signature="118:892" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="170:890" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="216:378" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="282:368" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="473:556" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="598:644" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="686:776" ph="{...}" />
+            <marker date="1560599357634" expanded="true" signature="806:883" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoDataBase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <marker date="1560599357594" expanded="true" signature="6:67" ph="..." />
+            <marker date="1560599357594" expanded="true" signature="90:1188" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="115:266" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="337:517" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="568:1186" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="681:757" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="815:890" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="930:1180" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="1022:1081" ph="{...}" />
+            <marker date="1560599357594" expanded="true" signature="1098:1170" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoLinestring.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <marker date="1560597452024" expanded="true" signature="6:95" ph="..." />
+            <marker date="1560597452024" expanded="true" signature="118:1034" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="177:1032" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="227:374" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="288:364" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="425:505" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="555:634" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="665:913" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="755:819" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="836:903" ph="{...}" />
+            <marker date="1560597452024" expanded="true" signature="955:1026" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoMPolygon.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1560599357450" expanded="true" signature="6:109" ph="..." />
+            <marker date="1560599357450" expanded="true" signature="133:921" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="190:919" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="280:438" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="343:428" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="480:555" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="585:654" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="706:794" ph="{...}" />
+            <marker date="1560599357450" expanded="true" signature="844:913" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Converters/BtiGeoDeserializer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <marker date="1560598185700" expanded="true" signature="6:61" ph="..." />
+            <marker date="1560598185700" expanded="true" signature="95:639" ph="{...}" />
+            <marker date="1560598185700" expanded="true" signature="133:637" ph="{...}" />
+            <marker date="1560598185700" expanded="true" signature="202:302" ph="{...}" />
+            <marker date="1560598185700" expanded="true" signature="366:469" ph="{...}" />
+            <marker date="1560598185700" expanded="true" signature="533:631" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Converters/GeoDataConverter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <marker date="1560598185624" expanded="true" signature="6:141" ph="..." />
+            <marker date="1560598185624" expanded="true" signature="164:2349" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="209:2347" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="272:344" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="469:2079" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="648:797" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="875:1925" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="971:1910" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="2118:2172" ph="{...}" />
+            <marker date="1560598185624" expanded="true" signature="2272:2341" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Converters/GeoPolyConverterSite.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <marker date="1560598185664" expanded="true" signature="6:119" ph="..." />
+            <marker date="1560598185664" expanded="true" signature="142:2242" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="191:2240" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="254:309" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="434:1994" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="1807:1961" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="2033:2065" ph="{...}" />
+            <marker date="1560598185664" expanded="true" signature="2165:2234" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/geoData/GeoPoint.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1560599357550" expanded="true" signature="6:103" ph="..." />
+            <marker date="1560599357550" expanded="true" signature="126:2075" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="164:2073" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="436:462" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="543:583" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="623:1394" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="743:1370" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1424:1631" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1473:1532" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1549:1621" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1673:1814" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1866:1942" ph="{...}" />
+            <marker date="1560599357550" expanded="true" signature="1992:2067" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/data_2624_8684.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding>
+            <marker date="1560601362539" expanded="true" signature="6:180" ph="..." />
+            <marker date="1560601362539" expanded="true" signature="211:1924" ph="{...}" />
+            <marker date="1560601362539" expanded="true" signature="242:524" ph="{...}" />
+            <marker date="1560601362539" expanded="true" signature="606:1922" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO_JSON_site.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-199">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <marker date="1560600757110" expanded="true" signature="6:122" ph="..." />
+            <marker date="1560600757110" expanded="true" signature="155:1677" ph="{...}" />
+            <marker date="1560600757110" expanded="true" signature="187:299" ph="{...}" />
+            <marker date="1560600757110" expanded="true" signature="331:1675" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/JSONContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+          <folding>
+            <marker date="1560602030815" expanded="false" signature="0:53" ph="..." />
+            <marker date="1560602030815" expanded="true" signature="76:1319" ph="{...}" />
+            <marker date="1560602030815" expanded="true" signature="117:1317" ph="{...}" />
+            <marker date="1560602030815" expanded="true" signature="212:231" ph="{...}" />
+            <marker date="1560602030815" expanded="true" signature="278:289" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Migrations/201906041145573_1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding>
+            <marker date="1560602035291" expanded="true" signature="32:255" ph="{...}" />
+            <marker date="1560602035291" expanded="true" signature="122:253" ph="{...}" />
+            <marker date="1560602035291" expanded="true" signature="162:182" ph="{...}" />
+            <marker date="1560602035291" expanded="true" signature="227:247" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/packages.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru_Test/packages.config">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Migrations/201906041139426_InitialCreate.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding>
+            <marker date="1560602035343" expanded="true" signature="32:19284" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="133:19282" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="173:16857" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="294:2450" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="2617:2933" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="3092:4241" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="4412:5681" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="5872:6088" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="6426:6733" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="7068:7280" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="7620:7875" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="8217:8523" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="8849:9706" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="9867:10131" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="10425:10983" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="11147:11468" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="11627:12261" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="12431:12884" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="13054:13322" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="13486:13747" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="13908:14490" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="14649:15292" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="15456:15863" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="16022:16793" ph="{...}" />
+            <marker date="1560602035343" expanded="true" signature="16902:19276" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Migrations/Configuration.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding>
+            <marker date="1560602035247" expanded="true" signature="70:889" ph="{...}" />
+            <marker date="1560602035247" expanded="true" signature="153:887" ph="{...}" />
+            <marker date="1560602035247" expanded="true" signature="190:258" ph="{...}" />
+            <marker date="1560602035247" expanded="true" signature="317:881" ph="{...}" />
+            <marker date="1560602035247" expanded="true" signature="340:871" ph="/* This method will be called after migrating to the latest version. ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/httpQueryNameValueCollection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding>
+            <marker date="1560591897927" expanded="true" signature="6:101" ph="..." />
+            <marker date="1560591897927" expanded="true" signature="124:609" ph="{...}" />
+            <marker date="1560591897927" expanded="true" signature="192:607" ph="{...}" />
+            <marker date="1560591897927" expanded="true" signature="297:601" ph="{...}" />
+            <marker date="1560591897927" expanded="true" signature="459:544" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO_60562.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+          <folding>
+            <marker date="1560601633457" expanded="true" signature="6:146" ph="..." />
+            <marker date="1560601633457" expanded="true" signature="178:3342" ph="{...}" />
+            <marker date="1560601633457" expanded="true" signature="292:3339" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Entities/AO.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1560600702362" expanded="true" signature="6:180" ph="..." />
+            <marker date="1560600702362" expanded="true" signature="213:1989" ph="{...}" />
+            <marker date="1560600702362" expanded="true" signature="309:1986" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru_Operator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding>
+            <marker date="1560601832652" expanded="true" signature="6:219" ph="..." />
+            <marker date="1560601832652" expanded="true" signature="243:6436" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="271:6434" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="544:901" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="937:1008" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="1039:1204" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="1279:1783" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="1860:2135" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="2191:3054" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="2379:3044" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="2548:2750" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="2619:2728" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="3105:3704" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="3288:3694" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="3762:4630" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="3952:4620" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="4123:4325" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="4194:4303" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="4692:5533" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="4886:5523" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="5061:5217" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="5108:5195" ph="/* if (row.GeoData == null) ... */" />
+            <marker date="1560601832652" expanded="true" signature="5595:6428" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="5789:6418" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="5911:6113" ph="{...}" />
+            <marker date="1560601832652" expanded="true" signature="5982:6091" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Properties/AssemblyInfo.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1560602035391" expanded="true" signature="6:62" ph="..." />
+            <marker date="1560602035391" expanded="true" signature="64:235" ph="/* Управление общими сведениями о сборке осуществляется с помощью ... */" />
+            <marker date="1560602035391" expanded="true" signature="544:763" ph="/* Параметр ComVisible со значением FALSE делает типы в сборке невидимыми ... */" />
+            <marker date="1560602035391" expanded="true" signature="953:1284" ph="/* Сведения о версии сборки состоят из следующих четырех значений: ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/Converters/geoDataConverter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <marker date="1560606093536" expanded="true" signature="6:113" ph="..." />
+            <marker date="1560606093536" expanded="true" signature="136:2321" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="181:2319" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="244:316" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="441:2051" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="620:769" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="847:1897" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="943:1882" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="2090:2144" ph="{...}" />
+            <marker date="1560606093536" expanded="true" signature="2244:2313" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru_Test/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <marker date="1560605023218" expanded="true" signature="6:199" ph="..." />
+            <marker date="1560605023218" expanded="true" signature="231:3622" ph="{...}" />
+            <marker date="1560605023218" expanded="true" signature="251:3620" ph="{...}" />
+            <marker date="1560605023218" expanded="true" signature="298:3614" ph="{...}" />
+            <marker date="1560605023218" expanded="true" signature="1366:2503" ph="/* FileInfo[] d6427 = wdir.GetFiles(&quot;data-6427*.json&quot;)[0]; ... */" />
+            <marker date="1560605023218" expanded="true" signature="2552:2778" ph="/* dmrOper.DeserializeOMK002_2013_1(&quot;D:\\data_mos_ru\\data-6434-2017-12-24\\data-6434-2017-12-24.json&quot;, Encoding. ... */" />
+            <marker date="1560605023218" expanded="true" signature="2793:3603" ph="/* dmrOper.DeserializeAO(new DirectoryInfo(&quot;D:\\data_mos_ru\\data-4277-2017-11-23&quot;).GetFiles(&quot;*.json&quot;), Encoding. ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/data_mos_ru.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="461" column="8" selection-start-line="461" selection-start-column="4" selection-end-line="461" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru_Test/App.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-462" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_mos_ru/App.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

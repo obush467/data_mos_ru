@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.1/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_data_mos_ru.-2140680296.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="data_mos_ru" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="Converters" t="Include">
+          <e p="BtiGeoDeserializer.cs" t="Include" />
+          <e p="geoDataConverter.cs" t="Include" />
+          <e p="geoPolyConverter_site.cs" t="Include" />
+        </e>
+        <e p="Entityes" t="Include">
+          <e p="AO.cs" t="Include" />
+          <e p="AO_60562.cs" t="Include" />
+          <e p="AO_JSON_file.cs" t="Include" />
+          <e p="AO_JSON_site.cs" t="Include" />
+          <e p="AO_geojson.cs" t="Include" />
+          <e p="House.cs" t="Include" />
+          <e p="HouseList.cs" t="Include" />
+          <e p="InfTableRow.cs" t="Include" />
+          <e p="MO.cs" t="Include" />
+          <e p="MO_Type.cs" t="Include" />
+          <e p="MO_geojson.cs" t="Include" />
+          <e p="OMK002-2013_1.cs" t="Include" />
+          <e p="OMK002-2013_2.cs" t="Include" />
+          <e p="TM.cs" t="Include" />
+          <e p="TMED.cs" t="Include" />
+          <e p="TM_Type.cs" t="Include" />
+          <e p="UM.cs" t="Include" />
+          <e p="UM_Type.cs" t="Include" />
+          <e p="UPR.cs" t="Include" />
+          <e p="UPRSite.cs" t="Include" />
+          <e p="data_1181_7382.cs" t="Include" />
+          <e p="data_1641_5988.cs" t="Include" />
+          <e p="data_2624_8684.cs" t="Include" />
+          <e p="data_54518.cs" t="Include" />
+          <e p="data_7382.cs" t="Include" />
+          <e p="data_ObjectAddress.cs" t="Include" />
+          <e p="data_OrgInfo.cs" t="Include" />
+          <e p="data_Phone.cs" t="Include" />
+        </e>
+        <e p="JSON" t="Include">
+          <e p="data_1181_7382_struct.json" t="Include" />
+          <e p="data_1641_5988_struct.json" t="Include" />
+        </e>
+        <e p="JSONContext.cs" t="Include" />
+        <e p="Migrations" t="Include">
+          <e p="201906041139426_InitialCreate.Designer.cs" t="Include" />
+          <e p="201906041139426_InitialCreate.cs" t="Include" />
+          <e p="201906041139426_InitialCreate.resx" t="Include" />
+          <e p="201906041145573_1.Designer.cs" t="Include" />
+          <e p="201906041145573_1.cs" t="Include" />
+          <e p="201906041145573_1.resx" t="Include" />
+          <e p="201906101242428_2.Designer.cs" t="Include" />
+          <e p="201906101242428_2.cs" t="Include" />
+          <e p="201906101242428_2.resx" t="Include" />
+          <e p="201906101252260_3.Designer.cs" t="Include" />
+          <e p="201906101252260_3.cs" t="Include" />
+          <e p="201906101252260_3.resx" t="Include" />
+          <e p="201906101407376_4.Designer.cs" t="Include" />
+          <e p="201906101407376_4.cs" t="Include" />
+          <e p="201906101407376_4.resx" t="Include" />
+          <e p="201906101410578_5.Designer.cs" t="Include" />
+          <e p="201906101410578_5.cs" t="Include" />
+          <e p="201906101410578_5.resx" t="Include" />
+          <e p="201906101429063_6.Designer.cs" t="Include" />
+          <e p="201906101429063_6.cs" t="Include" />
+          <e p="201906101429063_6.resx" t="Include" />
+          <e p="201906101435159_7.Designer.cs" t="Include" />
+          <e p="201906101435159_7.cs" t="Include" />
+          <e p="201906101435159_7.resx" t="Include" />
+          <e p="201906101441412_8.Designer.cs" t="Include" />
+          <e p="201906101441412_8.cs" t="Include" />
+          <e p="201906101441412_8.resx" t="Include" />
+          <e p="201906101450103_9.Designer.cs" t="Include" />
+          <e p="201906101450103_9.cs" t="Include" />
+          <e p="201906101450103_9.resx" t="Include" />
+          <e p="201906101457159_10.Designer.cs" t="Include" />
+          <e p="201906101457159_10.cs" t="Include" />
+          <e p="201906101457159_10.resx" t="Include" />
+          <e p="201906101554049_11.Designer.cs" t="Include" />
+          <e p="201906101554049_11.cs" t="Include" />
+          <e p="201906101554049_11.resx" t="Include" />
+          <e p="201906112009374_66.Designer.cs" t="Include" />
+          <e p="201906112009374_66.cs" t="Include" />
+          <e p="201906112009374_66.resx" t="Include" />
+          <e p="201906112010067_77.Designer.cs" t="Include" />
+          <e p="201906112010067_77.cs" t="Include" />
+          <e p="201906112010067_77.resx" t="Include" />
+          <e p="201906112014374_888.Designer.cs" t="Include" />
+          <e p="201906112014374_888.cs" t="Include" />
+          <e p="201906112014374_888.resx" t="Include" />
+          <e p="201906112017412_111.Designer.cs" t="Include" />
+          <e p="201906112017412_111.cs" t="Include" />
+          <e p="201906112017412_111.resx" t="Include" />
+          <e p="201906112020315_555.Designer.cs" t="Include" />
+          <e p="201906112020315_555.cs" t="Include" />
+          <e p="201906112020315_555.resx" t="Include" />
+          <e p="201906112039567_111222.Designer.cs" t="Include" />
+          <e p="201906112039567_111222.cs" t="Include" />
+          <e p="201906112039567_111222.resx" t="Include" />
+          <e p="201906130632328_55.Designer.cs" t="Include" />
+          <e p="201906130632328_55.cs" t="Include" />
+          <e p="201906130632328_55.resx" t="Include" />
+          <e p="201906130658025_55454.Designer.cs" t="Include" />
+          <e p="201906130658025_55454.cs" t="Include" />
+          <e p="201906130658025_55454.resx" t="Include" />
+          <e p="201906130702144_7777777.Designer.cs" t="Include" />
+          <e p="201906130702144_7777777.cs" t="Include" />
+          <e p="201906130702144_7777777.resx" t="Include" />
+          <e p="201906130727590_778899.Designer.cs" t="Include" />
+          <e p="201906130727590_778899.cs" t="Include" />
+          <e p="201906130727590_778899.resx" t="Include" />
+          <e p="201906140705388_dom_mos_ru_1.Designer.cs" t="Include" />
+          <e p="201906140705388_dom_mos_ru_1.cs" t="Include" />
+          <e p="201906140705388_dom_mos_ru_1.resx" t="Include" />
+          <e p="201906140707134_dom_mos_ru_2.Designer.cs" t="Include" />
+          <e p="201906140707134_dom_mos_ru_2.cs" t="Include" />
+          <e p="201906140707134_dom_mos_ru_2.resx" t="Include" />
+          <e p="201906140718037_dom_mos_ru_3.Designer.cs" t="Include" />
+          <e p="201906140718037_dom_mos_ru_3.cs" t="Include" />
+          <e p="201906140718037_dom_mos_ru_3.resx" t="Include" />
+          <e p="201906140719580_dom_mos_ru_4.Designer.cs" t="Include" />
+          <e p="201906140719580_dom_mos_ru_4.cs" t="Include" />
+          <e p="201906140719580_dom_mos_ru_4.resx" t="Include" />
+          <e p="201906140725163_dom_mos_ru_5.Designer.cs" t="Include" />
+          <e p="201906140725163_dom_mos_ru_5.cs" t="Include" />
+          <e p="201906140725163_dom_mos_ru_5.resx" t="Include" />
+          <e p="201906140849367_dom_mos_ru_6.Designer.cs" t="Include" />
+          <e p="201906140849367_dom_mos_ru_6.cs" t="Include" />
+          <e p="201906140849367_dom_mos_ru_6.resx" t="Include" />
+          <e p="201906141052190_dom_mos_ru_7.Designer.cs" t="Include" />
+          <e p="201906141052190_dom_mos_ru_7.cs" t="Include" />
+          <e p="201906141052190_dom_mos_ru_7.resx" t="Include" />
+          <e p="Configuration.cs" t="Include" />
+        </e>
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SqlServerTypes" t="Include">
+          <e p="Loader.cs" t="Include" />
+          <e p="readme.htm" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="data_mos_ru.csproj" t="IncludeRecursive" />
+        <e p="data_mos_ru_Loader.cs" t="Include" />
+        <e p="data_mos_ru_Operator.cs" t="Include" />
+        <e p="dom_mos_ru_Loader.cs" t="Include" />
+        <e p="geoData" t="Include">
+          <e p="geoDataBase.cs" t="Include" />
+          <e p="geoLinestring.cs" t="Include" />
+          <e p="geoMPolygon.cs" t="Include" />
+          <e p="geoPoint.cs" t="Include" />
+          <e p="geoPolygon.cs" t="Include" />
+        </e>
+        <e p="geoData_JSON.cs" t="Include" />
+        <e p="geoJSON" t="Include" />
+        <e p="httpQueryNameValueCollection.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+      </e>
+      <e p="data_mos_ru.sln" t="IncludeFlat" />
+      <e p="data_mos_ru_Test" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SqlServerTypes" t="Include">
+          <e p="Loader.cs" t="Include" />
+          <e p="readme.htm" t="Include" />
+          <e p="x64" t="Include">
+            <e p="SqlServerSpatial140.dll" t="Include" />
+            <e p="msvcr120.dll" t="Include" />
+          </e>
+          <e p="x86" t="Include">
+            <e p="SqlServerSpatial140.dll" t="Include" />
+            <e p="msvcr120.dll" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="data_mos_ru_Test.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

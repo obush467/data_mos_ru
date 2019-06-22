@@ -2,20 +2,21 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
+using data_mos_ru.Entities;
 using data_mos_ru.Converters;
 
 namespace data_mos_ru
 {
-    class geoDataConverter : JsonConverter
+    class GeoDataConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)
         {
-            return (objectType == typeof(geoData));
+            return (objectType == typeof(GeoData));
         }
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JObject obj = JObject.Load(reader);
-            geoData geo = new geoData();
+            GeoData geo = new GeoData();
             if (obj.Properties().Where(p => p.Name.StartsWith("center")).Any())
             {
                 geo.Сenter = BtiGeoDeserializer.Point(obj.Properties().Where(p => p.Name.StartsWith("center")).First());
