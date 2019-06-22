@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\BtiGeoDeserializer.cs" />
+    <Compile Include="Converters\StringToUri.cs" />
     <Compile Include="dom_mos_ru_Loader.cs" />
     <Compile Include="data_mos_ru_Loader.cs" />
     <Compile Include="data_mos_ru_Operator.cs" />
