@@ -243,3 +243,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/.idea/.idea.data_mos_ru/.idea/contentModel.xml
+/.idea/.idea.data_mos_ru/.idea/modules.xml
+/.idea/.idea.data_mos_ru/.idea/workspace.xml
+/.idea/.idea.data_mos_ru/riderModule.iml
