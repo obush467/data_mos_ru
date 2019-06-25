@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using data_mos_ru.Converters;
+using data_mos_ru.Entities;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
-using data_mos_ru.Entities;
-using data_mos_ru.Converters;
 
 namespace data_mos_ru
 {
@@ -41,7 +41,8 @@ namespace data_mos_ru
                             geo.Coordinates = BtiGeoDeserializer.MPolygon(obj.Properties().Where(p => p.Name.StartsWith("coordinates")).First());
                             break;
                         }
-                    default: {
+                    default:
+                        {
                             geo.Coordinates = null;
                             //throw new JsonSerializationException("Unrecognized type: geo"); 
                             break;

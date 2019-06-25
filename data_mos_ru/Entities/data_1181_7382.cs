@@ -194,16 +194,16 @@ namespace data_mos_ru.Entities
         public List<string> Fax { get; set; }
     }
 
-   /* public class EmailItem
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public List<string> Email { get; set; }
-    }*/
+    /* public class EmailItem
+     {
+         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+         public Guid Id { get; set; }
+         /// <summary>
+         /// 
+         /// </summary>
+         [DataMember]
+         public List<string> Email { get; set; }
+     }*/
 
     /*public class GeoData
     {

@@ -1,14 +1,14 @@
-﻿using System.Data.Entity;
-using data_mos_ru.Entities;
+﻿using data_mos_ru.Entities;
+using System.Data.Entity;
 
 namespace data_mos_ru
 {
-    public class JSONContext:DbContext
+    public class JSONContext : DbContext
     {
         public JSONContext(string nameOrConnectionString) : base(nameOrConnectionString)
-        {        }
-        public JSONContext() :base ("integra")
-        {}
+        { }
+        public JSONContext() : base("integra")
+        { }
 
         public DbSet<UM> UMs { get; set; }
         public DbSet<UM_Type> UM_Types { get; set; }
@@ -26,16 +26,9 @@ namespace data_mos_ru
         public DbSet<Data_2624_8684> Data_2624_8684 { get; set; }
         public DbSet<Data_1641_5988> Data_1641_5988s { get; set; }
         public DbSet<Data_54518> Data_54518s { get; set; }
-        public DbSet<UPR> UPRs { get; set; }
+        public DbSet<SearchAutoCompleteResult> UPRs { get; set; }
         public DbSet<UPRsite> UPRsites { get; set; }
         public DbSet<House> Houses { get; set; }
-        public DbSet<Organization> Organizations { get; set; }
-        public DbSet<Person> Persons { get; set; }
-        public DbSet<PersonPosition> PersonPositions { get; set; }
-        public DbSet<DirectorPosition> DirectorPositions { get; set; }
-        public DbSet<PersonPositionType> PersonPositionTypes { get; set; }
-        public DbSet<OrganizationType> OrganizationTypes { get; set; }
-        public DbSet<AccountantGeneralPosition> AccountantGeneralPositions { get; set; }
         public DbSet<InfTableRow> InfTableRows { get; set; }
         public DbSet<Data_1181_7382> Data_1181_7382s { get; set; }
 

@@ -1,8 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _2 : DbMigration
     {
         public override void Up()
@@ -17,127 +16,127 @@ namespace data_mos_ru.Migrations
             CreateTable(
                 "dbo.Data_1181_7382",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        Global_id = c.Int(nullable: false),
-                        WebSite = c.String(),
-                        Category = c.String(),
-                        CommonName = c.String(),
-                        FullName = c.String(),
-                        ShortName = c.String(),
-                        ChiefName = c.String(),
-                        ChiefPosition = c.String(),
-                        GeoData_Type = c.String(maxLength: 30),
-                        GeoData_Coordinates = c.Geography(),
-                        GeoData_Сenter = c.Geography(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    Global_id = c.Int(nullable: false),
+                    WebSite = c.String(),
+                    Category = c.String(),
+                    CommonName = c.String(),
+                    FullName = c.String(),
+                    ShortName = c.String(),
+                    ChiefName = c.String(),
+                    ChiefPosition = c.String(),
+                    GeoData_Type = c.String(maxLength: 30),
+                    GeoData_Coordinates = c.Geography(),
+                    GeoData_Сenter = c.Geography(),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.FaxItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        Data_1181_7382_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    Data_1181_7382_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Data_1181_7382", t => t.Data_1181_7382_Id)
                 .Index(t => t.Data_1181_7382_Id);
-            
+
             CreateTable(
                 "dbo.ObjectAddressItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        PostalCode = c.String(),
-                        District = c.String(),
-                        Address = c.String(),
-                        AdmArea = c.String(),
-                        Data_1181_7382_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    PostalCode = c.String(),
+                    District = c.String(),
+                    Address = c.String(),
+                    AdmArea = c.String(),
+                    Data_1181_7382_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Data_1181_7382", t => t.Data_1181_7382_Id)
                 .Index(t => t.Data_1181_7382_Id);
-            
+
             CreateTable(
                 "dbo.OrgInfoItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        OGRN = c.String(),
-                        ChiefName = c.String(),
-                        INN = c.String(),
-                        KPP = c.String(),
-                        LegalAddress = c.String(),
-                        FullName = c.String(),
-                        ChiefPosition = c.String(),
-                        Data_1181_7382_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    OGRN = c.String(),
+                    ChiefName = c.String(),
+                    INN = c.String(),
+                    KPP = c.String(),
+                    LegalAddress = c.String(),
+                    FullName = c.String(),
+                    ChiefPosition = c.String(),
+                    Data_1181_7382_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Data_1181_7382", t => t.Data_1181_7382_Id)
                 .Index(t => t.Data_1181_7382_Id);
-            
+
             CreateTable(
                 "dbo.ChiefPhoneItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        ChiefPhone = c.String(),
-                        OrgInfoItem_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    ChiefPhone = c.String(),
+                    OrgInfoItem_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.OrgInfoItems", t => t.OrgInfoItem_Id)
                 .Index(t => t.OrgInfoItem_Id);
-            
+
             CreateTable(
                 "dbo.PublicPhoneItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        Data_1181_7382_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    Data_1181_7382_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Data_1181_7382", t => t.Data_1181_7382_Id)
                 .Index(t => t.Data_1181_7382_Id);
-            
+
             CreateTable(
                 "dbo.WorkingHoursItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        WorkHours = c.String(),
-                        DayWeek = c.String(),
-                        Data_1181_7382_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    WorkHours = c.String(),
+                    DayWeek = c.String(),
+                    Data_1181_7382_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Data_1181_7382", t => t.Data_1181_7382_Id)
                 .Index(t => t.Data_1181_7382_Id);
-            
-           /* CreateTable(
-                "data_mos_ru.data_54518",
-                c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        Global_id = c.Int(nullable: false),
-                        KPP = c.String(),
-                        OGRN = c.String(),
-                        LegalOrganization = c.String(),
-                        Subordination = c.String(),
-                        ChiefName = c.String(),
-                        LegalAddress = c.String(),
-                        WebSite = c.String(),
-                        EducationPrograms = c.String(),
-                        ReorganizationStatus = c.String(),
-                        IDEKIS = c.Int(nullable: false),
-                        FullName = c.String(),
-                        ShortName = c.String(),
-                        INN = c.String(),
-                        GeoData_Type = c.String(maxLength: 30),
-                        GeoData_Coordinates = c.Geography(),
-                        GeoData_Сenter = c.Geography(),
-                    })
-                .PrimaryKey(t => t.Id);*/
-            
+
+            /* CreateTable(
+                 "data_mos_ru.data_54518",
+                 c => new
+                     {
+                         Id = c.Guid(nullable: false, identity: true),
+                         Global_id = c.Int(nullable: false),
+                         KPP = c.String(),
+                         OGRN = c.String(),
+                         LegalOrganization = c.String(),
+                         Subordination = c.String(),
+                         ChiefName = c.String(),
+                         LegalAddress = c.String(),
+                         WebSite = c.String(),
+                         EducationPrograms = c.String(),
+                         ReorganizationStatus = c.String(),
+                         IDEKIS = c.Int(nullable: false),
+                         FullName = c.String(),
+                         ShortName = c.String(),
+                         INN = c.String(),
+                         GeoData_Type = c.String(maxLength: 30),
+                         GeoData_Coordinates = c.Geography(),
+                         GeoData_Сenter = c.Geography(),
+                     })
+                 .PrimaryKey(t => t.Id);*/
+
             AddColumn("data_mos_ru.EmailItem", "Data_1181_7382_Id", c => c.Guid());
             AddColumn("data_mos_ru.AvailabilityItem", "ObjectAddressItem_Id", c => c.Guid());
             CreateIndex("data_mos_ru.EmailItem", "Data_1181_7382_Id");
@@ -153,34 +152,34 @@ namespace data_mos_ru.Migrations
             AddForeignKey("data_mos_ru.AvailabilityItem", "ObjectAddressItem_Id", "dbo.ObjectAddressItems", "Id");
             //DropTable("data_mos_ru.data_54518");
         }
-        
+
         public override void Down()
         {
-           /* CreateTable(
-                "data_mos_ru.data_54518",
-                c => new
-                    {
-                        ID = c.Guid(nullable: false, identity: true),
-                        global_id = c.Int(nullable: false),
-                        KPP = c.String(),
-                        OGRN = c.String(),
-                        LegalOrganization = c.String(),
-                        Subordination = c.String(),
-                        ChiefName = c.String(),
-                        LegalAddress = c.String(),
-                        WebSite = c.String(),
-                        EducationPrograms = c.String(),
-                        ReorganizationStatus = c.String(),
-                        IDEKIS = c.Int(nullable: false),
-                        FullName = c.String(),
-                        ShortName = c.String(),
-                        INN = c.String(),
-                        geoData_Type = c.String(maxLength: 30),
-                        geoData_Coordinates = c.Geography(),
-                        geoData_Сenter = c.Geography(),
-                    })
-                .PrimaryKey(t => t.ID);*/
-            
+            /* CreateTable(
+                 "data_mos_ru.data_54518",
+                 c => new
+                     {
+                         ID = c.Guid(nullable: false, identity: true),
+                         global_id = c.Int(nullable: false),
+                         KPP = c.String(),
+                         OGRN = c.String(),
+                         LegalOrganization = c.String(),
+                         Subordination = c.String(),
+                         ChiefName = c.String(),
+                         LegalAddress = c.String(),
+                         WebSite = c.String(),
+                         EducationPrograms = c.String(),
+                         ReorganizationStatus = c.String(),
+                         IDEKIS = c.Int(nullable: false),
+                         FullName = c.String(),
+                         ShortName = c.String(),
+                         INN = c.String(),
+                         geoData_Type = c.String(maxLength: 30),
+                         geoData_Coordinates = c.Geography(),
+                         geoData_Сenter = c.Geography(),
+                     })
+                 .PrimaryKey(t => t.ID);*/
+
             DropForeignKey("dbo.WorkingHoursItems", "Data_1181_7382_Id", "dbo.Data_1181_7382");
             DropForeignKey("dbo.PublicPhoneItems", "Data_1181_7382_Id", "dbo.Data_1181_7382");
             DropForeignKey("dbo.OrgInfoItems", "Data_1181_7382_Id", "dbo.Data_1181_7382");

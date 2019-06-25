@@ -14,7 +14,7 @@ namespace data_mos_ru.Entities
         public DbGeography Coordinates { get; set; }
         [DataMember]
         public DbGeography Сenter { get; set; }
-        public GeoData():base()
+        public GeoData() : base()
         { Coordinates = DbGeography.FromText("POINT EMPTY"); }
     }
 }

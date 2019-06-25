@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
-using data_mos_ru.Utility;
+using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
@@ -10,7 +9,7 @@ namespace data_mos_ru.Entities
     [DataContract(Name = "AO_60562")]
     public class AO_60562
     {
-        [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DataMember]
         public Guid Id { get; set; }
 
@@ -107,9 +106,9 @@ namespace data_mos_ru.Entities
         [MaxLength(30)]
         public string KLADR { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string ADR_TYPE { get; set; }
-        [DataMember] 
+        [DataMember]
         public GeoData GeoData { get; set; }
         //[NotMapped]
         //public string AddressClean { get { return (new AddressOperator()).CleanToSearch(ADDRESS); } }

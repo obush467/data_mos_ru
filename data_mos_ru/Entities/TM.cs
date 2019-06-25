@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
@@ -16,28 +16,28 @@ namespace data_mos_ru.Entities
         public int Number { get; set; }*/
         [DataMember]
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_CODE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_NAMEF { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_NAMES { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_TRANS { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_TYPE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_TE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_KLADR { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         [DataMember]
         public string TM_STAT { get; set; }
         /*[DataMember]
@@ -46,26 +46,26 @@ namespace data_mos_ru.Entities
     public class TM_Cell
     {
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_CODE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_NAMEF { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_NAMES { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TRANS { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TYPE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TE { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_KLADR { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_STAT { get; set; }
     }
 
-   // [DataContract(Name = "TM")]
-    public class TM_DB 
+    // [DataContract(Name = "TM")]
+    public class TM_DB
     {
         [DataMember]
         public Guid Id { get; set; }
@@ -76,28 +76,28 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_CODE { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_NAMEF { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_NAMES { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TRANS { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TYPE { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_TE { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_KLADR { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string TM_STAT { get; set; }
         /*public Type GetDataContractType(Type type)
         {

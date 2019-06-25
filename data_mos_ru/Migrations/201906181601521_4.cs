@@ -1,8 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _4 : DbMigration
     {
         public override void Up()
@@ -11,19 +10,19 @@ namespace data_mos_ru.Migrations
             DropIndex("dbo.ChiefPhoneItems", new[] { "OrgInfoItem_Id" });
             DropTable("dbo.ChiefPhoneItems");
         }
-        
+
         public override void Down()
         {
             CreateTable(
                 "dbo.ChiefPhoneItems",
                 c => new
-                    {
-                        Id = c.Guid(nullable: false, identity: true),
-                        ChiefPhone = c.String(),
-                        OrgInfoItem_Id = c.Guid(),
-                    })
+                {
+                    Id = c.Guid(nullable: false, identity: true),
+                    ChiefPhone = c.String(),
+                    OrgInfoItem_Id = c.Guid(),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateIndex("dbo.ChiefPhoneItems", "OrgInfoItem_Id");
             AddForeignKey("dbo.ChiefPhoneItems", "OrgInfoItem_Id", "dbo.OrgInfoItems", "Id");
         }

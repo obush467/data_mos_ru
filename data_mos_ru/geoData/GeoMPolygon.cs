@@ -6,7 +6,7 @@ using System.Data.Entity.Spatial;
 
 namespace data_mos_ru
 {
-    public class GeoMPolygon:List<GeoPolygon>,IGeoData
+    public class GeoMPolygon : List<GeoPolygon>, IGeoData
     {
         public GeoMPolygon() : base() { }
         public GeoMPolygon(JArray jArray)

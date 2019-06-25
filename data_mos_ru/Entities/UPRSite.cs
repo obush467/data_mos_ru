@@ -11,7 +11,7 @@ namespace data_mos_ru.Entities
 {
     [Table("UPRsites", Schema = "dom_mos_ru")]
     public class UPRsite
-    {      
+    {
         [Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid ID { get; set; }
@@ -20,12 +20,12 @@ namespace data_mos_ru.Entities
         public virtual ICollection<InfTableRow> InfTableRows { get; set; } = new List<InfTableRow>();
         public virtual ICollection<HouseList> HouseLists { get; set; } = new List<HouseList>();
 
-        public UPRsite(Guid id, string name,string uri,string html=null)
+        public UPRsite(Guid id, string name, string uri, string html = null)
         {
             ID = id;
             Name = name;
             Uri = uri;
-            if (html!=null ) DecodeUPR(html);
+            if (html != null) DecodeUPR(html);
             foreach (HouseList houseList in HouseLists)
             {
                 foreach (House house in houseList.Houses)
@@ -50,7 +50,7 @@ namespace data_mos_ru.Entities
             await client.DownloadStringTaskAsync(url);
         }
         public void DecodeUPR(string html)
-        {           
+        {
             HtmlDocument hap = new HtmlDocument();
             hap.LoadHtml(html);
             HtmlNode _content = hap.DocumentNode.SelectSingleNode("/html/body/div[@id='container']/div[@id='wrapper']/div[@id='page']/div[@class='inside inside-company-caption']");

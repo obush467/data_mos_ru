@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
+using System.Runtime.Serialization;
 
 
 namespace data_mos_ru.Entities
@@ -17,10 +17,10 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(1000)]
         public string AdmArea { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(100)]
         public string system_object_id { get; set; }
         [DataMember]
         public int? UNOM { get; set; }
@@ -31,25 +31,25 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int? KAD_ZU { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string DMT { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string KRT { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string VLD { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string STRT { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string SOOR { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(500)]
         public string TDOC { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(500)]
         public string NDOC { get; set; }
         [DataMember]
         public DateTime? DDOC { get; set; }
@@ -58,10 +58,10 @@ namespace data_mos_ru.Entities
         [DataMember]
         public DateTime? DREG { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(1000)]
         public string VYVAD { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string ADRES { get; set; }
         public DbGeography geoData { get; set; }
     }

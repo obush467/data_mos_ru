@@ -1,6 +1,4 @@
-﻿using log4net;
-using System;
-using System.Collections.Concurrent;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
@@ -10,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace data_mos_ru.Loaders
 {
-    public class Data_mos_ru_Loader:Loader
+    public class Data_mos_ru_Loader : Loader
     {
-        NameValueCollection Query=new HttpQueryNameValueCollection();
+        NameValueCollection Query = new HttpQueryNameValueCollection();
         public string ApiKey { get; set; } = "43829b1b6ff23da601a17e8a65c081ed";
         public string Dataset { get; set; }
         string Link { get { return "/v1/datasets/" + Dataset; } } //ссылка
@@ -22,13 +20,13 @@ namespace data_mos_ru.Loaders
             Query.Add("api_key", ApiKey);
         }
 
-        public void Load( Encoding encoding)
+        public void Load(Encoding encoding)
         {
-            LoadURIList(URIs(encoding),encoding);
+            LoadURIList(URIs(encoding), encoding);
         }
         protected List<Uri> URIs(Encoding encoding)
         {
-           UriBuilder.Path = Link + "/count";
+            UriBuilder.Path = Link + "/count";
             UriBuilder.Host = "apidata.mos.ru";
             UriBuilder.Query = Query.ToString();
             List<Uri> uris = new List<Uri>();
@@ -57,14 +55,14 @@ namespace data_mos_ru.Loaders
             catch (WebException)
             { return null; }
         }
-        protected void LoadURIList(List<Uri> uris,Encoding encoding)
+        protected void LoadURIList(List<Uri> uris, Encoding encoding)
         {
             List<Task> Tasks = new List<Task>();
             foreach (Uri _uri in uris)
             {
                 Action<Task, object> at = new Action<Task, object>((delegate (Task ff, object Parameters)
                     {
-                       DownloadString((Uri)Parameters,encoding);
+                        DownloadString((Uri)Parameters, encoding);
                     }));
                 Action<object> a = new Action<object>((delegate (object Parameters)
                 {
@@ -72,19 +70,19 @@ namespace data_mos_ru.Loaders
                 }));
 
 
-                if (Tasks.Count< 1)
-                    { Tasks.Add(new Task(a, _uri));}
-                    else
-                    {Tasks.Add(Tasks[Tasks.Count - 1].ContinueWith(at, _uri)); }
-              }
-                        
+                if (Tasks.Count < 1)
+                { Tasks.Add(new Task(a, _uri)); }
+                else
+                { Tasks.Add(Tasks[Tasks.Count - 1].ContinueWith(at, _uri)); }
+            }
+
             Tasks[0].Start();
             Tasks[0].Wait();
         }
         delegate void loadURIList();
         protected Task LoadURIListTask(List<Uri> uris, Encoding encoding)
         {
-            loadURIList t = (() =>LoadURIList(uris, encoding));
+            loadURIList t = (() => LoadURIList(uris, encoding));
             Action a = new Action(t);
             Task _task = new Task(a);
             return _task;
@@ -93,7 +91,7 @@ namespace data_mos_ru.Loaders
 
 
 
+    }
 }
-}
-    
+
 

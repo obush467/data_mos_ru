@@ -1,10 +1,5 @@
 ﻿using data_mos_ru.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace data_mos_ru.Utility
 {
@@ -14,10 +9,10 @@ namespace data_mos_ru.Utility
         {
             Regex regex = new Regex("\\s+");
             string result = regex.Replace(address, " ");
-            result=result
+            result = result
                     .Replace("г. ", "город ")
                     .Replace("пос. ", "посёлок ")
-                    .Replace("тер. ", "территория ")                  
+                    .Replace("тер. ", "территория ")
                     .Replace("\"", "")
                     .Replace(",", " ")
                     .Replace("ул.", "улица")
@@ -39,6 +34,7 @@ namespace data_mos_ru.Utility
                     .Replace("ш. ", "шоссе ")
                     .Replace("наб. ", "набережная ")
                     .Replace("город Москва", "")
+                    .Replace("муниципальный округ", "")
                     .Trim();
             result = regex.Replace(result, " ");
             return result;

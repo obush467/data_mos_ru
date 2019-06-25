@@ -17,24 +17,24 @@ namespace data_mos_ru.Entities
 
         [DataMember]
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         [DataMember]
         public string MO_Type_C { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         [DataMember]
         public string MO_Type_N { get; set; }
 
-       /* [DataMember]
-        public MO_Type_Cell Cells { get; set; }*/
+        /* [DataMember]
+         public MO_Type_Cell Cells { get; set; }*/
     }
     public class MO_Type_Cell
     {
         [DataMember]
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         [DataMember]
         public string MO_Type_C { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         [DataMember]
         public string MO_Type_N { get; set; }
     }

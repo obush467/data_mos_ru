@@ -1,8 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _3 : DbMigration
     {
         public override void Up()
@@ -11,7 +10,7 @@ namespace data_mos_ru.Migrations
             DropIndex("data_mos_ru.EmailItem", new[] { "Data_1181_7382_Id" });
             DropColumn("data_mos_ru.EmailItem", "Data_1181_7382_Id");
         }
-        
+
         public override void Down()
         {
             AddColumn("data_mos_ru.EmailItem", "Data_1181_7382_Id", c => c.Guid());

@@ -14,7 +14,7 @@ namespace data_mos_ru
     {
         public abstract DbGeography ToDbGeography(int epsg);
         public abstract DbGeometry ToDbGeometry(int epsg);
-        public abstract string ToWKT();        
+        public abstract string ToWKT();
     }
     public class GeoDataBase : GeoDataBaseAbstract
     {

@@ -1,18 +1,17 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.Data.Entity.Spatial;
 using System.Globalization;
 
 namespace data_mos_ru
 {
-    public class GeoPoint: IGeoData
+    public class GeoPoint : IGeoData
     {
         public double X { get; set; }
         public double Y { get; set; }
         public double? Z { get; set; } = null;
         public double? M { get; set; } = null;
-        public GeoPoint(double x, double y, double? z=null, double? m = null)
-        { Init(x,y,z,m);}
+        public GeoPoint(double x, double y, double? z = null, double? m = null)
+        { Init(x, y, z, m); }
         public void Init(double x, double y, double? z = null, double? m = null)
         { X = x; Y = y; Z = z; M = m; }
 

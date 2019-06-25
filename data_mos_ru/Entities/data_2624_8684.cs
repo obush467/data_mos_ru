@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.Serialization;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 namespace data_mos_ru.Entities
 {
     public class publicPhone

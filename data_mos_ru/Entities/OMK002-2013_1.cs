@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
@@ -18,19 +18,19 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Kod { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Name { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(1000)]
         public string Latin_Name { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(1000)]
         public string Type { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(1000)]
         public string Kod_okato { get; set; }
         ///*[DataMember]
         //public OMK002_2013_1_Cell Cells { get; set; }*/
@@ -40,22 +40,22 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string Kod { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string Name { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string Latin_Name { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string Type { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(2000)]
         public string Kod_okato { get; set; }
         
     }*/
 
-   
+
 }

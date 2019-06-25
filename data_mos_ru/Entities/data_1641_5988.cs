@@ -104,13 +104,13 @@ namespace data_mos_ru.Entities
     [DataContract(Name = "data_1641_5988")]
     public class Data_1641_5988
     {
-    /// <summary>
-    /// 
-    /// </summary>
+        /// <summary>
+        /// 
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DataMember]
-        public Guid data_1641_5988_ID { get ;set; }
+        public Guid data_1641_5988_ID { get; set; }
         [DataMember]
         public string ID { get; set; }
         /// <summary>

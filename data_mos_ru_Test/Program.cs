@@ -1,8 +1,7 @@
-﻿using System.IO;
-using System.Text;
-using data_mos_ru;
-using data_mos_ru.Entities;
-using data_mos_ru.Utility;
+﻿using data_mos_ru;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 
@@ -11,7 +10,8 @@ namespace ConsoleApplication1
     {
         private static void Main(string[] args)
         {
-            Operator dmrOper = new Operator("integra");;
+            UriBuilder uriBuilder = new UriBuilder("http://dom.mos.ru/Building/Details?pk=0d107a57-5fbd-4763-8196-2488c92f0a20");
+            Operator dmrOper = new Operator("integra"); ;
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");
@@ -42,10 +42,15 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Convert<data_54518>(d54518[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<Data_1181_7382>(d7382[0].FullName,Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<UPR>(dUPR[0].FullName, Encoding.UTF8));
-            //dmrOper.LoadDom();
-            var tt = AddressOperator.CleanToSearch(" г. Москва, ул. Варварка, влд. 4, 8, 8б; влд. 8, стр. 1/4");
-            dmrOper.LoadBuildingsQ();
-            //dmrOper.UpdateHouses();
+            dmrOper.UpdateHouses();
+            dmrOper.LoadDom();
+            //dmrOper.LoadUPRsFromBuildings();         
+            Task.WaitAll(new Task[]
+            {
+                Task.Run(() => dmrOper.LoadUPRsBlockingCollection())//,
+                //Task.Run(() => dmrOper.LoadBuildingsBlockingCollection())
+            });
+
             //dmrOper.UpdateOrganizationsByDomMosRu();
             //dmrOper.DeserializeOMK002_2013_1("D:\\data_mos_ru\\data-6434-2017-12-24\\data-6434-2017-12-24.json", Encoding.GetEncoding(1251));
             //dmrOper.DeserializeOMK002_2013_2(d6436[0].FullName, Encoding.GetEncoding(1251));

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
@@ -18,10 +18,10 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Kod { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Name { get; set; }
 
         // [DataMember]
@@ -30,9 +30,9 @@ namespace data_mos_ru.Entities
     public class OMK002_2013_2_Cell
     {
         public int global_id { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Kod { get; set; }
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Name { get; set; }
     }
 
@@ -48,10 +48,10 @@ namespace data_mos_ru.Entities
         [DataMember]
         public int global_id { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Kod { get; set; }
         [DataMember]
-        [MaxLength(4000)]
+        [MaxLength(40)]
         public string Name { get; set; }
 
         public Type GetDataContractType(Type type)
@@ -77,34 +77,34 @@ namespace data_mos_ru.Entities
             }
             return obj;
         }*/
-       /* public Type GetReferencedTypeOnImport(string typeName,
-               string typeNamespace, object customData)
-        {
-            if (
-            typeNamespace.Equals("http://schemas.datacontract.org/2004/07/DCSurrogateSample")
-            )
-            {
-                if (typeName.Equals("OMK002_2013_2_DB"))
-                {
-                    return typeof(OMK002_2013_2);
-                }
-            }
-            return null;
-        }
-        public System.CodeDom.CodeTypeDeclaration ProcessImportedType(
-          System.CodeDom.CodeTypeDeclaration typeDeclaration,
-          System.CodeDom.CodeCompileUnit compileUnit)
-        {
-            return typeDeclaration;
-        }
-        public object GetCustomDataToExport(Type clrType, Type dataContractType)
-        {
-            return null;
-        }
+        /* public Type GetReferencedTypeOnImport(string typeName,
+                string typeNamespace, object customData)
+         {
+             if (
+             typeNamespace.Equals("http://schemas.datacontract.org/2004/07/DCSurrogateSample")
+             )
+             {
+                 if (typeName.Equals("OMK002_2013_2_DB"))
+                 {
+                     return typeof(OMK002_2013_2);
+                 }
+             }
+             return null;
+         }
+         public System.CodeDom.CodeTypeDeclaration ProcessImportedType(
+           System.CodeDom.CodeTypeDeclaration typeDeclaration,
+           System.CodeDom.CodeCompileUnit compileUnit)
+         {
+             return typeDeclaration;
+         }
+         public object GetCustomDataToExport(Type clrType, Type dataContractType)
+         {
+             return null;
+         }
 
-        public object GetCustomDataToExport(System.Reflection.MemberInfo memberInfo, Type dataContractType)
-        {
-            return null;
-        }*/
+         public object GetCustomDataToExport(System.Reflection.MemberInfo memberInfo, Type dataContractType)
+         {
+             return null;
+         }*/
     }
 }

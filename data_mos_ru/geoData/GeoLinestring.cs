@@ -4,7 +4,7 @@ using System.Data.Entity.Spatial;
 
 namespace data_mos_ru
 {
-    public class GeoLinestring : List<GeoPoint>,IGeoData
+    public class GeoLinestring : List<GeoPoint>, IGeoData
     {
         public GeoLinestring(JArray jArray)
         {
@@ -33,7 +33,7 @@ namespace data_mos_ru
         }
         public override string ToString()
         {
-            return "("+string.Join(", ",this)+")";
+            return "(" + string.Join(", ", this) + ")";
         }
     }
 }

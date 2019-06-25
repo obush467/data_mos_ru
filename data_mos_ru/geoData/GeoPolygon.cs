@@ -29,11 +29,12 @@ namespace data_mos_ru
             return "(" + string.Join(",", this) + ")";
         }
         public string ToWKT()
-        {string r = "POLYGON " + ToString();
+        {
+            string r = "POLYGON " + ToString();
             return r;
         }
 
     }
 }
-    
+
 

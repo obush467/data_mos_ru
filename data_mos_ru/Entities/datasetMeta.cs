@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace data_mos_ru.Entities
 {
@@ -23,7 +19,7 @@ namespace data_mos_ru.Entities
         public string Keywords { get; set; }
         public bool ContainsGeodata { get; set; }
         public string VersionNumber { get; set; }
-        public Nullable<DateTime> VersionDate { get; set; }
+        public DateTime? VersionDate { get; set; }
         public int ItemsCount { get; set; }
     }
 }
