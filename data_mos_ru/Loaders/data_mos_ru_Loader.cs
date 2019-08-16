@@ -43,7 +43,7 @@ namespace data_mos_ru.Loaders
                         for (int i = 1; i <= blockCount; i++)
                         {
                             Query["$skip"] = ((i - 1) * blockLength).ToString();
-                            Logger.Log.Info(i);
+                            Logger.Logger.Info(i);
                             UriBuilder.Path = Link + "/rows";
                             UriBuilder.Query = Query.ToString();
                             uris.Add(UriBuilder.Uri);

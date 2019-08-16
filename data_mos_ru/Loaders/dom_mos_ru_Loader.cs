@@ -38,7 +38,7 @@ namespace data_mos_ru.Loaders
                 string _html = DownloadString(_houseuri, encoding, null);
                 DecodeHouse(house, _html);
                 context.SaveChanges();
-                Logger.Log.Info(_houseuri.ToString());
+                Logger.Logger.Info(_houseuri.ToString());
             }
         }
 
@@ -62,7 +62,7 @@ namespace data_mos_ru.Loaders
                         ID = house.ID
                     }
                         ); ;
-                    Logger.Log.Info(string.Join(" ", "Загружена УК по адресу дома", house.Address, house.UPRUriString));
+                    Logger.Logger.Info(string.Join(" ", "Загружена УК по адресу дома", house.Address, house.UPRUriString));
                 });
         }
 
@@ -137,7 +137,7 @@ namespace data_mos_ru.Loaders
             Uri _upruri = new Uri(BaseUri, upr.Url);
             string _html = DownloadString(_upruri, encoding, null);
             Guid _id = new Guid(_upruri.Segments[_upruri.Segments.Count() - 1]);
-            Logger.Log.Info(_upruri.ToString());
+            Logger.Logger.Info(_upruri.ToString());
             return new UPRsite(_id, upr.Value, _upruri.ToString(), _html);
         }
         public List<UPRsite> LoadUpr(IEnumerable<SearchAutoCompleteResult> uprs, Encoding encoding)
@@ -171,7 +171,7 @@ namespace data_mos_ru.Loaders
                     Guid _id = new Guid(_upruri.Segments[_upruri.Segments.Count() - 1]);
                     await (new UPRsite(_id, p.Value, p.Url, "")).DownloadStringTask(new Uri(BaseUri, p.Url), encoding);
                 });
-            Logger.Log.Info(string.Join(" ", "Завершена загрузка", QueueUPRsites.Count.ToString()));
+            Logger.Logger.Info(string.Join(" ", "Завершена загрузка", QueueUPRsites.Count.ToString()));
         }
         public async Task LoadUPR_Async(SearchAutoCompleteResult upr, Encoding encoding)
         { await Task.Run(() => { }); }
@@ -233,12 +233,12 @@ namespace data_mos_ru.Loaders
             try
             {
                 string html = DownloadString(uri, encoding, GetSearchAutoCompleteParameters(search, section));
-                Logger.Log.Info(string.Join(" ", section, search));
+                Logger.Logger.Info(string.Join(" ", section, search));
                 result = Deserialize<SearchAutoCompleteResult>(new MemoryStream(encoding.GetBytes(html)), encoding);
             }
             catch (Exception e)
             {
-                Logger.Log.Error(string.Join(" ", uri.ToString(), search, e.Message));
+                Logger.Logger.Error(string.Join(" ", uri.ToString(), search, e.Message));
             }
             finally
             { }
@@ -294,12 +294,12 @@ namespace data_mos_ru.Loaders
             try
             {
                 string html = await DownloadStringAsync(uri, encoding, GetSearchAutoCompleteParameters(search, "Buildings"));
-                Logger.Log.Info(uri.ToString() + search);
+                Logger.Logger.Info(uri.ToString() + search);
                 result = Deserialize<SearchAutoCompleteResult>(new MemoryStream(encoding.GetBytes(html)), encoding);
             }
             catch (Exception e)
             {
-                Logger.Log.Error(string.Join(" ", uri.ToString(), search, e.Message));
+                Logger.Logger.Error(string.Join(" ", uri.ToString(), search, e.Message));
             }
             finally
             { }

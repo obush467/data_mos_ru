@@ -57,6 +57,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.4.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -76,6 +82,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -84,6 +91,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\common\UNS.Models\UNS.Models.csproj">
+      <Project>{2e089c36-761c-41f8-8507-6b61705eb7d2}</Project>
+      <Name>UNS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\Utility\Utility.csproj">
+      <Project>{4b9dbd55-4027-49c7-8cca-118b452cfc25}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\data_mos_ru\data_mos_ru.csproj">
       <Project>{ac41fb2b-ee25-40be-8473-55ae3c328dc2}</Project>
       <Name>data_mos_ru</Name>

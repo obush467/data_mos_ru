@@ -5,7 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 namespace data_mos_ru.Entities
 {
-    public class publicPhone
+    [DataContract(Name = "PublicPhone")]
+    public class Data_2624_8684_publicPhone
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,7 +21,9 @@ namespace data_mos_ru.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
+        public Guid Data_2624_8684_ID { get; set; }
+        //[DataMember]
+        //public int? ID { get; set; }
         [DataMember]
         public int? global_id { get; set; }
         [DataMember]
@@ -43,7 +46,7 @@ namespace data_mos_ru.Entities
         public string MetroLine { get; set; }//Линия метро,
                                              // [InverseProperty("ParentID")]
         [ForeignKey("ParentID")]
-        public virtual ICollection<publicPhone> PublicPhone { get; set; }//Контактный телефон,
+        public virtual List<Data_2624_8684_publicPhone> PublicPhone { get; set; }//Контактный телефон,
         [DataMember]
         [MaxLength(1000)]
         public string WebSite { get; set; }//Сайт,

@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
-    [Table("ResponsiblePersonsItem", Schema = "data_mos_ru")]
+    [Table("Data_1641_5988_ResponsiblePersonsItem", Schema = "data_mos_ru")]
     [DataContract(Name = "ResponsiblePersonsItem")]
-    public class ResponsiblePersonsItem
+    public class Data_1641_5988_ResponsiblePersonsItem
     {
 
         [Key]
@@ -30,9 +30,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string NamePosition { get; set; }
     }
-    [Table("FactAddressItem", Schema = "data_mos_ru")]
+    [Table("Data_1641_5988_FactAddressItem", Schema = "data_mos_ru")]
     [DataContract(Name = "FactAddressItem")]
-    public class FactAddressItem
+    public class Data_1641_5988_FactAddressItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -44,9 +44,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string FactAddress { get; set; }
     }
-    [Table("AdditionalOKVEDItem", Schema = "data_mos_ru")]
+    [Table("Data_1641_5988_AdditionalOKVEDItem", Schema = "data_mos_ru")]
     [DataContract(Name = "AdditionalOKVEDItem")]
-    public class AdditionalOKVEDItem
+    public class Data_1641_5988_AdditionalOKVEDItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -58,9 +58,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string AdditionalOKVED { get; set; }
     }
-    [Table("PersonalAccountsItem", Schema = "data_mos_ru")]
+    [Table("Data_1641_5988_PersonalAccountsItem", Schema = "data_mos_ru")]
     [DataContract(Name = "PersonalAccountsItem")]
-    public class PersonalAccountsItem
+    public class Data_1641_5988_PersonalAccountsItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -76,9 +76,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string OpenDate { get; set; }
     }
-    [Table("BankingDetailsItem", Schema = "data_mos_ru")]
+    [Table("Data_1641_5988_BankingDetailsItem", Schema = "data_mos_ru")]
     [DataContract(Name = "BankingDetailsItem")]
-    public class BankingDetailsItem
+    public class Data_1641_5988_BankingDetailsItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -122,12 +122,12 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<ResponsiblePersonsItem> ResponsiblePersons { get; set; }
+        public List<Data_1641_5988_ResponsiblePersonsItem> ResponsiblePersons { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<FactAddressItem> FactAddress { get; set; }
+        public List<Data_1641_5988_FactAddressItem> FactAddress { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -263,17 +263,17 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<AdditionalOKVEDItem> AdditionalOKVED { get; set; }
+        public List<Data_1641_5988_AdditionalOKVEDItem> AdditionalOKVED { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<PersonalAccountsItem> PersonalAccounts { get; set; }
+        public List<Data_1641_5988_PersonalAccountsItem> PersonalAccounts { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<BankingDetailsItem> BankingDetails { get; set; }
+        public List<Data_1641_5988_BankingDetailsItem> BankingDetails { get; set; }
     }
 }
 

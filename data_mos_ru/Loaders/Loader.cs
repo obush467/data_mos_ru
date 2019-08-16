@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -37,8 +38,9 @@ namespace data_mos_ru.Loaders
             //Logger.Log.Debug(string.Join(" ", "Запущено преобразование", typeof(T).Name));
             JsonSerializerSettings jss = new JsonSerializerSettings();
             jss.Converters.Add(new GeoDataConverter());
+            //jss.Converters.Add(new StringToListConverter());
             jss.Culture = CultureInfo.CurrentCulture;
-            Logger.Log.Debug(string.Join(" ", "Преобразовано", typeof(T).Name));
+            Logger.Logger.Debug(string.Join(" ", "Преобразовано", typeof(T).Name));
             return JsonConvert.DeserializeObject<T[]>((new StreamReader(stream, encoding)).ReadToEnd(), jss).ToList();
         }
         public List<List<T>> Convert<T>(string fileName, Encoding encoding)
@@ -95,11 +97,59 @@ namespace data_mos_ru.Loaders
                 try
                 {
                     Result.Enqueue(e.Result);
-                    Logger.Log.Info("Блок считан" + e.UserState.ToString());
+                    Logger.Logger.Info("Блок считан" + e.UserState.ToString());
                 }
                 catch (Exception)
                 { }
             }
+        }
+
+        public HtmlDocument LoadHtmlDocument1(string html)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.LoadHtml(html);
+            return hap;
+        }
+        public HtmlDocument LoadHtmlDocument(Stream html)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html);
+            return hap;
+        }
+
+        public HtmlDocument LoadHtmlDocument(Stream html, Encoding encoding)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html, encoding);
+            return hap;
+        }
+
+        public HtmlDocument LoadHtmlDocument(Stream html, bool detectEncoding)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html, Encoding.GetEncoding(1251));
+            return hap;
+        }
+
+        public HtmlDocument LoadHtmlDocument(TextReader html)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html);
+            return hap;
+        }
+
+        public HtmlDocument LoadHtmlDocument(Stream html, Encoding encoding, bool detectEncoding)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html, encoding, detectEncoding);
+            return hap;
+        }
+
+        public HtmlDocument LoadHtmlDocument(Stream html, Encoding encoding, bool detectEncoding, int buffersize)
+        {
+            HtmlDocument hap = new HtmlDocument();
+            hap.Load(html, encoding, detectEncoding, buffersize);
+            return hap;
         }
     }
 }

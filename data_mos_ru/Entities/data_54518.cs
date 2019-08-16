@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
-    [Table("LicensingAndAccreditationItem", Schema = "data_mos_ru")]
+    [Table("Data_54518_LicensingAndAccreditationItem", Schema = "data_mos_ru")]
     [DataContract(Name = "LicensingAndAccreditationItem")]
-    public class LicensingAndAccreditationItem
+    public class Data_54518_LicensingAndAccreditationItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -39,9 +39,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string LicenseAvailability { get; set; }
     }
-    [Table("PublicPhoneItem1", Schema = "data_mos_ru")]
+    [Table("Data_54518_PublicPhoneItem1", Schema = "data_mos_ru")]
     [DataContract(Name = "PublicPhoneItem1")]
-    public class PublicPhoneItem1
+    public class Data_54518_PublicPhoneItem1
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -54,9 +54,9 @@ namespace data_mos_ru.Entities
         [MaxLength(30)]
         public string PublicPhone { get; set; }
     }
-    [Table("PublicPhoneItem2", Schema = "data_mos_ru")]
+    [Table("Data_54518_PublicPhoneItem2", Schema = "data_mos_ru")]
     [DataContract(Name = "PublicPhoneItem2")]
-    public class PublicPhoneItem2
+    public class Data_54518_PublicPhoneItem2
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -69,9 +69,9 @@ namespace data_mos_ru.Entities
         [MaxLength(30)]
         public string PublicPhone { get; set; }
     }
-    [Table("EmailItem", Schema = "data_mos_ru")]
+    [Table("Data_54518_EmailItem", Schema = "data_mos_ru")]
     [DataContract(Name = "EmailItem")]
-    public class EmailItem
+    public class Data_54518_EmailItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -83,9 +83,9 @@ namespace data_mos_ru.Entities
         [MaxLength(50)]
         public string Email { get; set; }
     }
-    [Table("Available_elementItem", Schema = "data_mos_ru")]
+    [Table("Data_54518_Available_elementItem", Schema = "data_mos_ru")]
     [DataContract(Name = "Available_elementItem")]
-    public class Available_elementItem
+    public class Data_54518_Available_elementItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -116,9 +116,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string Group_mgn { get; set; }
     }
-    [Table("AvailabilityItem", Schema = "data_mos_ru")]
+    [Table("Data_54518_AvailabilityItem", Schema = "data_mos_ru")]
     [DataContract(Name = "AvailabilityItem")]
-    public class AvailabilityItem
+    public class Data_54518_AvailabilityItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -128,7 +128,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<Available_elementItem> Available_element { get; set; }
+        public List<Data_54518_Available_elementItem> Available_element { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -150,9 +150,9 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string Available_k { get; set; }
     }
-    [Table("InstitutionsAddressesItem", Schema = "data_mos_ru")]
+    [Table("Data_54518_InstitutionsAddressesItem", Schema = "data_mos_ru")]
     [DataContract(Name = "InstitutionsAddressesItem")]
-    public class InstitutionsAddressesItem
+    public class Data_54518_InstitutionsAddressesItem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -191,12 +191,12 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<AvailabilityItem> Availability { get; set; }
+        public List<Data_54518_AvailabilityItem> Availability { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<PublicPhoneItem1> PublicPhone { get; set; }
+        public List<Data_54518_PublicPhoneItem1> PublicPhone { get; set; }
         /// <summary>
         /// 
         /// </summar
@@ -239,7 +239,7 @@ namespace data_mos_ru.Entities
         /// </summary>
         //[DataMember]
         [DataMember]
-        public List<LicensingAndAccreditationItem> LicensingAndAccreditation { get; set; }
+        public List<Data_54518_LicensingAndAccreditationItem> LicensingAndAccreditation { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -270,12 +270,12 @@ namespace data_mos_ru.Entities
         /// </summary>
         //[DataMember]
         [DataMember]
-        public List<PublicPhoneItem2> PublicPhone { get; set; }
+        public List<Data_54518_PublicPhoneItem2> PublicPhone { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<EmailItem> Email { get; set; }
+        public List<Data_54518_EmailItem> Email { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -314,7 +314,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<InstitutionsAddressesItem> InstitutionsAddresses { get; set; }
+        public List<Data_54518_InstitutionsAddressesItem> InstitutionsAddresses { get; set; }
         /// <summary>
         /// 
         /// </summary>

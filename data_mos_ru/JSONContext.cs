@@ -29,10 +29,25 @@ namespace data_mos_ru
         public DbSet<SearchAutoCompleteResult> UPRs { get; set; }
         public DbSet<UPRsite> UPRsites { get; set; }
         public DbSet<House> Houses { get; set; }
-        public DbSet<InfTableRow> InfTableRows { get; set; }
-        public DbSet<Data_1181_7382> Data_1181_7382s { get; set; }
+        public virtual DbSet<InfTableRow> InfTableRows { get; set; }
+        public virtual DbSet<Data_1181_7382> Data_1181_7382s { get; set; }
 
+        public virtual DbSet<Data_577_5609> Data_577_5609s { get; set; }
+        public virtual DbSet<Data_7612> Data_7612s { get; set; }
+        public virtual DbSet<Data_7611> Data_7611s { get; set; }
+        public virtual DbSet<Data_7361> Data_7361s { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Data_1181_7382>().HasMany<Data_1181_7382_PublicPhoneItem>(m => m.PublicPhone).WithMany()
+                .Map(m =>
+                {
+                    m.ToTable("CourseInstructor");
+                    m.MapLeftKey("ID1");
+                    m.MapRightKey("ID2");
+                });
 
+        }
     }
 }
+

@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
-    public class WorkingHoursItem
+    public class Data_1181_7382_WorkingHoursItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -22,7 +22,7 @@ namespace data_mos_ru.Entities
         public string DayWeek { get; set; }
     }
 
-    public class ChiefPhoneItem
+    public class Data_1181_7382_ChiefPhoneItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -30,10 +30,10 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public string ChiefPhone { get; set; }
+        public List<string> ChiefPhone { get; set; }
     }
 
-    public class OrgInfoItem
+    public class Data_1181_7382_OrgInfoItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -50,8 +50,8 @@ namespace data_mos_ru.Entities
         /// <summary>
         /// 
         /// </summary>
-        //[DataMember]
-        //public List<ChiefPhoneItem> ChiefPhone { get; set; } = new List<ChiefPhoneItem>();
+        [DataMember]
+        public List<Data_1181_7382_ChiefPhoneItem> ChiefPhone { get; set; } = new List<Data_1181_7382_ChiefPhoneItem>();
         /// <summary>
         /// 
         /// </summary>
@@ -79,7 +79,7 @@ namespace data_mos_ru.Entities
         public string ChiefPosition { get; set; }
     }
 
-    /*public class Available_elementItem
+    public class Data_1181_7382_Available_elementItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -108,40 +108,10 @@ namespace data_mos_ru.Entities
         /// </summary>
         [DataMember]
         public string Group_mgn { get; set; }
-    }*/
-    /*
-    public class AvailabilityItem
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public List<Available_elementItem> available_element { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string available_o { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string available_z { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string available_s { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string available_k { get; set; }
-    }*/
+    }
 
-    public class ObjectAddressItem
+
+    public class Data_1181_7382_ObjectAddressItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -164,7 +134,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<AvailabilityItem> Availability { get; set; }
+        public List<Data_1181_7382_AvailabilityItem> Availability { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -172,10 +142,37 @@ namespace data_mos_ru.Entities
         public string AdmArea { get; set; }
     }
 
-    public class PublicPhoneItem
+    public class Data_1181_7382_AvailabilityItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string available_z { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string available_o { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string available_s { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public List<string> available_element { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string available_k { get; set; }
+    }
+
+    public class Data_1181_7382_PublicPhoneItem
+    {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
+        public Guid OwnerID { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -183,7 +180,7 @@ namespace data_mos_ru.Entities
         public List<string> PublicPhone { get; set; }
     }
 
-    public class FaxItem
+    public class Data_1181_7382_FaxItem
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
@@ -194,7 +191,7 @@ namespace data_mos_ru.Entities
         public List<string> Fax { get; set; }
     }
 
-    /* public class EmailItem
+    public class Data_1181_7382_EmailItem
      {
          [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
          public Guid Id { get; set; }
@@ -203,23 +200,7 @@ namespace data_mos_ru.Entities
          /// </summary>
          [DataMember]
          public List<string> Email { get; set; }
-     }*/
-
-    /*public class GeoData
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string type { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public List<List<double>> coordinates { get; set; }
-    }*/
+     }
 
     public class Data_1181_7382
     {
@@ -234,7 +215,7 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<WorkingHoursItem> WorkingHours { get; set; }
+        public List<Data_1181_7382_WorkingHoursItem> WorkingHours { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -264,12 +245,12 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<OrgInfoItem> OrgInfo { get; set; }
+        public List<Data_1181_7382_OrgInfoItem> OrgInfo { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<ObjectAddressItem> ObjectAddress { get; set; }
+        public List<Data_1181_7382_ObjectAddressItem> ObjectAddress { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -284,17 +265,17 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<PublicPhoneItem> PublicPhone { get; set; }
+        public List<Data_1181_7382_PublicPhoneItem> PublicPhone { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<FaxItem> Fax { get; set; }
+        public List<Data_1181_7382_FaxItem> Fax { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        //[DataMember]
-        //public List<EmailItem> Email { get; set; }
+        [DataMember]
+        public List<Data_1181_7382_EmailItem> Email { get; set; }
         /// <summary>
         /// 
         /// </summary>
