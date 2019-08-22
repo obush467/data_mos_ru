@@ -19,7 +19,7 @@ namespace data_mos_ru_Test
         {
             var ttt = new data_mos_ru.Operators.Data_mos_ru_Operator();
             ttt.ReplacePost();
-            
+
         }
     }
 }

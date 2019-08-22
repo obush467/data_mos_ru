@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
-    [Table("Data_54518_LicensingAndAccreditationItem", Schema = "data_mos_ru")]
     [DataContract(Name = "LicensingAndAccreditationItem")]
     public class Data_54518_LicensingAndAccreditationItem
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -39,124 +33,10 @@ namespace data_mos_ru.Entities
         [DataMember]
         public string LicenseAvailability { get; set; }
     }
-    [Table("Data_54518_PublicPhoneItem1", Schema = "data_mos_ru")]
-    [DataContract(Name = "PublicPhoneItem1")]
-    public class Data_54518_PublicPhoneItem1
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        [MaxLength(30)]
-        public string PublicPhone { get; set; }
-    }
-    [Table("Data_54518_PublicPhoneItem2", Schema = "data_mos_ru")]
-    [DataContract(Name = "PublicPhoneItem2")]
-    public class Data_54518_PublicPhoneItem2
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        [MaxLength(30)]
-        public string PublicPhone { get; set; }
-    }
-    [Table("Data_54518_EmailItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "EmailItem")]
-    public class Data_54518_EmailItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        [MaxLength(50)]
-        public string Email { get; set; }
-    }
-    [Table("Data_54518_Available_elementItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "Available_elementItem")]
-    public class Data_54518_Available_elementItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_index { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Area_mgn { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Element_mgn { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_degree { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Group_mgn { get; set; }
-    }
-    [Table("Data_54518_AvailabilityItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "AvailabilityItem")]
-    public class Data_54518_AvailabilityItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public List<Data_54518_Available_elementItem> Available_element { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_o { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_z { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_s { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Available_k { get; set; }
-    }
-    [Table("Data_54518_InstitutionsAddressesItem", Schema = "data_mos_ru")]
     [DataContract(Name = "InstitutionsAddressesItem")]
     public class Data_54518_InstitutionsAddressesItem
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -191,12 +71,12 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_54518_AvailabilityItem> Availability { get; set; }
+        public List<AvailabilityItem> Availability { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_54518_PublicPhoneItem1> PublicPhone { get; set; }
+        public List<PublicPhoneItem> PublicPhone { get; set; }
         /// <summary>
         /// 
         /// </summar
@@ -211,13 +91,9 @@ namespace data_mos_ru.Entities
         [MaxLength(100)]
         public string AdmArea { get; set; }
     }
-    [Table("data_54518", Schema = "data_mos_ru")]
     [DataContract(Name = "data_54518")]
     public class Data_54518
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Id { get; set; }
 
         /// <summary>
         /// 
@@ -270,12 +146,12 @@ namespace data_mos_ru.Entities
         /// </summary>
         //[DataMember]
         [DataMember]
-        public List<Data_54518_PublicPhoneItem2> PublicPhone { get; set; }
+        public List<PublicPhoneItem> PublicPhone { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_54518_EmailItem> Email { get; set; }
+        public List<EmailItem> Email { get; set; }
         /// <summary>
         /// 
         /// </summary>

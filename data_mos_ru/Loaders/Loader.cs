@@ -39,6 +39,10 @@ namespace data_mos_ru.Loaders
             JsonSerializerSettings jss = new JsonSerializerSettings();
             jss.Converters.Add(new GeoDataConverter());
             //jss.Converters.Add(new StringToListConverter());
+            jss.Converters.Add(new StringToListConverter1());
+            jss.Converters.Add(new StringToListConverter2());
+            jss.Converters.Add(new StringToListConverter3());
+            jss.Converters.Add(new StringToListConverter4());
             jss.Culture = CultureInfo.CurrentCulture;
             Logger.Logger.Debug(string.Join(" ", "Преобразовано", typeof(T).Name));
             return JsonConvert.DeserializeObject<T[]>((new StreamReader(stream, encoding)).ReadToEnd(), jss).ToList();

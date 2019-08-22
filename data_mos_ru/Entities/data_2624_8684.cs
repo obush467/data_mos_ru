@@ -1,27 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 namespace data_mos_ru.Entities
 {
-    [DataContract(Name = "PublicPhone")]
-    public class Data_2624_8684_publicPhone
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-        [DataMember]
-        public Guid ParentID { get; set; }
-        [DataMember]
-        [MaxLength(50)]
-        public string PublicPhone { get; set; }
-    }
     public class Data_2624_8684 //Религиозные объекты Русской православной церкви
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Data_2624_8684_ID { get; set; }
         //[DataMember]
         //public int? ID { get; set; }
         [DataMember]
@@ -46,7 +30,7 @@ namespace data_mos_ru.Entities
         public string MetroLine { get; set; }//Линия метро,
                                              // [InverseProperty("ParentID")]
         [ForeignKey("ParentID")]
-        public virtual List<Data_2624_8684_publicPhone> PublicPhone { get; set; }//Контактный телефон,
+        public virtual List<PublicPhoneItem> PublicPhone { get; set; }//Контактный телефон,
         [DataMember]
         [MaxLength(1000)]
         public string WebSite { get; set; }//Сайт,

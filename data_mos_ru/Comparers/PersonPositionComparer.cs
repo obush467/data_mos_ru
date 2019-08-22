@@ -7,12 +7,12 @@ namespace data_mos_ru.Comparers
     {
         public bool Equals(PersonPosition x, PersonPosition y)
         {
-            return (x != null 
-                && y != null 
-                && x.PositionType==y.PositionType
-                && x.Human.Family== y.Human.Family
-                && x.Human.Name == y.Human.Name
-                && x.Human.Patronymic == y.Human.Patronymic) 
+            return (x != null
+                && y != null
+                && x.PositionType == y.PositionType
+                && x.Person.Family.ToLower() == y.Person.Family.ToLower()
+                && x.Person.Name.ToLower() == y.Person.Name.ToLower()
+                && x.Person.Patronymic.ToLower() == y.Person.Patronymic.ToLower())
                 ? true : false;
         }
 

@@ -1,8 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _8 : DbMigration
     {
         public override void Up()
@@ -14,7 +13,7 @@ namespace data_mos_ru.Migrations
             AddForeignKey("dbo.Data_2624_8684_publicPhone", "ParentID", "dbo.Data_2624_8684", "Data_2624_8684_ID", cascadeDelete: true);
             DropColumn("dbo.Data_2624_8684", "ID");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Data_2624_8684", "ID", c => c.Guid(nullable: false, identity: true));

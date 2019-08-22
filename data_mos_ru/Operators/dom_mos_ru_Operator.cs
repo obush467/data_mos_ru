@@ -255,7 +255,7 @@ namespace data_mos_ru.Operators
                         var dirpos = (new AccountantGeneralPosition()
                         {
                             PositionType = new PersonPositionType() { PositionType = "" },
-                            Human = new Person() { Family = fio, Id = Guid.NewGuid() },
+                            Person = new Person() { Family = fio, Id = Guid.NewGuid() },
                             InstDocument = new Document() { DocumentName = "" },
                             //Organization_Id = organization.Id
                         });

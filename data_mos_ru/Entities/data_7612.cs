@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 namespace data_mos_ru.Entities
 {
     public class Data_7612 //Религиозные объекты Русской православной церкви
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid Data_2624_8684_ID { get; set; }
         [DataMember]
         public int? ID { get; set; }
         [DataMember]

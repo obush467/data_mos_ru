@@ -206,30 +206,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="111.cs" />
     <Compile Include="Converters\BtiGeoDeserializer.cs" />
     <Compile Include="Converters\StringToListConverter.cs" />
     <Compile Include="Converters\GeoPolyConverterSite.cs" />
+    <Compile Include="Entities\AdditionalOKVEDItem.cs" />
     <Compile Include="Entities\AvailabilityItem.cs" />
     <Compile Include="Entities\Available_elementItem.cs" />
+    <Compile Include="Entities\BankingDetailsItem.cs" />
     <Compile Include="Entities\ChiefPhoneItem.cs" />
+    <Compile Include="Entities\ChiefPhoneItemList.cs" />
+    <Compile Include="Entities\data_Organization_v1_Base.cs" />
     <Compile Include="Entities\data_Organization_v2.cs" />
-    <Compile Include="Entities\data_7361.cs" />
+    <Compile Include="Entities\data_Organization_v1List.cs" />
     <Compile Include="Entities\data_7611.cs" />
     <Compile Include="Entities\data_7612.cs" />
     <Compile Include="Entities\data_5870.cs" />
-    <Compile Include="Entities\data_2346_5883.cs" />
     <Compile Include="Entities\Data_577_5609.cs" />
     <Compile Include="Entities\data_Organization_v1.cs" />
+    <Compile Include="Entities\data_Organization_v3.cs" />
+    <Compile Include="Entities\EmailItemList.cs" />
+    <Compile Include="Entities\FactAddressItem.cs" />
     <Compile Include="Entities\FaxItem.cs" />
     <Compile Include="Entities\EmailItem.cs" />
+    <Compile Include="Entities\FaxItemList.cs" />
     <Compile Include="Entities\ObjectAddressItem.cs" />
+    <Compile Include="Entities\OrgInfoItemList.cs" />
     <Compile Include="Entities\OrgInfoItem.cs" />
+    <Compile Include="Entities\PersonalAccountsItem.cs" />
     <Compile Include="Entities\PhoneItem.cs" />
     <Compile Include="Entities\PublicPhoneItem.cs" />
+    <Compile Include="Entities\PublicPhoneItemList.cs" />
+    <Compile Include="Entities\ResponsiblePersonsItem.cs" />
     <Compile Include="Entities\WorkingHoursItem.cs" />
+    <Compile Include="Mappers\Data_2624_8684_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Data_7611_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Data_7612_Organization_MapProfile.cs" />
     <Compile Include="Mappers\data_mos_ru_OperatorMapping.cs" />
+    <Compile Include="Mappers\Data_Organization_5988_MapProfile.cs" />
     <Compile Include="Mappers\OrganizationExtensions.cs" />
     <Compile Include="Comparers\PersonPositionComparer.cs" />
+    <Compile Include="Mappers\Organization_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Organization_v1List_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Organization_v1_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Organization_v2_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Organization_v3_Organization_MapProfile.cs" />
     <Compile Include="Migrations\201908011011456_0.cs" />
     <Compile Include="Migrations\201908011011456_0.Designer.cs">
       <DependentUpon>201908011011456_0.cs</DependentUpon>
@@ -304,8 +325,7 @@
     <Compile Include="Entities\AO_JSON_file.cs" />
     <Compile Include="Entities\AO_JSON_site.cs" />
     <Compile Include="Entities\datasetMeta.cs" />
-    <Compile Include="Entities\data_1181_7382.cs" />
-    <Compile Include="Entities\data_1641_5988.cs" />
+    <Compile Include="Entities\data_Organization_5988.cs" />
     <Compile Include="Entities\data_2624_8684.cs" />
     <Compile Include="Entities\data_54518.cs" />
     <Compile Include="Entities\geoData_JSON.cs" />
@@ -345,6 +365,7 @@
     <Compile Include="TimeoutedWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UNSdbConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

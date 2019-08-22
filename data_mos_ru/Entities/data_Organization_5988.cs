@@ -1,116 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace data_mos_ru.Entities
 {
-    [Table("Data_1641_5988_ResponsiblePersonsItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "ResponsiblePersonsItem")]
-    public class Data_1641_5988_ResponsiblePersonsItem
-    {
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string FIO { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string TypePosition { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string NamePosition { get; set; }
-    }
-    [Table("Data_1641_5988_FactAddressItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "FactAddressItem")]
-    public class Data_1641_5988_FactAddressItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string FactAddress { get; set; }
-    }
-    [Table("Data_1641_5988_AdditionalOKVEDItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "AdditionalOKVEDItem")]
-    public class Data_1641_5988_AdditionalOKVEDItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string AdditionalOKVED { get; set; }
-    }
-    [Table("Data_1641_5988_PersonalAccountsItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "PersonalAccountsItem")]
-    public class Data_1641_5988_PersonalAccountsItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string Account { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string OpenDate { get; set; }
-    }
-    [Table("Data_1641_5988_BankingDetailsItem", Schema = "data_mos_ru")]
-    [DataContract(Name = "BankingDetailsItem")]
-    public class Data_1641_5988_BankingDetailsItem
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ID { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string SettlementAccount { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string BIK { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        [DataMember]
-        public string NameBank { get; set; }
-    }
-
-    [Table("data_1641_5988", Schema = "data_mos_ru")]
     [DataContract(Name = "data_1641_5988")]
-    public class Data_1641_5988
+    public class Data_Organization_5988
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [DataMember]
-        public Guid data_1641_5988_ID { get; set; }
+
         [DataMember]
         public string ID { get; set; }
         /// <summary>
@@ -122,12 +18,12 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_1641_5988_ResponsiblePersonsItem> ResponsiblePersons { get; set; }
+        public List<ResponsiblePersonsItem> ResponsiblePersons { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_1641_5988_FactAddressItem> FactAddress { get; set; }
+        public List<FactAddressItem> FactAddress { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -263,17 +159,17 @@ namespace data_mos_ru.Entities
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_1641_5988_AdditionalOKVEDItem> AdditionalOKVED { get; set; }
+        public List<AdditionalOKVEDItem> AdditionalOKVED { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_1641_5988_PersonalAccountsItem> PersonalAccounts { get; set; }
+        public List<PersonalAccountsItem> PersonalAccounts { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [DataMember]
-        public List<Data_1641_5988_BankingDetailsItem> BankingDetails { get; set; }
+        public List<BankingDetailsItem> BankingDetails { get; set; }
     }
 }
 

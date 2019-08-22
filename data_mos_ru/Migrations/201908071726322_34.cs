@@ -1,8 +1,7 @@
 namespace data_mos_ru.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class _34 : DbMigration
     {
         public override void Up()
@@ -14,7 +13,7 @@ namespace data_mos_ru.Migrations
             DropColumn("dbo.Data_7361_ChiefPhoneItem", "ChiefPhone");
             DropColumn("dbo.Data_7361_PublicPhoneItem", "PublicPhone");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Data_7361_PublicPhoneItem", "PublicPhone", c => c.String());

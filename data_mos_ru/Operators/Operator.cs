@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using UNS.Models.Entities;
 using UNS.Models;
 
 namespace data_mos_ru.Operators
@@ -23,7 +22,7 @@ namespace data_mos_ru.Operators
         {
             ConnectionString = сonnectionString;
             ContextMain = new JSONContext(сonnectionString);
-            ContexUNS = new UNSModel("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;");
+            ContexUNS = new UNSModel();
         }
 
         public delegate void UpdateDelegate<T>(T X);

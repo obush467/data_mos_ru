@@ -1,18 +1,8 @@
-﻿using AutoMapper;
-using data_mos_ru.Entities;
+﻿using data_mos_ru.Entities;
 using data_mos_ru.Loaders;
-using data_mos_ru.Mappers;
-using NetTopologySuite.Features;
-using NetTopologySuite.IO;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Spatial;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
 using UNS.Models.Entities;
 
 namespace data_mos_ru.Operators
@@ -44,11 +34,11 @@ namespace data_mos_ru.Operators
             }
         }
 
-        public void Update(List<List<Data_2624_8684>> input)
+        public void Update(List<List<data_Organization_v1List>> input)
         {
             int counter = 0;
-            foreach (List<Data_2624_8684> block in input)
-                using (UNS.Models.UNSModel context = new UNS.Models.UNSModel("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;"))
+            foreach (List<data_Organization_v1List> block in input)
+                using (UNS.Models.UNSModel context = new UNS.Models.UNSModel())
                 {
                     block.RemoveAll(x => x.global_id == null);
                     counter += block.Count;
@@ -57,70 +47,14 @@ namespace data_mos_ru.Operators
                         if (row.geoData == null)
                         { row.geoData = new GeoData(); }
                     }
-                    context.Organizations.AddOrUpdate(u => u.FullName, block.Select(s => Mapper.Map<Data_2624_8684, Organization>(s)).ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
-
-
-
-        public void Update(List<List<Data_7611>> input)
-        {
-            int counter = 0;
-            foreach (List<Data_7611> block in input)
-                using (UNS.Models.UNSModel context = new UNS.Models.UNSModel("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;"))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter += block.Count;
-                    foreach (var row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
-                    }
-                    context.Organizations.AddOrUpdate(u => u.FullName, block.Select(s => Mapper.Map<Data_7611, Organization>(s)).ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_7611).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
-        public void Update(List<List<Data_7361>> input)
-        {
-            int counter = 0;
-            foreach (List<Data_7361> block in input)
-                using (UNS.Models.UNSModel context = new UNS.Models.UNSModel("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;"))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter += block.Count;
-                    foreach (var row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
-                    }
-                    var orgs = block.Select(s => Mapper.Map<Data_7361, Organization>(s)).ToList();
+                    var orgs = block.Select(s => Mapper.Map<data_Organization_v1List, Organization>(s)).ToList();
                     ///TODO реализовать проверку на совпадение имен библиотек, так как есть филиалы
                     context.Organizations.AddOrUpdate(u => new { u.OGRN, u.INN, u.FullName }, orgs.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_7361).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    Logger.Logger.Info(string.Join(" ", typeof(data_Organization_v1List).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
-        public void Update(List<List<Data_7612>> input)
-        {
-            int counter = 0;
-            foreach (List<Data_7612> block in input)
-                using (UNS.Models.UNSModel context = new UNS.Models.UNSModel("Data Source=BUSHMAKIN;Initial Catalog=UNS;Integrated Security=True;"))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter += block.Count;
-                    foreach (Data_7612 row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
-                    }
-                    context.Organizations.AddOrUpdate(u => u.FullName, block.Select(s => Mapper.Map<Data_7612, Organization>(s)).ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(AO_60562).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
+
         public void Update(List<List<AO_60562>> input)
         {
             int counter = 0;
@@ -151,44 +85,6 @@ namespace data_mos_ru.Operators
                     counter += block.Count;
                     context.OMK002_2013_1s.AddOrUpdate(block.ToArray());
                     Logger.Logger.Info(string.Join(" ", typeof(OMK002_2013_1).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
-
-        public void Update(List<List<Data_577_5609>> input)
-        {
-            int counter = 0;
-            foreach (List<Data_577_5609> block in input)
-                using (JSONContext context = new JSONContext(ConnectionString))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    counter += block.Count;
-                    foreach (Data_577_5609 row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
-                    }
-                    context.Data_577_5609s.AddOrUpdate(block.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(AO_60562).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
-
-        public void Update(List<List<Data_1181_7382>> input)
-        {
-            int counter = 0;
-            foreach (List<Data_1181_7382> block in input)
-                using (JSONContext context = new JSONContext(ConnectionString))
-                {
-                    //block.RemoveAll(x => x.Global_id == null);
-                    counter += block.Count;
-                    foreach (Data_1181_7382 row in block)
-                    {
-                        if (row.GeoData == null)
-                        { row.GeoData = new GeoData(); }
-                    }
-                    context.Data_1181_7382s.AddOrUpdate(block.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_1181_7382).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
         }
@@ -226,104 +122,93 @@ namespace data_mos_ru.Operators
                 }
         }
 
-        public void Update(List<List<Data_1641_5988>> input)
+        /*public void Update(List<List<Data_Organization_5988>> input)
         {
             int counter = 0;
-            foreach (List<Data_1641_5988> block in input)
+            foreach (List<Data_Organization_5988> block in input)
                 using (JSONContext context = new JSONContext(ConnectionString))
                 {
                     //block.RemoveAll(x => x.global_id == null);
                     counter += block.Count;
-                    foreach (Data_1641_5988 row in block)
+                    foreach (Data_Organization_5988 row in block)
                     {
                         // if (row.GeoData == null)
                         // { row.GeoData = new geoData(); }
                     }
                     context.Data_1641_5988s.AddOrUpdate(block.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_1641_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    Logger.Logger.Info(string.Join(" ", typeof(Data_Organization_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
                     context.SaveChanges();
                 }
-        }
+        }*/
 
-
-        public void Update(List<List<data_Organization_v1>> input)
+        public void Update<T>(List<List<T>> input)
         {
             int counter = 0;
-            foreach (List<data_Organization_v1> block in input)               
-                {
-                var mappedblock = block.Select(s => Mapper.Map<data_Organization_v1, Organization>(s)).ToList();
-                foreach (var item in mappedblock)
-                {
-                    ContexUNS.Organizations.AddOrUpdate(u =>new { u.OGRN, u.INN, u.FullName }, item);
-                    Logger.Logger.Info(string.Join(" ", typeof(data_Organization_v1).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    ContexUNS.SaveChanges();
-                }
-                }
-        }
-
-        public void Update(List<List<data_Organization_v2>> input)
-        {
-            int counter = 0;
-            foreach (List<data_Organization_v2> block in input)
+            foreach (List<T> block in input)
             {
-                var mappedblock = block.Select(s => Mapper.Map<data_Organization_v2, Organization>(s)).ToList();
-                foreach (var item in mappedblock)
+                var mappedblock = block.Select(s => Mapper.Map<T, Organization>(s)).ToList();
+                foreach (var itemUpserted in mappedblock)
                 {
-                    var itemsfinded = ContexUNS.Organizations
+                    if (itemUpserted.PersonPositions == null) itemUpserted.PersonPositions = new List<PersonPosition>();
+                    if (itemUpserted.PhoneItems == null) itemUpserted.PhoneItems = new List<UNS.Models.Entities.PhoneItem>();
+                    if (itemUpserted.EmailItems == null) itemUpserted.EmailItems = new List<UNS.Models.Entities.EmailItem>();
+                    if (itemUpserted.FaxItems == null) itemUpserted.FaxItems = new List<UNS.Models.Entities.FaxItem>();
+                    var family = itemUpserted.PersonPositions.FirstOrDefault().Person.Family;
+                    var name = itemUpserted.PersonPositions.FirstOrDefault().Person.Name;
+                    var patronimic = itemUpserted.PersonPositions.FirstOrDefault().Person.Patronymic;
+                    var itemsFinded = ContexUNS.Organizations
                         .Include("PhoneItems")
                         .Include("FaxItems")
                         .Include("EmailItems")
                         .Include("OwnerRawAddresses")
                         .Include("PersonPositions")
-                        .Where(W => W.OGRN == item.OGRN);
-                    if (itemsfinded.Any())
+                        .Where(W => W.FullName.ToLower().Trim() == itemUpserted.FullName.ToLower().Trim() &&
+                            (
+                                (W.OGRN == itemUpserted.OGRN && W.OGRN != null && itemUpserted.OGRN != null)
+                                ||
+                                (W.INN != null && itemUpserted.INN != null && W.INN == itemUpserted.INN)
+                                ||
+                                (
+                                    ((W.OGRN == null && itemUpserted.OGRN != null) || (W.OGRN != null && itemUpserted.OGRN == null) || (W.OGRN == null && itemUpserted.OGRN == null))
+                                    &&
+                                    ((W.INN == null && itemUpserted.INN != null) || (W.INN != null && itemUpserted.INN == null) || (W.INN == null && itemUpserted.INN == null))
+                                    &&
+                                    (
+                                        //(W.PersonPositions !=null && item.PersonPositions!=null)
+                                        //&& 
+                                        W.PersonPositions.FirstOrDefault().Person.Family.ToLower() == family.ToLower()
+                                        &&
+                                        W.PersonPositions.FirstOrDefault().Person.Name.ToLower() == name.ToLower()
+                                        &&
+                                        W.PersonPositions.FirstOrDefault().Person.Patronymic.ToLower() == patronimic.ToLower()
+                                    )
+                                 )
+                            )).ToList();
+                    if (itemsFinded.Any())
                     {
-                        if (itemsfinded.Count() == 1)
+                        if (itemsFinded.Count() == 1)
                         {
-                            var y = itemsfinded.FirstOrDefault();
-                            var t = Mapper.Map<Organization,Organization>(item,y );
+                            var y = itemsFinded.FirstOrDefault();
+                            var t = Mapper.Map<Organization, Organization>(itemUpserted, y);
+                            ContexUNS.Organizations.AddOrUpdate(t);
+                            ContexUNS.SaveChanges();
+                            Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Изменено", block.Count.ToString(), "всего", counter.ToString()));
+                            counter++;
                         }
                     }
                     else
                     {
-                        ContexUNS.Organizations.Add(item);
+                        ContexUNS.Organizations.Add(itemUpserted);
+                        ContexUNS.SaveChanges();
+                        Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Добавлено", block.Count.ToString(), "всего", counter.ToString()));
+                        counter++;
                     }
-                    Logger.Logger.Info(string.Join(" ", typeof(data_Organization_v2).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    ContexUNS.SaveChanges();
+
                 }
+                // ContexUNS.SaveChanges();
+
             }
         }
-
-        public void Update<T>(List<List<T>> input)
-        {
-            int counter = 0;
-            foreach (List<T> block in input)               
-                {
-                    ContexUNS.Organizations.AddOrUpdate(u => u.OGRN, block.Select(s => Mapper.Map<T, Organization>(s)).FirstOrDefault());
-                    Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    ContexUNS.SaveChanges();
-                }
-        }
-
-        public void Update(List<List<data_2346_5883>> input)
-        {
-            int counter = 0;
-            foreach (List<data_2346_5883> block in input)
-                using (JSONContext context = new JSONContext(ConnectionString))
-                {
-                    block.RemoveAll(x => x.global_id == null);
-                    foreach (data_2346_5883 row in block)
-                    {
-                        if (row.geoData == null)
-                        { row.geoData = new GeoData(); }
-                    }
-                    //context.data_2346_5883.AddOrUpdate(block.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_2624_8684).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
-                    context.SaveChanges();
-                }
-        }
-
-       
     }
 }
 

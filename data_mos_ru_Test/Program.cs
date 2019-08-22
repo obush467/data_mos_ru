@@ -3,7 +3,6 @@ using data_mos_ru.Operators;
 using System;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 
@@ -20,7 +19,7 @@ namespace ConsoleApplication1
             dom_mos_ru_Operator domOper = new dom_mos_ru_Operator("integra");
             Rospt_ru_Operator rptOper = new Rospt_ru_Operator();
             // rptOper.AppendAddresses();
-           // dmrOper.ReplacePost();
+            // dmrOper.ReplacePost();
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");
@@ -73,14 +72,12 @@ namespace ConsoleApplication1
             FileInfo[] d8303 = wdir.GetFiles("data-8303*.json"); //Спортивные объекты города Москвы
             FileInfo[] d6434 = wdir.GetFiles("data-6434*.json"); //
             FileInfo[] d2762 = wdir.GetFiles("data-2762*.json"); //Государственные казенные учреждения «Инженерные службы» районов города Москвы
-            //dmrOper.DeserializeUM_type(d6430[0].FullName, Encoding.GetEncoding(1251));
-            //dmrOper.DeserializeUM(d6427[0].FullName, Encoding.GetEncoding(1251));
+            FileInfo[] d2758 = wdir.GetFiles("data-2758*.json"); //Государственные казённые учреждения дирекции жилищно-коммунального хозяйства и благоустройства административных округов города Москвы и их филиалы
+            FileInfo[] d2835 = wdir.GetFiles("data-2835*.json"); //Ветеринарные учреждения
+            FileInfo[] d7273 = wdir.GetFiles("data-7273*.json"); //
+            FileInfo[] d7442 = wdir.GetFiles("data-7442*.json"); //Учреждения, осуществляющие управленческие функции
 
-            //dmrOper.DeserializeTM_Type(d6433[0].FullName, Encoding.GetEncoding(1251));
-            //dmrOper.DeserializeTM(d6431[0].FullName, Encoding.GetEncoding(1251));
 
-            //dmrOper.DeserializeMO_Type(d6438[0].FullName, Encoding.GetEncoding(1251));
-            //dmrOper.DeserializeMO(d6435[0].FullName,Encoding.GetEncoding(1251));
 
 
 
@@ -112,7 +109,7 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5636[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5623[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5609[0].FullName, Encoding.GetEncoding(1251)));
-            //var rrr = dmrOper.Loader.Convert<data_2346_5883>(d5883[0].FullName, Encoding.GetEncoding(1251));
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5883[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<AO_60562>(d29580[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_7611>(d7611[0].FullName,Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_7361>(d7361[0].FullName, Encoding.GetEncoding(1251)));
@@ -121,9 +118,20 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Loader.Convert<Data_7612>(d7612[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_2624_8684>(d2624_8684[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d8303[0].FullName, Encoding.GetEncoding(1251)));
-            //dmrOper.Update(dmrOper.Convert<Data_1641_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251)));
+
+            dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251))); /*Реестр учреждений города Москвы*/
             //dmrOper.Update(dmrOper.Convert<data_54518>(d54518[0].FullName, Encoding.GetEncoding(1251)));
-            //dmrOper.Update(dmrOper.Convert<Data_1181_7382>(d7382[0].FullName,Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_Base>(d7382[0].FullName,Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2762[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2758[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v3>(d2835[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d7273[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d7442[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2762[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2758[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v3>(d2835[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d7273[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d7442[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<UPR>(dUPR[0].FullName, Encoding.UTF8));
             //domOper.UpdateHouses();
             //domOper.LoadDom();
@@ -136,7 +144,7 @@ namespace ConsoleApplication1
 
             //dmrOper.UpdateOrganizationsByDomMosRu();
             //dmrOper.Update(dmrOper.Loader.Convert<OMK002_2013_1>(d6434[0].FullName,Encoding.GetEncoding(1251)));
-            dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2762[0].FullName, Encoding.GetEncoding(1251)));
+
             //dmrOper.DeserializeOMK002_2013_2(d6436[0].FullName, Encoding.GetEncoding(1251));
 
 
@@ -151,6 +159,12 @@ namespace ConsoleApplication1
             //dmrOper.LoadGeoJSON_AO(File.OpenRead("D:\\Filetable1\\ao.geojson"), Encoding.UTF8);
 
             //dmrOper.LoadGeoJSON_MO(File.OpenRead("D:\\Filetable1\\mo.geojson"), Encoding.UTF8);
+
+            //dmrOper.DeserializeTM_Type(d6433[0].FullName, Encoding.GetEncoding(1251));
+            //dmrOper.DeserializeTM(d6431[0].FullName, Encoding.GetEncoding(1251));
+
+            //dmrOper.DeserializeMO_Type(d6438[0].FullName, Encoding.GetEncoding(1251));
+            //dmrOper.DeserializeMO(d6435[0].FullName,Encoding.GetEncoding(1251));
 
         }
     }
