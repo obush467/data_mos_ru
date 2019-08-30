@@ -10,8 +10,7 @@ namespace data_mos_ru.Mappers
         public Data_7612_Organization_MapProfile()
         {
             CreateMap<Data_7612, Organization>()
-                .ForMember(s => s.GeoData, d => d.MapFrom(s => s.geoData.Coordinates))
-                .ForMember(s => s.FullName, d => d.MapFrom(s => s.ObjectName))
+                .ForMember(s => s.GeoData, d => d.MapFrom(s => s.geoData.Coordinates))               
                 .ForMember(d => d.PhoneItems, opt => opt.MapFrom((src, o) =>
                 {
                     List<UNS.Models.Entities.PhoneItem> res = new List<UNS.Models.Entities.PhoneItem>();

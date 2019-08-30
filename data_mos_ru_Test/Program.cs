@@ -1,4 +1,5 @@
-﻿using data_mos_ru.Entities;
+﻿using data_mos_ru.Converters;
+using data_mos_ru.Entities;
 using data_mos_ru.Operators;
 using System;
 using System.IO;
@@ -19,7 +20,7 @@ namespace ConsoleApplication1
             dom_mos_ru_Operator domOper = new dom_mos_ru_Operator("integra");
             Rospt_ru_Operator rptOper = new Rospt_ru_Operator();
             // rptOper.AppendAddresses();
-            // dmrOper.ReplacePost();
+
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");
@@ -76,11 +77,20 @@ namespace ConsoleApplication1
             FileInfo[] d2835 = wdir.GetFiles("data-2835*.json"); //Ветеринарные учреждения
             FileInfo[] d7273 = wdir.GetFiles("data-7273*.json"); //
             FileInfo[] d7442 = wdir.GetFiles("data-7442*.json"); //Учреждения, осуществляющие управленческие функции
-
-
-
-
-
+            FileInfo[] d26099 = wdir.GetFiles("data-26099*.json");//Центры занятости населения
+            FileInfo[] d26169 = wdir.GetFiles("data-26169*.json");//Специализированные центры труда и занятости населения
+            FileInfo[] d28509 = wdir.GetFiles("data-28509*.json");//Стационарные торговые объекты
+            FileInfo[] d2748 = wdir.GetFiles("data-2748*.json");// //2748 Стационарные общественные туалеты https://op.mos.ru/EHDWSREST/catalog/export/get?id=550209
+            FileInfo[] d8672 = wdir.GetFiles("data-8672*.json"); //8672 Данные по промышленным предприятиям https://op.mos.ru/EHDWSREST/catalog/export/get?id=430801
+            //1692 Объекты ритуального обслуживания https://op.mos.ru/EHDWSREST/catalog/export/get?id=544401
+            //7051 Организации для детей-сирот и детей, оставшихся без попечения родителей https://op.mos.ru/EHDWSREST/catalog/export/get?id=552349
+            //7067 Пансионаты для ветеранов  https://op.mos.ru/EHDWSREST/catalog/export/get?id=551705
+            //7188 Психоневрологические интернаты https://op.mos.ru/EHDWSREST/catalog/export/get?id=552365
+            //7257 Территориальные центры социального обслуживания https://op.mos.ru/EHDWSREST/catalog/export/get?id=553785
+            FileInfo[] d7949 = wdir.GetFiles("data-7949*.json");  //7949   Гостиницы https://op.mos.ru/EHDWSREST/catalog/export/get?id=549941
+            //8261 Перечень спортивных учреждений Москвы https://op.mos.ru/EHDWSREST/catalog/export/get?id=537797
+            FileInfo[] d9773 = wdir.GetFiles("data-9773*.json"); //Объекты культурного наследия
+            FileInfo[] d4149 = wdir.GetFiles("data-4149*.json");//Штабы городских народных дружин
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d7432[0].FullName, Encoding.GetEncoding(1251))); //не пошло
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5896[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5649[0].FullName, Encoding.GetEncoding(1251)));
@@ -118,8 +128,16 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Loader.Convert<Data_7612>(d7612[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_2624_8684>(d2624_8684[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1>(d8303[0].FullName, Encoding.GetEncoding(1251)));
-
-            dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251))); /*Реестр учреждений города Москвы*/
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_8672>(d8672[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_7949>(d7949[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update<Data_Organization_9773>(dmrOper.Loader. Deserialize<Data_Organization_9773>(d9773[0], Encoding.GetEncoding(1251)), new Data_Organization_9773_Converter(dmrOper.ContexUNS));
+            //dmrOper.Update<Data_Organization_9773>(dmrOper.Loader.Convert<Data_Organization_9773>(d9773[0].FullName, Encoding.GetEncoding(1251)),new Data_Organization_9773_Converter(dmrOper.ContexUNS));
+            dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_4149>(d4149[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251))); /*Реестр учреждений города Москвы*/
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_1>(d26099[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_1>(d26169[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_2748>(d2748[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_28509>(d28509[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Convert<data_54518>(d54518[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_Base>(d7382[0].FullName,Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v2>(d2762[0].FullName, Encoding.GetEncoding(1251)));
@@ -165,6 +183,7 @@ namespace ConsoleApplication1
 
             //dmrOper.DeserializeMO_Type(d6438[0].FullName, Encoding.GetEncoding(1251));
             //dmrOper.DeserializeMO(d6435[0].FullName,Encoding.GetEncoding(1251));
+            //dmrOper.ReplacePost();
 
         }
     }

@@ -9,9 +9,17 @@ namespace data_mos_ru.Comparers
         {
             return (x != null
                 && y != null
-                && x.Organization == y.Organization
-                && x.Address.ToLower().Trim() == y.Address.ToLower().Trim()
-                && x.TypeOwner.ToLower().Trim() == y.TypeOwner.ToLower().Trim()) ? true : false;
+                && x.Organization !=null
+                && y.Organization!=null
+                & x.Organization == y.Organization
+                && x.Address!=null
+                && y.Address!=null
+                && x.Address.ToLower() == y.Address.ToLower()
+                && x.TypeOwner!=null
+                && y.TypeOwner!=null
+                && x.TypeOwner.ToLower() == y.TypeOwner.ToLower()
+
+                ) ? true : false;
         }
 
         public int GetHashCode(OwnerRawAddress obj)

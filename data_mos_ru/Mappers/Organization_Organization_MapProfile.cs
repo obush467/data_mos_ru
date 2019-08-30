@@ -12,6 +12,7 @@ namespace data_mos_ru.Mappers
         {
             CreateMap<Organization, Organization>()
                 .ForMember(s => s.Id, d => d.Ignore())
+                .ForMember(s=>s.OGRN ,options => options.PreCondition((source, destination, member) =>source.OGRN!=null && destination.OGRN == null))
                 .ForMember(s => s.PhoneItems, options =>
                 {
                     options.PreCondition(member => member.PhoneItems != null);
@@ -42,9 +43,10 @@ namespace data_mos_ru.Mappers
                     {
                         var d = destination.EmailItems.ToList();
                         var s = source.EmailItems.ToList();
-                        return (d.Any()) ?
+                        var result= (d.Any()) ?
                             d.Concat(s.Except(d, new EmailItemComparer()).ToList())
                             : source.EmailItems.ToList();
+                        return result;
                     });
                 })
                 .ForMember(s => s.OwnerRawAddresses, options =>
@@ -57,6 +59,18 @@ namespace data_mos_ru.Mappers
                         return (d.Any()) ?
                             d.Concat(s.Except(d, new OwnerRawAddressComparer())).ToList()
                             : source.OwnerRawAddresses.ToList();
+                    });
+                })
+                .ForMember(s => s.Addresses, options =>
+                {
+                    options.PreCondition(member => member.Addresses != null && member.Addresses.Count > 0);
+                    options.MapFrom((source, destination, member) =>
+                    {
+                        var d = destination.Addresses.ToList();
+                        var s = source.Addresses.ToList();
+                        return (d.Any()) ?
+                            d.Concat(s.Except(d, new AddressesComparer())).ToList()
+                            : source.Addresses.ToList();
                     });
                 })
                 .ForMember(s => s.PersonPositions, options =>
@@ -116,7 +130,7 @@ namespace data_mos_ru.Mappers
                         else return d.Concat(s.Except(d, new PersonPositionComparer()).ToList());
                     });
                 })
-                .ForAllOtherMembers(options => options.PreCondition((source, destination, member) => member != null))
+                .ForAllOtherMembers(options => options.Condition((source, destination, svalue,destvalue,rr) => svalue != null && destvalue==null))
                 ;
         }
     }

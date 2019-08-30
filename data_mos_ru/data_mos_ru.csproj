@@ -208,6 +208,9 @@
   <ItemGroup>
     <Compile Include="111.cs" />
     <Compile Include="Converters\BtiGeoDeserializer.cs" />
+    <Compile Include="Converters\Data_Organization_9773_Converter.cs" />
+    <Compile Include="Converters\Data_Organization_2748_Converter.cs" />
+    <Compile Include="Converters\IMapConverter.cs" />
     <Compile Include="Converters\StringToListConverter.cs" />
     <Compile Include="Converters\GeoPolyConverterSite.cs" />
     <Compile Include="Entities\AdditionalOKVEDItem.cs" />
@@ -216,6 +219,13 @@
     <Compile Include="Entities\BankingDetailsItem.cs" />
     <Compile Include="Entities\ChiefPhoneItem.cs" />
     <Compile Include="Entities\ChiefPhoneItemList.cs" />
+    <Compile Include="Entities\data_Organization_4149.cs" />
+    <Compile Include="Entities\Data_Organization_2748.cs" />
+    <Compile Include="Entities\data_Organization_28509.cs" />
+    <Compile Include="Entities\Data_Organization_7949.cs" />
+    <Compile Include="Entities\Data_Organization_8672_.cs" />
+    <Compile Include="Entities\Data_Organization_9773.cs" />
+    <Compile Include="Entities\data_Organization_v1_1.cs" />
     <Compile Include="Entities\data_Organization_v1_Base.cs" />
     <Compile Include="Entities\data_Organization_v2.cs" />
     <Compile Include="Entities\data_Organization_v1List.cs" />
@@ -239,15 +249,23 @@
     <Compile Include="Entities\PublicPhoneItemList.cs" />
     <Compile Include="Entities\ResponsiblePersonsItem.cs" />
     <Compile Include="Entities\WorkingHoursItem.cs" />
+    <Compile Include="Comparers\AddressesComparer.cs" />
+    <Compile Include="Mappers\Data_Organization_4149_MapProfile.cs" />
     <Compile Include="Mappers\Data_2624_8684_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Data_7611_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Data_7612_Organization_MapProfile.cs" />
     <Compile Include="Mappers\data_mos_ru_OperatorMapping.cs" />
+    <Compile Include="Mappers\Data_Organization_9773_OwnerRawAddress_MapProfile.cs" />
+    <Compile Include="Mappers\Data_Organization_2748_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Data_Organization_28509_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Data_Organization_5988_MapProfile.cs" />
+    <Compile Include="Mappers\Data_Organization_7949_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Data_Organization_8672_Organization_MapProfile.cs" />
     <Compile Include="Mappers\OrganizationExtensions.cs" />
     <Compile Include="Comparers\PersonPositionComparer.cs" />
     <Compile Include="Mappers\Organization_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Organization_v1List_Organization_MapProfile.cs" />
+    <Compile Include="Mappers\Organization_v1_1_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Organization_v1_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Organization_v2_Organization_MapProfile.cs" />
     <Compile Include="Mappers\Organization_v3_Organization_MapProfile.cs" />

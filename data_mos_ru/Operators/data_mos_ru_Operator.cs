@@ -1,9 +1,13 @@
-﻿using data_mos_ru.Entities;
+﻿using data_mos_ru.Converters;
+using data_mos_ru.Entities;
 using data_mos_ru.Loaders;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using UNS.Models.Entities;
+using Utility;
 
 namespace data_mos_ru.Operators
 {
@@ -22,17 +26,15 @@ namespace data_mos_ru.Operators
         }
         public void ReplacePost()
         {
-            foreach (var ttt in ContexUNS.RawAddresses.ToList())
+            foreach (var rawAddress in ContexUNS.RawAddresses.Where(w => w.Address != null).AsEnumerable().Where(w=>AddressOperator.Match(w.Address, "^\\s*(\\d{6})\\s*,\\s*")).ToList())
             {
-                if (Utility.AddressOperator.Match(ttt.Address, "^\\s*(\\d{6})\\s*,\\s*"))
-                {
-                    var yyy = Utility.AddressOperator.PostReplace(ttt.Address);
-                    ttt.Address = yyy.Address;
-                    ttt.PostCode = yyy.PostCode;
+                    var addressItem = Utility.AddressOperator.PostReplace(rawAddress.Address);
+                    rawAddress.Address = addressItem.Address;
+                    rawAddress.PostCode = addressItem.PostCode;
                     ContexUNS.SaveChanges();
-                }
             }
         }
+
 
         public void Update(List<List<data_Organization_v1List>> input)
         {
@@ -153,9 +155,10 @@ namespace data_mos_ru.Operators
                     if (itemUpserted.PhoneItems == null) itemUpserted.PhoneItems = new List<UNS.Models.Entities.PhoneItem>();
                     if (itemUpserted.EmailItems == null) itemUpserted.EmailItems = new List<UNS.Models.Entities.EmailItem>();
                     if (itemUpserted.FaxItems == null) itemUpserted.FaxItems = new List<UNS.Models.Entities.FaxItem>();
-                    var family = itemUpserted.PersonPositions.FirstOrDefault().Person.Family;
-                    var name = itemUpserted.PersonPositions.FirstOrDefault().Person.Name;
-                    var patronimic = itemUpserted.PersonPositions.FirstOrDefault().Person.Patronymic;
+                    var family = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Family : null;
+                    var name = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Name : null;
+                    var patronimic = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Patronymic : null;
+
                     var itemsFinded = ContexUNS.Organizations
                         .Include("PhoneItems")
                         .Include("FaxItems")
@@ -174,7 +177,7 @@ namespace data_mos_ru.Operators
                                     ((W.INN == null && itemUpserted.INN != null) || (W.INN != null && itemUpserted.INN == null) || (W.INN == null && itemUpserted.INN == null))
                                     &&
                                     (
-                                        //(W.PersonPositions !=null && item.PersonPositions!=null)
+                                        // (family !=null || name != null || patronimic !=null)
                                         //&& 
                                         W.PersonPositions.FirstOrDefault().Person.Family.ToLower() == family.ToLower()
                                         &&
@@ -188,10 +191,37 @@ namespace data_mos_ru.Operators
                     {
                         if (itemsFinded.Count() == 1)
                         {
-                            var y = itemsFinded.FirstOrDefault();
-                            var t = Mapper.Map<Organization, Organization>(itemUpserted, y);
-                            ContexUNS.Organizations.AddOrUpdate(t);
-                            ContexUNS.SaveChanges();
+
+                            try
+                            {
+                                var y = itemsFinded.FirstOrDefault();
+                                var t = Mapper.Map<Organization, Organization>(itemUpserted, y);
+                                ContexUNS.Organizations.AddOrUpdate(t);
+                                ContexUNS.SaveChanges();
+                            }
+                            catch (Exception e)
+                            {
+                                Logger.Logger.Error(e.Message);
+                                var changedEntries = ContexUNS.ChangeTracker.Entries()
+                                    .Where(x => x.State != EntityState.Unchanged).ToList();
+
+                                foreach (var entry in changedEntries)
+                                {
+                                    switch (entry.State)
+                                    {
+                                        case EntityState.Modified:
+                                            entry.CurrentValues.SetValues(entry.OriginalValues);
+                                            entry.State = EntityState.Unchanged;
+                                            break;
+                                        case EntityState.Added:
+                                            entry.State = EntityState.Detached;
+                                            break;
+                                        case EntityState.Deleted:
+                                            entry.State = EntityState.Unchanged;
+                                            break;
+                                    }
+                                }
+                            }
                             Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Изменено", block.Count.ToString(), "всего", counter.ToString()));
                             counter++;
                         }
@@ -199,7 +229,33 @@ namespace data_mos_ru.Operators
                     else
                     {
                         ContexUNS.Organizations.Add(itemUpserted);
-                        ContexUNS.SaveChanges();
+                        try
+                        {
+                            ContexUNS.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+                            Logger.Logger.Error(e.Message);
+                            var changedEntries = ContexUNS.ChangeTracker.Entries()
+                                .Where(x => x.State != EntityState.Unchanged).ToList();
+
+                            foreach (var entry in changedEntries)
+                            {
+                                switch (entry.State)
+                                {
+                                    case EntityState.Modified:
+                                        entry.CurrentValues.SetValues(entry.OriginalValues);
+                                        entry.State = EntityState.Unchanged;
+                                        break;
+                                    case EntityState.Added:
+                                        entry.State = EntityState.Detached;
+                                        break;
+                                    case EntityState.Deleted:
+                                        entry.State = EntityState.Unchanged;
+                                        break;
+                                }
+                            }
+                        }
                         Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Добавлено", block.Count.ToString(), "всего", counter.ToString()));
                         counter++;
                     }
@@ -209,6 +265,117 @@ namespace data_mos_ru.Operators
 
             }
         }
+
+
+
+        public void Update<T>(IEnumerable<IEnumerable<T>> input, IMapConverter<T, Organization> converter = null)
+        {
+            int counter = 0;
+            foreach (var block in input)
+            {
+                Update<T>(block, converter);
+                Logger.Logger.Info(string.Join(" ", typeof(Data_Organization_2748).Name, "Обработан", counter.ToString(), "блок из", input.Count().ToString()));
+                counter++;
+            }
+        }
+        public void Update<T>(IEnumerable<T> input, IMapConverter<T, Organization> converter = null)
+        {
+            int counter = 0;
+                IEnumerable<Organization> mappedblock;
+                mappedblock = (converter == null)? input.Select(s => Mapper.Map<T, Organization>(s)).ToList(): converter.Convert(input).ToList();
+                foreach (var itemUpserted in mappedblock)
+                {
+                    if (itemUpserted.PersonPositions == null) itemUpserted.PersonPositions = new List<PersonPosition>();
+                    if (itemUpserted.PhoneItems == null) itemUpserted.PhoneItems = new List<UNS.Models.Entities.PhoneItem>();
+                    if (itemUpserted.EmailItems == null) itemUpserted.EmailItems = new List<UNS.Models.Entities.EmailItem>();
+                    if (itemUpserted.FaxItems == null) itemUpserted.FaxItems = new List<UNS.Models.Entities.FaxItem>();
+                    var family = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Family : null;
+                    var name = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Name : null;
+                    var patronimic = itemUpserted.PersonPositions.Any() ? itemUpserted.PersonPositions.FirstOrDefault().Person.Patronymic : null;
+
+                    var itemsFinded = ContexUNS.Organizations
+                        .Include("PhoneItems")
+                        .Include("FaxItems")
+                        .Include("EmailItems")
+                        .Include("OwnerRawAddresses")
+                        .Include("PersonPositions")
+                        .Where(W => W.FullName.ToLower().Trim() == itemUpserted.FullName.ToLower().Trim()).ToList();
+                    if (itemsFinded.Any())
+                    {
+                        if (itemsFinded.Count() == 1)
+                        {
+                            try
+                            {
+                                var y = itemsFinded.FirstOrDefault();
+                                var t = Mapper.Map<Organization, Organization>(itemUpserted, y);
+                                ContexUNS.Organizations.AddOrUpdate(t);
+                                //ContexUNS.SaveChanges();
+                            }
+                            catch (Exception e)
+                            {
+                                Logger.Logger.Error(e.Message);
+                                /*var changedEntries = ContexUNS.ChangeTracker.Entries()
+                                    .Where(x => x.State != EntityState.Unchanged).ToList();
+
+                                foreach (var entry in changedEntries)
+                                {
+                                    switch (entry.State)
+                                    {
+                                        case EntityState.Modified:
+                                            entry.CurrentValues.SetValues(entry.OriginalValues);
+                                            entry.State = EntityState.Unchanged;
+                                            break;
+                                        case EntityState.Added:
+                                            entry.State = EntityState.Detached;
+                                            break;
+                                        case EntityState.Deleted:
+                                            entry.State = EntityState.Unchanged;
+                                            break;
+                                    }
+                                }*/
+                            }
+                            Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Изменено", input.Count().ToString(), "всего", counter.ToString()));
+                            counter++;
+                        }
+                    }
+                    else
+                    {
+                        ContexUNS.Organizations.Add(itemUpserted);
+                        try
+                        {
+                            //ContexUNS.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+                            Logger.Logger.Error(e.Message);
+                            /*var changedEntries = ContexUNS.ChangeTracker.Entries()
+                                .Where(x => x.State != EntityState.Unchanged).ToList();
+
+                            foreach (var entry in changedEntries)
+                            {
+                                switch (entry.State)
+                                {
+                                    case EntityState.Modified:
+                                        entry.CurrentValues.SetValues(entry.OriginalValues);
+                                        entry.State = EntityState.Unchanged;
+                                        break;
+                                    case EntityState.Added:
+                                        entry.State = EntityState.Detached;
+                                        break;
+                                    case EntityState.Deleted:
+                                        entry.State = EntityState.Unchanged;
+                                        break;
+                                }
+                            }*/
+                        }
+                        Logger.Logger.Info(string.Join(" ", typeof(T).Name, "Добавлено", counter.ToString(),"Из",input.Count().ToString()));
+                        counter++;
+                    }
+
+                }
+                ContexUNS.SaveChanges();
+            }
+        }
     }
-}
+
 
