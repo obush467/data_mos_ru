@@ -4,10 +4,12 @@ using data_mos_ru.Loaders;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using UNS.Models.Entities;
 using Utility;
+using UNS.Models.Entities.Fias;
 
 namespace data_mos_ru.Operators
 {
@@ -124,24 +126,45 @@ namespace data_mos_ru.Operators
                 }
         }
 
-        /*public void Update(List<List<Data_Organization_5988>> input)
+        public void Room()
         {
-            int counter = 0;
-            foreach (List<Data_Organization_5988> block in input)
-                using (JSONContext context = new JSONContext(ConnectionString))
+            using (var context = new UNS.Models.UNSModel())
+            {
+                int counter = 0;
+                int counterLength = 100;
+                context.Configuration.AutoDetectChangesEnabled = false;
+                ((IObjectContextAdapter)context).ObjectContext.CommandTimeout = 10000;
+                Logger.Logger.Info(string.Join(" ", "Удаляются старые данные"));
+                context.AddressAOs.RemoveRange(context.AddressAOs);
+                Logger.Logger.Info(string.Join(" ", "Начато сохранение"));
+                context.SaveChanges();
+                Logger.Logger.Info(string.Join(" ", "Сохранение завершено"));
+                Logger.Logger.Info(string.Join(" ", "Поиск AddressObjects"));
+                var mappedblock = context.AddressObjects.Where(w => w.REGIONCODE == "77").AsEnumerable().Select(s => Mapper.Map<AddressObject, UNS.Models.Entities.Fias.AddressAO>(s)).ToList();
+                context.Set<UNS.Models.Entities.Fias.AddressAO>().AddRange(mappedblock);
+                context.SaveChanges();
+                var steads = (from
+                  stead in context.Stead
+                              join ao in context.AddressObjects
+                              on stead.PARENTGUID equals ao.AOGUID
+                              where ao.REGIONCODE=="77"
+                              select stead).AsEnumerable().Distinct().Select(stead=> Mapper.Map<UNS.Models.Entities.Stead, UNS.Models.Entities.Fias.AddressStead>(stead)).GroupBy(_ => counter++ / counterLength).ToList();
+                foreach (var stead in steads)
                 {
-                    //block.RemoveAll(x => x.global_id == null);
-                    counter += block.Count;
-                    foreach (Data_Organization_5988 row in block)
-                    {
-                        // if (row.GeoData == null)
-                        // { row.GeoData = new geoData(); }
-                    }
-                    context.Data_1641_5988s.AddOrUpdate(block.ToArray());
-                    Logger.Logger.Info(string.Join(" ", typeof(Data_Organization_5988).Name, "Сохранено", block.Count.ToString(), "всего", counter.ToString()));
+                    context.Set<AddressStead>().AddRange(stead);
                     context.SaveChanges();
+                    Logger.Logger.Info(string.Join(" ", typeof(Data_Organization_5988).Name, "Сохранено"));
                 }
-        }*/
+                /*var houses = (from
+                                  house in context.Houses
+                                  join ao in context.AddressObjects
+                                  on house.AOGUID equals ao.AOGUID
+                                  select Mapper.Map<UNS.Models.Entities.House, UNS.Models.Entities.>(house)).ToList();
+                context.Set<UNS.Models.Entities.Fias.AO>().AddRange(houses);*/
+                    
+                
+            }
+        }
 
         public void Update<T>(List<List<T>> input)
         {

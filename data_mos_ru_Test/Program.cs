@@ -1,5 +1,6 @@
 ﻿using data_mos_ru.Converters;
 using data_mos_ru.Entities;
+using data_mos_ru.Loaders;
 using data_mos_ru.Operators;
 using System;
 using System.IO;
@@ -20,7 +21,9 @@ namespace ConsoleApplication1
             dom_mos_ru_Operator domOper = new dom_mos_ru_Operator("integra");
             Rospt_ru_Operator rptOper = new Rospt_ru_Operator();
             // rptOper.AppendAddresses();
-
+            var ttt = new DaDataLoader();
+            ttt.Load();
+            dmrOper.Room();
             DirectoryInfo wdir = new DirectoryInfo("C:\\Users\\Bushmakin\\Documents\\Новая папка\\data_mos_ru");
             FileInfo[] d6427 = wdir.GetFiles("data-6427*.json");
             FileInfo[] d6430 = wdir.GetFiles("data-6430*.json");
@@ -91,6 +94,7 @@ namespace ConsoleApplication1
             //8261 Перечень спортивных учреждений Москвы https://op.mos.ru/EHDWSREST/catalog/export/get?id=537797
             FileInfo[] d9773 = wdir.GetFiles("data-9773*.json"); //Объекты культурного наследия
             FileInfo[] d4149 = wdir.GetFiles("data-4149*.json");//Штабы городских народных дружин
+            FileInfo[] d2834 = wdir.GetFiles("data-2834*.json");//Розничные рынки
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d7432[0].FullName, Encoding.GetEncoding(1251))); //не пошло
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5896[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_577_5609>(d5649[0].FullName, Encoding.GetEncoding(1251)));
@@ -132,7 +136,8 @@ namespace ConsoleApplication1
             //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_7949>(d7949[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update<Data_Organization_9773>(dmrOper.Loader. Deserialize<Data_Organization_9773>(d9773[0], Encoding.GetEncoding(1251)), new Data_Organization_9773_Converter(dmrOper.ContexUNS));
             //dmrOper.Update<Data_Organization_9773>(dmrOper.Loader.Convert<Data_Organization_9773>(d9773[0].FullName, Encoding.GetEncoding(1251)),new Data_Organization_9773_Converter(dmrOper.ContexUNS));
-            dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_4149>(d4149[0].FullName, Encoding.GetEncoding(1251)));
+            //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_4149>(d4149[0].FullName, Encoding.GetEncoding(1251)));
+            dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_2834>(d2834[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<Data_Organization_5988>(d1641_5988[0].FullName, Encoding.GetEncoding(1251))); /*Реестр учреждений города Москвы*/
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_1>(d26099[0].FullName, Encoding.GetEncoding(1251)));
             //dmrOper.Update(dmrOper.Loader.Convert<data_Organization_v1_1>(d26169[0].FullName, Encoding.GetEncoding(1251)));
